@@ -1,0 +1,535 @@
+{
+  "id": "ef7fb9d8-ca97-46a8-8f72-c99b6c001afa",
+  "version": "2.0",
+  "name": "Practical_2_9140",
+  "url": "https://www.youtube.com/watch?v=tGv7CUutzqU",
+  "tests": [{
+    "id": "70df98ea-f43a-43cc-ada8-a24bcb01bac8",
+    "name": "Login_Page: valid username and password",
+    "commands": [{
+      "id": "4992484c-5877-48e6-b2eb-bf69ac643609",
+      "comment": "",
+      "command": "open",
+      "target": "https://practicetestautomation.com/practice-test-login/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "70d16872-1c95-4ca0-a752-3cb87bb52172",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1376x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6a373fa2-be0f-4e44-9d87-45020fada024",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c6c70cb6-b2a3-41a1-8cb4-36988aab5c31",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "student"
+    }, {
+      "id": "0541ecc9-cf5c-4237-bcae-8395a775601b",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "277ac9a4-abdb-4af1-aeab-00a238590a62",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Password123"
+    }, {
+      "id": "2da5f13a-6392-4bf1-a21e-42b71ef4322b",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/button", "xpath:idRelative"],
+        ["xpath=//section/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "9fc55afd-8577-493b-8e7c-65cb162f3351",
+    "name": "invalid username and valid password",
+    "commands": [{
+      "id": "42bf02e2-1d5f-452a-98ff-a7408527d280",
+      "comment": "",
+      "command": "open",
+      "target": "https://practicetestautomation.com/practice-test-login/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f12c2c62-63e0-40c7-afbe-f3e51772447e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x708",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6048e689-ef98-4ab5-81ce-b9686f3141db",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "015f184d-d36f-4f5a-a0fe-2b09b9dcc698",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mellowbricks"
+    }, {
+      "id": "a1534291-b271-43e5-be54-2018482f33cd",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "84bea852-ce07-4c35-bf83-76395740f0fc",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Password123"
+    }, {
+      "id": "67a11c4f-777a-4977-af61-d7fbdc71c194",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/button", "xpath:idRelative"],
+        ["xpath=//section/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "9c06d140-8585-49b7-9bea-d99a90838f1d",
+    "name": "valid username and invalid password",
+    "commands": [{
+      "id": "36eca8a8-a856-4ad6-b7fb-d053d92a885b",
+      "comment": "",
+      "command": "open",
+      "target": "https://practicetestautomation.com/practice-test-login/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6fe56a52-1433-4dfc-880e-3ea57cdc1560",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x708",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "090f47aa-31cb-4a70-bd16-518e78719928",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ca9f809-9873-4390-bbbe-92f94c797dfa",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "student"
+    }, {
+      "id": "f46e6ea0-cab9-493d-8680-e9755abd05a4",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "db1a166e-603a-4abc-99e9-2bb7a6ef9124",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "password12345"
+    }, {
+      "id": "531cf422-01e8-4d94-b972-ef66521f87d6",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/button", "xpath:idRelative"],
+        ["xpath=//section/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "3b462f4a-8afd-46e9-966d-3579e7829a5b",
+    "name": "invalid username and invalid password",
+    "commands": [{
+      "id": "f6c4a05c-3257-42c4-aed1-c0c9ce1e7c19",
+      "comment": "",
+      "command": "open",
+      "target": "https://practicetestautomation.com/practice-test-login/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5f969952-d09a-421d-98fa-4dc582354a56",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x708",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "07449fd4-24fb-4c23-9d07-00eb24fdfadd",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f514a83a-5e2d-48b5-b7c6-3445c4db2fe7",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mellowbricks"
+    }, {
+      "id": "861b7b34-b94d-4a6e-ac8e-10f3480df477",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e96770d-d9a3-4727-920c-f7f90fa33d87",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "mellowbricks"
+    }, {
+      "id": "65c70244-3754-4c56-ad2f-00f1801e6def",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/button", "xpath:idRelative"],
+        ["xpath=//section/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "afe31d33-b341-493b-bb0c-6ba2eb6933bf",
+    "name": "blank username and blank password",
+    "commands": [{
+      "id": "499b5a82-6c3e-4b5e-87bd-3bc2b30aee7a",
+      "comment": "",
+      "command": "open",
+      "target": "https://practicetestautomation.com/practice-test-login/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "adce55fa-e8b0-4bfd-8d94-76ebecccbf48",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1360x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "49e7cd8d-1add-4a67-a02d-690cd17241f2",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='form']/button", "xpath:idRelative"],
+        ["xpath=//section/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "4d0c5b90-d59c-47cd-996f-b0dde510162e",
+    "name": "youtube search",
+    "commands": [{
+      "id": "f31f28d5-0465-4344-8227-30a0377ca241",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e1901e88-b6e2-4db6-8a45-be95e8681c65",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x708",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3ba3a22f-a4f5-41c4-9549-960c9f2aca85",
+      "comment": "",
+      "command": "click",
+      "target": "name=search_query",
+      "targets": [
+        ["name=search_query", "name"],
+        ["css=#search-input > #search", "css:finder"],
+        ["xpath=//input[@id='search']", "xpath:attributes"],
+        ["xpath=//div[@id='search-input']/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6e152c7c-65d9-4215-8547-352aa5833346",
+      "comment": "",
+      "command": "type",
+      "target": "name=search_query",
+      "targets": [
+        ["name=search_query", "name"],
+        ["css=#search-input > #search", "css:finder"],
+        ["xpath=//input[@id='search']", "xpath:attributes"],
+        ["xpath=//div[@id='search-input']/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "1975"
+    }, {
+      "id": "d9ed44e3-be52-435b-a731-6e1677278f62",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=search_query",
+      "targets": [
+        ["name=search_query", "name"],
+        ["css=#search-input > #search", "css:finder"],
+        ["xpath=//input[@id='search']", "xpath:attributes"],
+        ["xpath=//div[@id='search-input']/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "c62b0045-65e6-4c87-aa64-970b3e6c3b10",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.ytd-item-section-renderer:nth-child(1) > #dismissible .yt-core-image",
+      "targets": [
+        ["css=.ytd-item-section-renderer:nth-child(1) > #dismissible .yt-core-image", "css:finder"],
+        ["xpath=//img[contains(@src,'https://i.ytimg.com/vi/Uzb5z4918hI/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDbBn4FvhTQ5AMGl8cwurt22DEGxQ')]", "xpath:img"],
+        ["xpath=(//a[@id='thumbnail']/yt-image/img)[33]", "xpath:idRelative"],
+        ["xpath=//ytd-video-renderer/div/ytd-thumbnail/a/yt-image/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a008a4fe-6109-4441-8172-88c24e913926",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.ytd-item-section-renderer:nth-child(1) > #dismissible .yt-core-image",
+      "targets": [
+        ["css=.ytd-item-section-renderer:nth-child(1) > #dismissible .yt-core-image", "css:finder"],
+        ["xpath=//img[contains(@src,'https://i.ytimg.com/vi/Uzb5z4918hI/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDbBn4FvhTQ5AMGl8cwurt22DEGxQ')]", "xpath:img"],
+        ["xpath=(//a[@id='thumbnail']/yt-image/img)[33]", "xpath:idRelative"],
+        ["xpath=//ytd-video-renderer/div/ytd-thumbnail/a/yt-image/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "502b2077-097c-4fbd-a1bb-6a9023eda957",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.yt-thumbnail-view-model__image > .yt-core-image",
+      "targets": [
+        ["css=.yt-thumbnail-view-model__image > .yt-core-image", "css:finder"],
+        ["xpath=//img[contains(@src,'https://i.ytimg.com/vi/tGv7CUutzqU/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCP7I8BfnSyCVh8a1bmUkP4A9w_5A')]", "xpath:img"],
+        ["xpath=//div[@id='contents']/yt-lockup-view-model/div/a/yt-collection-thumbnail-view-model/yt-collections-stack/div/div[3]/yt-thumbnail-view-model/div/img", "xpath:idRelative"],
+        ["xpath=//yt-thumbnail-view-model/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "747493ac-85d4-4886-9770-d5d0c8a9e7f3",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.yt-thumbnail-view-model__image > .yt-core-image",
+      "targets": [
+        ["css=.yt-thumbnail-view-model__image > .yt-core-image", "css:finder"],
+        ["xpath=//img[contains(@src,'https://i.ytimg.com/vi/tGv7CUutzqU/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCP7I8BfnSyCVh8a1bmUkP4A9w_5A')]", "xpath:img"],
+        ["xpath=//div[@id='contents']/yt-lockup-view-model/div/a/yt-collection-thumbnail-view-model/yt-collections-stack/div/div[3]/yt-thumbnail-view-model/div/img", "xpath:idRelative"],
+        ["xpath=//yt-thumbnail-view-model/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b1761d68-364c-43a2-b26c-b2ba17da70f7",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.YtThumbnailHoverOverlayViewModelScrim",
+      "targets": [
+        ["css=.YtThumbnailHoverOverlayViewModelScrim", "css:finder"],
+        ["xpath=//div[@id='contents']/yt-lockup-view-model/div/a/yt-collection-thumbnail-view-model/yt-collections-stack/div/div[3]/yt-thumbnail-view-model/thumbnail-hover-overlay-view-model/div", "xpath:idRelative"],
+        ["xpath=//thumbnail-hover-overlay-view-model/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eea9eaa2-b313-4ac7-b5fc-4f96377bc614",
+      "comment": "",
+      "command": "click",
+      "target": "css=.YtThumbnailHoverOverlayViewModelScrim",
+      "targets": [
+        ["css=.YtThumbnailHoverOverlayViewModelScrim", "css:finder"],
+        ["xpath=//div[@id='contents']/yt-lockup-view-model/div/a/yt-collection-thumbnail-view-model/yt-collections-stack/div/div[3]/yt-thumbnail-view-model/thumbnail-hover-overlay-view-model/div", "xpath:idRelative"],
+        ["xpath=//thumbnail-hover-overlay-view-model/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "721cfa1e-2ffd-4f02-bafb-a4c128e71cc6",
+    "name": "940Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["70df98ea-f43a-43cc-ada8-a24bcb01bac8", "afe31d33-b341-493b-bb0c-6ba2eb6933bf", "3b462f4a-8afd-46e9-966d-3579e7829a5b", "9fc55afd-8577-493b-8e7c-65cb162f3351", "9c06d140-8585-49b7-9bea-d99a90838f1d"]
+  }, {
+    "id": "c00bb8c2-193d-4022-8ef3-bb759f5c7653",
+    "name": "Netflix Register",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://practicetestautomation.com/practice-test-login/", "https://www.netflix.com/in/", "https://www.amazon.in/", "https://computerassociation.notion.site/Free-Generative-AI-tools-f57355be74a94a7fbc9cf4f247bd1272", "https://www.youtube.com/"],
+  "plugins": []
+}
