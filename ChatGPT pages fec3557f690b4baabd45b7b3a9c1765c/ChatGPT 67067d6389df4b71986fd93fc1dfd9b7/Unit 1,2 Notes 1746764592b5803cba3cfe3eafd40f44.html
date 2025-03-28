@@ -1,0 +1,769 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 1,2 Notes</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="17467645-92b5-803c-ba3c-fe3eafd40f44" class="page sans"><header><h1 class="page-title">Unit 1,2 Notes</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Android%20Programming%205db7a135d18946689c07a2aa33ecea98.html"><img class="icon" src="https://www.notion.so/icons/robot_gray.svg"/>Android Programming</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td><span class="selected-value select-value-color-orange">merlinAi</span></td></tr></tbody></table></header><div class="page-body"><h3 id="17467645-92b5-801c-9f1f-e6ea3a45712f" class="">1) What is Activity Lifecycle and saving instance state? Explain in detail.</h3><ul id="17467645-92b5-8083-9c6e-c30ddb3385b2" class="bulleted-list"><li style="list-style-type:disc"><strong>Activity Lifecycle</strong>: The Activity lifecycle in Android is a series of states an activity goes through from when it is created until it is destroyed. Understanding the lifecycle is crucial for effective memory management and UI behavior.<ul id="17467645-92b5-8070-97bf-e8d97bec1242" class="bulleted-list"><li style="list-style-type:circle"><strong>States</strong>:<ol type="1" id="17467645-92b5-803f-bcb6-d62b9ba07df6" class="numbered-list" start="1"><li><strong>onCreate()</strong>: Called when the activity is first created. Used to initialize activity components.</li></ol><ol type="1" id="17467645-92b5-80b1-be1e-e2e18c1604d9" class="numbered-list" start="2"><li><strong>onStart()</strong>: Called when the activity becomes visible to the user.</li></ol><ol type="1" id="17467645-92b5-8094-a9d6-cff596ad35ac" class="numbered-list" start="3"><li><strong>onResume()</strong>: Called when the activity starts interacting with the user.</li></ol><ol type="1" id="17467645-92b5-801d-a449-ddafc88f70a3" class="numbered-list" start="4"><li><strong>onPause()</strong>: Called when the system is about to start resuming another activity. Save data here.</li></ol><ol type="1" id="17467645-92b5-8063-94b5-e4b989e6218c" class="numbered-list" start="5"><li><strong>onStop()</strong>: Called when the activity is no longer visible to the user.</li></ol><ol type="1" id="17467645-92b5-8064-ae54-cd66b560c4c9" class="numbered-list" start="6"><li><strong>onDestroy()</strong>: Called before the activity is destroyed.</li></ol></li></ul></li></ul><ul id="17467645-92b5-809c-823f-e886dc33df51" class="bulleted-list"><li style="list-style-type:disc"><strong>Saving Instance State</strong>: Instance state is important for retaining data across configuration changes (like screen rotations):<ul id="17467645-92b5-8053-8ded-c2bd5f7e5d89" class="bulleted-list"><li style="list-style-type:circle">Use the <code>onSaveInstanceState(Bundle outState)</code> method to save UI-related data. Example:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-80d3-99a0-f66a812a374f" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">@Override
+protected void onSaveInstanceState(Bundle outState) {
+    super.onSaveInstanceState(outState);
+    outState.putString(&quot;MY_KEY&quot;, myData);
+}
+</code></pre><ul id="17467645-92b5-8029-bcd8-c2908ff49e92" class="bulleted-list"><li style="list-style-type:circle">Restore it in <code>onCreate(Bundle savedInstanceState)</code>.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-80e2-bc92-fad27bd0ea62" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    if (savedInstanceState != null) {
+        myData = savedInstanceState.getString(&quot;MY_KEY&quot;);
+    }
+}
+</code></pre></li></ul><hr id="17467645-92b5-808d-8ac4-ff6eddcabe0c"/><h3 id="17467645-92b5-8020-92c4-df7b37893fc0" class="">2) Explain the following views with the help of at least 5 unique attributes and methods (if any)</h3><h3 id="17467645-92b5-8069-8508-d78bba275187" class="">TextView:</h3><ul id="17467645-92b5-8035-95e4-c58c5929a248" class="bulleted-list"><li style="list-style-type:disc"><strong>Attributes</strong>: <code>android:text</code>, <code>android:textColor</code>, <code>android:textSize</code>, <code>android:gravity</code>, <code>android:maxLines</code>.</li></ul><ul id="17467645-92b5-800f-8df1-de14c1158701" class="bulleted-list"><li style="list-style-type:disc"><strong>Methods</strong>: <code>setText()</code>, <code>setTextColor()</code>, <code>setTextSize()</code>, <code>setGravity()</code>, <code>setMaxLines()</code>.</li></ul><h3 id="17467645-92b5-80eb-a4ab-d65b4d43b96d" class="">EditText:</h3><ul id="17467645-92b5-801a-9a26-d01489fdfe86" class="bulleted-list"><li style="list-style-type:disc"><strong>Attributes</strong>: <code>android:hint</code>, <code>android:inputType</code>, <code>android:maxLength</code>, <code>android:singleLine</code>, <code>android:gravity</code>.</li></ul><ul id="17467645-92b5-8045-85f5-f0bdc9c68328" class="bulleted-list"><li style="list-style-type:disc"><strong>Methods</strong>: <code>setText()</code>, <code>getText()</code>, <code>setHint()</code>, <code>setInputType()</code>.</li></ul><h3 id="17467645-92b5-80c8-a5f5-e8de90bfd645" class="">Button:</h3><ul id="17467645-92b5-8091-8c6c-fba1a375d267" class="bulleted-list"><li style="list-style-type:disc"><strong>Attributes</strong>: <code>android:text</code>, <code>android:background</code>, <code>android:onClick</code>, <code>android:textColor</code>, <code>android:padding</code>.</li></ul><ul id="17467645-92b5-8061-abce-e1cb47fbffaf" class="bulleted-list"><li style="list-style-type:disc"><strong>Methods</strong>: <code>setOnClickListener()</code>, <code>setText()</code>, <code>setBackgroundColor()</code>.</li></ul><h3 id="17467645-92b5-8013-97f8-d48071d6fec2" class="">CheckBox:</h3><ul id="17467645-92b5-80c2-93eb-d07b8cbda67b" class="bulleted-list"><li style="list-style-type:disc"><strong>Attributes</strong>: <code>android:text</code>, <code>android:checked</code>, <code>android:onCheckedChange</code>, <code>android:button</code>, <code>android:gravity</code>.</li></ul><ul id="17467645-92b5-80b7-b17b-f3cb303a0c92" class="bulleted-list"><li style="list-style-type:disc"><strong>Methods</strong>: <code>setChecked()</code>, <code>isChecked()</code>, <code>toggle()</code>.</li></ul><h3 id="17467645-92b5-80e7-bdfa-db098494c20a" class="">ImageButton:</h3><ul id="17467645-92b5-80d5-8161-d8a421c9563d" class="bulleted-list"><li style="list-style-type:disc"><strong>Attributes</strong>: <code>android:src</code>, <code>android:background</code>, <code>android:contentDescription</code>, <code>android:padding</code>, <code>android:scaleType</code>.</li></ul><ul id="17467645-92b5-80b1-96ef-f7ef59324998" class="bulleted-list"><li style="list-style-type:disc"><strong>Methods</strong>: <code>setImageResource()</code>, <code>setOnClickListener()</code>, <code>setAdjustViewBounds()</code>.</li></ul><h3 id="17467645-92b5-8068-b62e-d78303ee88ee" class="">RadioButton and RadioGroup:</h3><ul id="17467645-92b5-8097-804e-db445f0abaed" class="bulleted-list"><li style="list-style-type:disc"><strong>Attributes</strong>: <code>android:text</code>, <code>android:checked</code>, <code>android:button</code>, <code>android:layout_width</code>, <code>android:layout_height</code> (for both).</li></ul><ul id="17467645-92b5-8039-94d2-ef4196ef372d" class="bulleted-list"><li style="list-style-type:disc"><strong>Methods (RadioButton)</strong>: <code>setChecked()</code>, <code>isChecked()</code>, <code>toggle()</code>.</li></ul><ul id="17467645-92b5-8068-850d-cf73493cc97c" class="bulleted-list"><li style="list-style-type:disc"><strong>Methods (RadioGroup)</strong>: <code>getCheckedRadioButtonId()</code>, <code>clearCheck()</code>, <code>getChildAt()</code>.</li></ul><h3 id="17467645-92b5-809c-913f-df4fc71bf598" class="">ToggleButton:</h3><ul id="17467645-92b5-80ad-8071-e82005557bf9" class="bulleted-list"><li style="list-style-type:disc"><strong>Attributes</strong>: <code>android:textOn</code>, <code>android:textOff</code>, <code>android:checked</code>, <code>android:background</code>, <code>android:layout_width</code>.</li></ul><ul id="17467645-92b5-8054-ae46-f218997162b9" class="bulleted-list"><li style="list-style-type:disc"><strong>Methods</strong>: <code>setChecked()</code>, <code>isChecked()</code>.</li></ul><h3 id="17467645-92b5-8062-aa15-fa86d80095a7" class="">ProgressBar:</h3><ul id="17467645-92b5-8092-aeb5-dde41f0f3efe" class="bulleted-list"><li style="list-style-type:disc"><strong>Attributes</strong>: <code>android:indeterminate</code>, <code>android:max</code>, <code>android:progress</code>, <code>android:visibility</code>, <code>android:layout_width</code>.</li></ul><ul id="17467645-92b5-8026-8f4e-e84ee918796d" class="bulleted-list"><li style="list-style-type:disc"><strong>Methods</strong>: <code>setProgress()</code>, <code>setIndeterminate()</code>, <code>setVisibility()</code>.</li></ul><h3 id="17467645-92b5-8028-aece-d0db8f49d619" class="">Spinner:</h3><ul id="17467645-92b5-800a-ba82-ed0c8314cd0f" class="bulleted-list"><li style="list-style-type:disc"><strong>Attributes</strong>: <code>android:entries</code>, <code>android:background</code>, <code>android:layout_width</code>, <code>android:layout_height</code>, <code>android:spinnerMode</code>.</li></ul><ul id="17467645-92b5-80f6-96cd-d59da1f36cf7" class="bulleted-list"><li style="list-style-type:disc"><strong>Methods</strong>: <code>setAdapter()</code>, <code>setSelection()</code>, <code>getSelectedItem()</code>.</li></ul><h3 id="17467645-92b5-8014-96bf-d9a19f8725e9" class="">AutoCompleteTextView:</h3><ul id="17467645-92b5-80ca-a215-eefc6a1ad966" class="bulleted-list"><li style="list-style-type:disc"><strong>Attributes</strong>: <code>android:completionThreshold</code>, <code>android:hint</code>, <code>android:inputType</code>, <code>android:maxLines</code>, <code>android:layout_width</code>.</li></ul><ul id="17467645-92b5-80de-9cc9-f5dfa76b10be" class="bulleted-list"><li style="list-style-type:disc"><strong>Methods</strong>: <code>setAdapter()</code>, <code>setThreshold()</code>, <code>getText()</code>.</li></ul><hr id="17467645-92b5-8069-ba39-e6fe6dd15a8d"/><h3 id="17467645-92b5-8033-92a2-c3e48c9da666" class="">3) Explain what is implicit intent in detail.</h3><ul id="17467645-92b5-806e-92db-e98db3005084" class="bulleted-list"><li style="list-style-type:disc"><strong>Implicit Intent</strong>: Unlike explicit intents where the component is specified, implicit intents allow the Android system to find the appropriate component to handle the action.<ul id="17467645-92b5-80c0-811f-d42372985576" class="bulleted-list"><li style="list-style-type:circle"><strong>Use cases</strong>:<ul id="17467645-92b5-80c8-a363-d1d2accef06d" class="bulleted-list"><li style="list-style-type:square">Starting a web browser to view a webpage: <code>Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(&quot;&lt;http://www.example.com&gt;&quot;));</code></li></ul><ul id="17467645-92b5-8016-b6af-cdd57470c3d9" class="bulleted-list"><li style="list-style-type:square">Sending an email: <code>Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse(&quot;&lt;mailto:recipient@example.com&gt;&quot;));</code></li></ul></li></ul><ul id="17467645-92b5-808b-8ede-c51657e1900f" class="bulleted-list"><li style="list-style-type:circle"><strong>Activity Resolution</strong>: The system matches the intent with available components based on the action and data provided.</li></ul><ul id="17467645-92b5-8029-8994-e1865525c614" class="bulleted-list"><li style="list-style-type:circle"><strong>Advantages</strong>:<ul id="17467645-92b5-803f-b835-eba26c7ba3ef" class="bulleted-list"><li style="list-style-type:square">Promotes code reusability.</li></ul><ul id="17467645-92b5-803a-bfde-c91aa2f8130a" class="bulleted-list"><li style="list-style-type:square">Allows for interaction between different applications.</li></ul></li></ul></li></ul><hr id="17467645-92b5-80fe-be1e-f51997a586c7"/><h3 id="17467645-92b5-800d-802b-f6aeba4ad31f" class="">4) Explain what is explicit intent in detail.</h3><ul id="17467645-92b5-80ea-becd-de3f544f9033" class="bulleted-list"><li style="list-style-type:disc"><strong>Explicit Intent</strong>: This type of intent specifies the exact component (i.e., activity) to start by providing the class name of the target activity.<ul id="17467645-92b5-80cd-930e-ff94c258fda2" class="bulleted-list"><li style="list-style-type:circle"><strong>Use cases</strong>:<ul id="17467645-92b5-8099-8535-c3aee54a1545" class="bulleted-list"><li style="list-style-type:square">Navigating within your own application:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-8054-94d0-ce9273ed977e" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">Intent intent = new Intent(this, SecondActivity.class);
+startActivity(intent);</code></pre></li></ul><ul id="17467645-92b5-80a5-9726-fab13f784c51" class="bulleted-list"><li style="list-style-type:circle"><strong>Component Naming</strong>: Can specify the package name and class name if the activity is in a different package.</li></ul><ul id="17467645-92b5-802e-ba91-c5e2036a5954" class="bulleted-list"><li style="list-style-type:circle"><strong>Advantages</strong>:<ul id="17467645-92b5-8086-a283-ea0e16f28b90" class="bulleted-list"><li style="list-style-type:square">Clear about which component is being called.</li></ul><ul id="17467645-92b5-80de-ab64-f2ecc5fac421" class="bulleted-list"><li style="list-style-type:square">Suitable for tight coupling between components in the same app.</li></ul></li></ul></li></ul><hr id="17467645-92b5-80c0-af2c-ec08b5c86a00"/><h3 id="17467645-92b5-80ba-8551-fafffdbe0f18" class="">5) Explain what is TimePicker in detail.</h3><ul id="17467645-92b5-8082-95a1-e420bec7e8be" class="bulleted-list"><li style="list-style-type:disc"><strong>TimePicker</strong>: A UI component for selecting a time (hour and minute). It can be presented either as a dialog or embedded in the layout.<ul id="17467645-92b5-80c9-b519-c43c06de3ecb" class="bulleted-list"><li style="list-style-type:circle"><strong>Attributes</strong>:<ul id="17467645-92b5-80a7-b4f3-f229d554dc4d" class="bulleted-list"><li style="list-style-type:square"><code>android:timePickerMode</code>: Choose between <code>spinner</code> and <code>clock</code> mode.</li></ul></li></ul><ul id="17467645-92b5-8020-85f3-f9e4cf580245" class="bulleted-list"><li style="list-style-type:circle"><strong>Usage Example</strong>:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-8099-a212-d091858628c2" class="code"><code class="language-XML" style="white-space:pre-wrap;word-break:break-all">&lt;TimePicker
+    android:id=&quot;@+id/timePicker&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot; /&gt;
+</code></pre><ul id="17467645-92b5-808b-90ae-d12cec4d014c" class="bulleted-list"><li style="list-style-type:circle"><strong>Getting values</strong>: Retrieve selected time from TimePicker.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-80ce-9d40-eb62546fefd1" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">TimePicker timePicker = findViewById(R.id.timePicker);
+int hour = timePicker.getHour();
+int minute = timePicker.getMinute();
+</code></pre></li></ul><hr id="17467645-92b5-8071-b037-d7e2e57fa83d"/><h3 id="17467645-92b5-8069-bca6-f1a0527c5293" class="">6) Explain what is DatePicker in detail.</h3><ul id="17467645-92b5-80dd-bac3-f9ea0375f7b8" class="bulleted-list"><li style="list-style-type:disc"><strong>DatePicker</strong>: A UI component that allows users to select a date. Like TimePicker, it can also appear as a dialog or embedded view.<ul id="17467645-92b5-80c6-a2c7-debaee14689e" class="bulleted-list"><li style="list-style-type:circle"><strong>Attributes</strong>:<ul id="17467645-92b5-803b-91d8-fcca645d1562" class="bulleted-list"><li style="list-style-type:square"><code>android:datePickerMode</code>: Choose between <code>spinner</code> and <code>calendar</code> mode.</li></ul></li></ul><ul id="17467645-92b5-803e-9e1e-caed6cb3f02d" class="bulleted-list"><li style="list-style-type:circle"><strong>Usage Example</strong>:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-8093-aeba-d4539f54f916" class="code"><code class="language-XML" style="white-space:pre-wrap;word-break:break-all">&lt;DatePicker
+    android:id=&quot;@+id/datePicker&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot; /&gt;
+</code></pre><ul id="17467645-92b5-80d2-aa9b-e6e2d409c2d3" class="bulleted-list"><li style="list-style-type:circle"><strong>Getting values</strong>: Retrieve selected date from DatePicker.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-8022-8239-f7ad59dd49c0" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">DatePicker datePicker = findViewById(R.id.datePicker);
+int day = datePicker.getDayOfMonth();
+int month = datePicker.getMonth();
+int year = datePicker.getYear();
+</code></pre></li></ul><hr id="17467645-92b5-80c4-b5c5-ce8ada075232"/><h3 id="17467645-92b5-80e3-835f-c1437e1019ee" class="">7) Explain what is ListView with the help of 5 attributes and methods.</h3><ul id="17467645-92b5-8048-b6e4-e8fd9a618a6f" class="bulleted-list"><li style="list-style-type:disc"><strong>ListView</strong>: A view that displays a list of scrollable items and allows an adapter to manage the data.<ul id="17467645-92b5-80e1-afd4-fb501570dac9" class="bulleted-list"><li style="list-style-type:circle"><strong>Attributes</strong>:<ul id="17467645-92b5-80dd-99fa-f5b998d618fa" class="bulleted-list"><li style="list-style-type:square"><code>android:divider</code>: Customizes the divider between list items.</li></ul><ul id="17467645-92b5-809d-83dc-db05cff3dca3" class="bulleted-list"><li style="list-style-type:square"><code>android:dividerHeight</code>: Height of the divider.</li></ul><ul id="17467645-92b5-80f5-9901-e404445b6abd" class="bulleted-list"><li style="list-style-type:square"><code>android:layout_width</code>: Width of the ListView.</li></ul><ul id="17467645-92b5-807b-86ea-f4f90756926e" class="bulleted-list"><li style="list-style-type:square"><code>android:layout_height</code>: Height of the ListView.</li></ul><ul id="17467645-92b5-80a3-a0fc-f0c131c355c5" class="bulleted-list"><li style="list-style-type:square"><code>android:choiceMode</code>: Determines how multiple items can be selected.</li></ul></li></ul><ul id="17467645-92b5-8014-a8b5-e2a9ba1dd902" class="bulleted-list"><li style="list-style-type:circle"><strong>Methods</strong>:<ul id="17467645-92b5-80d9-bee7-dcb31aa98bfe" class="bulleted-list"><li style="list-style-type:square"><code>setAdapter()</code>: Sets the adapter that provides the data.</li></ul><ul id="17467645-92b5-8056-932d-c134ab8dc8f5" class="bulleted-list"><li style="list-style-type:square"><code>setOnItemClickListener()</code>: Responds when a list item is clicked.</li></ul><ul id="17467645-92b5-80b2-8c7b-f0b388b02fa9" class="bulleted-list"><li style="list-style-type:square"><code>getSelectedItem()</code>: Returns the currently selected item.</li></ul><ul id="17467645-92b5-80c8-bd00-c63cc4fddc3a" class="bulleted-list"><li style="list-style-type:square"><code>getCount()</code>: Returns the total number of items in the list.</li></ul><ul id="17467645-92b5-8041-841d-c7f3586c2f28" class="bulleted-list"><li style="list-style-type:square"><code>setVisibility()</code>: Controls the visibility of the ListView.</li></ul></li></ul></li></ul><hr id="17467645-92b5-80ab-a6ea-d82ba6a645a8"/><h3 id="17467645-92b5-80cd-b3e6-de884d4a05d0" class="">8) Explain what is Option menu with the help of methods, menu.xml file.</h3><ul id="17467645-92b5-8003-b09c-d04159f2b2e5" class="bulleted-list"><li style="list-style-type:disc"><strong>Option Menu</strong>: A primary menu for an activity that is displayed when the user presses the Menu button.<ul id="17467645-92b5-80a3-be62-d0ddc0fffec4" class="bulleted-list"><li style="list-style-type:circle"><strong>Creation</strong>: Defined in <code>menu.xml</code> within the <code>res/menu</code> folder.</li></ul><ul id="17467645-92b5-8097-826f-fecc6c6540a4" class="bulleted-list"><li style="list-style-type:circle"><strong>Example menu.xml</strong>:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-8050-a01d-fc2e5788ffdf" class="code"><code class="language-XML" style="white-space:pre-wrap;word-break:break-all">&lt;menu xmlns:android=&quot;&lt;http://schemas.android.com/apk/res/android&gt;&quot;&gt;
+    &lt;item
+        android:id=&quot;@+id/action_settings&quot;
+        android:title=&quot;Settings&quot;
+        android:orderInCategory=&quot;100&quot;
+        android:showAsAction=&quot;never&quot; /&gt;
+&lt;/menu&gt;
+</code></pre><ul id="17467645-92b5-800b-a0f6-f40f7bb0e9db" class="bulleted-list"><li style="list-style-type:circle"><strong>Methods</strong>:<ul id="17467645-92b5-802e-9d4f-e23a2e63b404" class="bulleted-list"><li style="list-style-type:square"><code>onCreateOptionsMenu(Menu menu)</code>: Inflate the menu resource.</li></ul><ul id="17467645-92b5-8016-9964-c9bdf09738d0" class="bulleted-list"><li style="list-style-type:square"><code>onOptionsItemSelected(MenuItem item)</code>: Handle item selections.</li></ul></li></ul></li></ul><hr id="17467645-92b5-80c1-894e-ec4f681fa27b"/><h3 id="17467645-92b5-801e-b5c8-d9f7c9d5a6d6" class="">9) Explain what is Context menu with the help of methods, menu.xml file.</h3><ul id="17467645-92b5-803e-b6f2-e022eed7fdcb" class="bulleted-list"><li style="list-style-type:disc"><strong>Context Menu</strong>: A floating menu that appears when the user performs a long press on a view.<ul id="17467645-92b5-8010-ae3c-d8eeea858bba" class="bulleted-list"><li style="list-style-type:circle"><strong>Creating</strong>: Registered with a view using <code>registerForContextMenu(view)</code> and created in <code>menu.xml</code>.</li></ul><ul id="17467645-92b5-8082-bc74-dcde5ff274a3" class="bulleted-list"><li style="list-style-type:circle"><strong>Example menu.xml</strong>:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-809c-9aa7-ed7a472ea6ef" class="code"><code class="language-XML" style="white-space:pre-wrap;word-break:break-all">&lt;menu xmlns:android=&quot;&lt;http://schemas.android.com/apk/res/android&gt;&quot;&gt;
+    &lt;item
+        android:id=&quot;@+id/action_delete&quot;
+        android:title=&quot;Delete&quot; /&gt;
+    &lt;item
+        android:id=&quot;@+id/action_edit&quot;
+        android:title=&quot;Edit&quot; /&gt;
+&lt;/menu&gt;
+</code></pre><ul id="17467645-92b5-8094-bdf7-ee66c29216c8" class="bulleted-list"><li style="list-style-type:circle"><strong>Methods</strong>:<ul id="17467645-92b5-8009-ba16-e5efe4e966c3" class="bulleted-list"><li style="list-style-type:square"><code>onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)</code>: Inflate context menu.</li></ul><ul id="17467645-92b5-80d7-b9c5-f33f7f90ba40" class="bulleted-list"><li style="list-style-type:square"><code>onContextItemSelected(MenuItem item)</code>: Handle context menu item selections.</li></ul></li></ul></li></ul><hr id="17467645-92b5-806c-b9d2-f191f500b398"/><h3 id="17467645-92b5-8061-b4f8-cc8427940325" class="">10) Explain what is PopUp menu with the help of methods, menu.xml file.</h3><ul id="17467645-92b5-80de-bb0f-d3d8be015c94" class="bulleted-list"><li style="list-style-type:disc"><strong>PopUp Menu</strong>: A type of context menu that shows a list of items when the user clicks an anchor view.<ul id="17467645-92b5-807f-a2d5-f2bf290fcb71" class="bulleted-list"><li style="list-style-type:circle"><strong>Creating</strong>: Can be initiated from any view and is useful to offer selections without obscuring the UI.</li></ul><ul id="17467645-92b5-8017-a73d-e93277489f3f" class="bulleted-list"><li style="list-style-type:circle"><strong>Example Popup menu creation</strong>:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-8075-bdfc-f1255a736cb4" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">PopupMenu popup = new PopupMenu(this, anchorView);
+popup.getMenuInflater().inflate(R.menu.menu_popup, popup.getMenu());
+popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        return true;
+    }
+});
+popup.show();
+</code></pre><ul id="17467645-92b5-800e-935c-c19fa442757d" class="bulleted-list"><li style="list-style-type:circle"><strong>Menu methods</strong>: Similar to other menus, defined in <code>menu.xml</code>.</li></ul></li></ul><hr id="17467645-92b5-806a-ab3d-f3ff97bc9198"/><h3 id="17467645-92b5-808c-87d1-cb707e85eeeb" class="">11) Explain what is Up and back screen navigation.</h3><ul id="17467645-92b5-8085-86be-c9a94794b13b" class="bulleted-list"><li style="list-style-type:disc"><strong>Up Navigation</strong>: Takes the user to the parent activity as defined in the Android manifest.</li></ul><ul id="17467645-92b5-800b-8787-f74801841b4a" class="bulleted-list"><li style="list-style-type:disc"><strong>Back Navigation</strong>: Generally represented by the back button, allows users to return to the previous activity in the back stack.</li></ul><ul id="17467645-92b5-8016-98cb-c7fe8074e771" class="bulleted-list"><li style="list-style-type:disc"><strong>Example of Up Navigation</strong>: To enable Up navigation, declare parent activities in the <code>AndroidManifest.xml</code>:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-8010-aea8-e9118d12f634" class="code"><code class="language-XML" style="white-space:pre-wrap;word-break:break-all">&lt;activity
+    android:name=&quot;.ChildActivity&quot;
+    android:label=&quot;@string/title_activity_child&quot;&gt;
+    &lt;meta-data
+        android:name=&quot;android.support.PARENT_ACTIVITY&quot;
+        android:value=&quot;.ParentActivity&quot;/&gt;
+&lt;/activity&gt;
+</code></pre><ul id="17467645-92b5-80da-890c-c4c3af157661" class="bulleted-list"><li style="list-style-type:disc"><strong>Handling in code</strong>: Use <code>NavUtils.navigateUpFromSameTask(this);</code> to handle Up navigation.</li></ul><hr id="17467645-92b5-8080-b762-d21073c5c0d2"/><h3 id="17467645-92b5-8034-b896-f8790d4b63e6" class="">12) Explain what is a service?</h3><ul id="17467645-92b5-80dd-afce-ced6f53be6e4" class="bulleted-list"><li style="list-style-type:disc"><strong>Service</strong>: A component that runs in the background to perform long-running operations or to perform work for remote processes. They don&#x27;t have a user interface.</li></ul><ul id="17467645-92b5-8068-b34b-c66dc66e1306" class="bulleted-list"><li style="list-style-type:disc"><strong>Types of services</strong>:<ul id="17467645-92b5-80d9-a3b2-d2517f329c17" class="bulleted-list"><li style="list-style-type:circle"><strong>Started Service</strong>: A service that is started when an application component calls <code>startService()</code>.</li></ul><ul id="17467645-92b5-80d9-af5a-cee542e761b5" class="bulleted-list"><li style="list-style-type:circle"><strong>Bound Service</strong>: A service that allows components to bind to it using <code>bindService()</code>, facilitating communication.</li></ul></li></ul><ul id="17467645-92b5-80a3-998b-ea52c8c7d360" class="bulleted-list"><li style="list-style-type:disc"><strong>Example Start a service</strong>:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-80e8-9cb1-d90b97e7ed99" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">Intent serviceIntent = new Intent(this, MyService.class);
+startService(serviceIntent);
+</code></pre><ul id="17467645-92b5-808e-93cf-ee33ec73a1c2" class="bulleted-list"><li style="list-style-type:disc"><strong>Defining a Service</strong>:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-8016-a788-cdf758d7e756" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">public class MyService extends Service {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+}
+</code></pre><hr id="17467645-92b5-8014-89cd-df6e17c8cc1d"/><h3 id="17467645-92b5-802a-a244-da5bf48923d4" class="">13) Explain what are Themes, Styles, Drawables, Material design in Android.</h3><ul id="17467645-92b5-804e-82c2-d64cbae1ebbd" class="bulleted-list"><li style="list-style-type:disc"><strong>Themes</strong>: Define the overall look and feel of an application. Set in the <code>AndroidManifest.xml</code> or programmatically.</li></ul><ul id="17467645-92b5-80b0-a1ec-e8f9c20d0048" class="bulleted-list"><li style="list-style-type:disc"><strong>Styles</strong>: A collection of attributes applied to a single view or a group of views. Defined in <code>res/values/styles.xml</code>.</li></ul><ul id="17467645-92b5-803e-87d3-f3d8d728524e" class="bulleted-list"><li style="list-style-type:disc"><strong>Drawables</strong>: Used for backgrounds, non-interactive content or UI elements, defined in drawable resource files (XML, PNG).</li></ul><ul id="17467645-92b5-8080-a4ec-d110f40ae49a" class="bulleted-list"><li style="list-style-type:disc"><strong>Material Design</strong>: A design language developed by Google that combines classic principles of good design with innovation in technology and science, emphasizing responsive animations, grid-based layouts, and depth effects.</li></ul><hr id="17467645-92b5-8022-813c-eb02acaa9714"/><h3 id="17467645-92b5-80aa-92ac-e0f42f2ad3a8" class="">14) Explain Connecting to Internet in Android in detail.</h3><ul id="17467645-92b5-80c4-ac2d-d60e2404f396" class="bulleted-list"><li style="list-style-type:disc"><strong>Connectivity Overview</strong>: Android provides several ways to connect to the internet based on user needs.</li></ul><ul id="17467645-92b5-8017-8eb6-faa742ae104b" class="bulleted-list"><li style="list-style-type:disc"><strong>WiFi Connection</strong>: Make use of <code>WifiManager</code>. Example:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-8049-8b0e-f746d058fe8b" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+wifiManager.setWifiEnabled(true);
+</code></pre><ul id="17467645-92b5-80e5-bf8e-f2a760a14ee3" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Connection</strong>: Using <code>ConnectivityManager</code>, check the active network. Example:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-80f3-887a-c95c8925986b" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+boolean isConnected = activeNetwork != null &amp;&amp; activeNetwork.isConnectedOrConnecting();
+</code></pre><ul id="17467645-92b5-8058-a4d4-e1705aaa6740" class="bulleted-list"><li style="list-style-type:disc"><strong>Permissions</strong>: Necessary permissions should be defined in <code>AndroidManifest.xml</code>:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-8070-b2e1-c6f5e9c38ce4" class="code"><code class="language-XML" style="white-space:pre-wrap;word-break:break-all">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
+</code></pre><hr id="17467645-92b5-8098-abee-de77ec3c04d9"/><h3 id="17467645-92b5-80ef-827b-d2ad82437d2e" class="">15) Explain what is a BroadcastReceiver in detail.</h3><ul id="17467645-92b5-801c-a1b6-d93426e45cb4" class="bulleted-list"><li style="list-style-type:disc"><strong>BroadcastReceiver</strong>: A component that listens for and responds to broadcast messages from other applications or from the system itself.</li></ul><ul id="17467645-92b5-8003-b1f5-faa0ab33a645" class="bulleted-list"><li style="list-style-type:disc"><strong>Use cases</strong>: To receive and handle intents such as device boot completion or network connectivity changes.</li></ul><ul id="17467645-92b5-80fb-8dea-f56ca2e0f93f" class="bulleted-list"><li style="list-style-type:disc"><strong>Example Declaration</strong>: Define in <code>AndroidManifest.xml</code>:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-8088-9b43-cf2a5d7ae705" class="code"><code class="language-XML" style="white-space:pre-wrap;word-break:break-all">&lt;receiver android:name=&quot;.MyBroadcastReceiver&quot;&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&quot;android.intent.action.BOOT_COMPLETED&quot;/&gt;
+    &lt;/intent-filter&gt;
+&lt;/receiver&gt;
+</code></pre><ul id="17467645-92b5-8033-865a-ce0c2309a326" class="bulleted-list"><li style="list-style-type:disc"><strong>Handling broadcasts</strong>: Create a subclass of <code>BroadcastReceiver</code> and override <code>onReceive()</code> method:</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17467645-92b5-80bb-86fd-f6c40fcf97cc" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">public class MyBroadcastReceiver extends BroadcastReceiver {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        // Handle the received broadcast
+    }
+}
+</code></pre><p id="17467645-92b5-809d-8f09-d961daab024d" class="">These explanations provide a comprehensive overview of the questions from the document. If you need further elaboration or additional information, just let me know!</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

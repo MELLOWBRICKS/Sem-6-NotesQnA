@@ -1,0 +1,715 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 3</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1af67645-92b5-803a-80e4-e0f331d72f0a" class="page sans"><header><h1 class="page-title">Unit 3</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Android%20Programming%205db7a135d18946689c07a2aa33ecea98.html"><img class="icon" src="https://www.notion.so/icons/robot_gray.svg"/>Android Programming</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td></td></tr></tbody></table></header><div class="page-body"><h3 id="1af67645-92b5-80bc-8b85-d21aa2b6a97f" class=""><strong>Q1. Describe the methods that are used by AlarmManager Class while creating any alarm application in Android.</strong></h3><h3 id="1af67645-92b5-80c4-b4f3-c39b76ade0ea" class=""><strong>What is AlarmManager?</strong></h3><p id="1af67645-92b5-8081-9310-c8758e5d0e19" class=""><code>AlarmManager</code> is a system service that schedules tasks to <strong>run at a specific time</strong> or <strong>repeat at intervals</strong> even when the app is closed. It is commonly used for <strong>reminders, notifications, and background tasks</strong>.</p><h3 id="1af67645-92b5-80e5-8409-cce9b6c01fbe" class=""><strong>Methods of AlarmManager:</strong></h3><table id="1af67645-92b5-80e7-8cea-cabc99520c14" class="simple-table"><tbody><tr id="1af67645-92b5-8048-8b5e-c33ec4c13b67"><td id="OrJd" class=""><strong>Method</strong></td><td id="oPpw" class=""><strong>Description</strong></td></tr><tr id="1af67645-92b5-80a2-9580-f4e1f0b4fe43"><td id="OrJd" class=""><code>setExact()</code></td><td id="oPpw" class="">Triggers an alarm <strong>at an exact time</strong>.</td></tr><tr id="1af67645-92b5-80db-8174-cda243187978"><td id="OrJd" class=""><code>setRepeating()</code></td><td id="oPpw" class="">Triggers an alarm <strong>at regular intervals</strong>.</td></tr><tr id="1af67645-92b5-8022-bd79-c1a8054b82b1"><td id="OrJd" class=""><code>setAndAllowWhileIdle()</code></td><td id="oPpw" class="">Allows alarms to run <strong>even in Doze mode</strong>.</td></tr><tr id="1af67645-92b5-80ae-ba73-d839b5cf865a"><td id="OrJd" class=""><code>setAlarmClock()</code></td><td id="oPpw" class="">Used for <strong>alarm clock applications</strong>.</td></tr><tr id="1af67645-92b5-8010-94d9-d9beaff9c9dc"><td id="OrJd" class=""><code>cancel()</code></td><td id="oPpw" class="">Cancels a previously set alarm.</td></tr></tbody></table><h3 id="1af67645-92b5-8079-a575-c0ccbbc308fd" class=""><strong>Example: Setting an Alarm</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80eb-b596-c390a0bde8f6" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerTime, pendingIntent);
+</code></pre><p id="1af67645-92b5-8072-a348-fa1fc1067298" class="">🔹 <strong>Key Points:</strong></p><ul id="1af67645-92b5-805f-b3f8-fca32373b673" class="bulleted-list"><li style="list-style-type:disc"><code>RTC_WAKEUP</code> wakes the device at the scheduled time.</li></ul><ul id="1af67645-92b5-80d3-87a6-dae391488b46" class="bulleted-list"><li style="list-style-type:disc"><code>PendingIntent</code> defines what happens when the alarm triggers.</li></ul><hr id="1af67645-92b5-80f2-a8b9-cca1dca69ba8"/><h3 id="1af67645-92b5-80ec-8e04-f42efd2bafdf" class=""><strong>Q5. What is AlarmManager? Explain what is Elapsed Real Time, Real Time Clock. Define with syntax the methods of AlarmManager class.</strong></h3><h3 id="1af67645-92b5-8046-8b34-e787ff15e03a" class=""><strong>What is AlarmManager?</strong></h3><p id="1af67645-92b5-8004-8e46-ec8b15485718" class=""><code>AlarmManager</code> schedules tasks <strong>even when the app is not running</strong>. It uses two time systems:</p><ol type="1" id="1af67645-92b5-801a-a569-f3f1fcb189e9" class="numbered-list" start="1"><li><strong>Elapsed Real Time (ELAPSED_REALTIME, ELAPSED_REALTIME_WAKEUP)</strong><ul id="1af67645-92b5-80e2-bdb2-d158c402f3f5" class="bulleted-list"><li style="list-style-type:disc">Time since device boot (ignores changes in system time).</li></ul><ul id="1af67645-92b5-80a3-bc9d-d7edd92525de" class="bulleted-list"><li style="list-style-type:disc"><strong>Use case:</strong> Scheduling periodic background sync.</li></ul></li></ol><ol type="1" id="1af67645-92b5-8047-b9f0-d1de7a18623d" class="numbered-list" start="2"><li><strong>Real Time Clock (RTC, RTC_WAKEUP)</strong><ul id="1af67645-92b5-80c0-9ac0-c358d5ab1868" class="bulleted-list"><li style="list-style-type:disc">Based on the actual clock time (affected by user changes).</li></ul><ul id="1af67645-92b5-80b6-84bd-f644aa87b464" class="bulleted-list"><li style="list-style-type:disc"><strong>Use case:</strong> Scheduling alarms, reminders.</li></ul></li></ol><h3 id="1af67645-92b5-809a-95ab-ff85f2ef20b6" class=""><strong>Common AlarmManager Methods</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8076-8445-ec71ff98cfd5" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">alarmManager.set(AlarmManager.RTC_WAKEUP, triggerTime, pendingIntent);
+alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, interval, pendingIntent);
+</code></pre><p id="1af67645-92b5-8011-afcf-fdc8b6bfa65e" class="">🔹 <strong>RTC_WAKEUP</strong> wakes the device, while <strong>ELAPSED_REALTIME_WAKEUP</strong> is based on uptime.</p><hr id="1af67645-92b5-8046-b485-c0c655118d95"/><h3 id="1af67645-92b5-80d3-91e3-cc88556ead31" class=""><strong>Q2. Create an Android application to play video files in Android</strong></h3><h3 id="1af67645-92b5-80a4-aa83-ed25346bdf96" class=""><strong>What is Video Playback in Android?</strong></h3><p id="1af67645-92b5-80e8-9d61-cc2e95fd8182" class="">Android provides the <code>VideoView</code> class for <strong>playing videos</strong> from local storage or URLs. It also supports <code>MediaController</code> for <strong>play, pause, and seek controls</strong>.</p><h3 id="1af67645-92b5-804a-8921-d75c0859da04" class=""><strong>Main Code Snippet</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-806b-be26-d070e2f2b65f" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">videoView.setVideoURI(Uri.parse(&quot;android.resource://&quot; + getPackageName() + &quot;/&quot; + R.raw.sample_video));
+videoView.setMediaController(new MediaController(this));
+videoView.start();</code></pre><p id="1af67645-92b5-804b-9f90-e7d705f7e370" class="">🔹 <strong>Key Points:</strong></p><ul id="1af67645-92b5-8005-bea7-d6eebd0e2735" class="bulleted-list"><li style="list-style-type:disc"><code>setVideoURI()</code> loads the video.</li></ul><ul id="1af67645-92b5-8006-b223-fe41b374fa87" class="bulleted-list"><li style="list-style-type:disc"><code>setMediaController()</code> adds playback controls.</li></ul><ul id="1af67645-92b5-80e0-8793-d74f8b6003e6" class="bulleted-list"><li style="list-style-type:disc"><code>start()</code> begins playback.</li></ul><hr id="1af67645-92b5-80d3-99b3-d203de64d647"/><h3 id="1af67645-92b5-8051-82fd-db25e93b5581" class=""><strong>Q4. Write a program to show use of MediaController.</strong></h3><h3 id="1af67645-92b5-804d-b7c4-e59758004817" class=""><strong>What is MediaController?</strong></h3><p id="1af67645-92b5-8039-a6f6-dc3cc2a92cbe" class=""><code>MediaController</code> provides <strong>built-in media playback controls</strong> (play, pause, seek) for <code>VideoView</code>.</p><h3 id="1af67645-92b5-8080-9588-d3926fd5f666" class=""><strong>Main Code Snippet</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8058-878b-df3652f1c50c" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">MediaController mediaController = new MediaController(this);
+mediaController.setAnchorView(videoView);
+videoView.setMediaController(mediaController);
+</code></pre><p id="1af67645-92b5-8081-ac51-cd6160de7f35" class="">🔹 <strong>Key Points:</strong></p><ul id="1af67645-92b5-80f9-aae6-ed4dee930d2a" class="bulleted-list"><li style="list-style-type:disc"><code>setAnchorView()</code> binds the controller to the video.</li></ul><ul id="1af67645-92b5-8044-a28e-eb9f45188b29" class="bulleted-list"><li style="list-style-type:disc"><code>setMediaController()</code> enables playback controls.</li></ul><hr id="1af67645-92b5-80c2-aafe-de611c636ec1"/><h3 id="1af67645-92b5-80f4-8a81-dd2ac7408d93" class=""><strong>Q9. Write a Program to Play Video in Android and Also State the Use of </strong><code><strong>setAnchorView</strong></code><strong>.</strong></h3><h3 id="1af67645-92b5-8091-9497-c42c22f2e675" class=""><strong>What is </strong><code><strong>setAnchorView()</strong></code><strong>?</strong></h3><ul id="1af67645-92b5-80f2-8c2e-c0dc4e660cda" class="bulleted-list"><li style="list-style-type:disc"><code>setAnchorView()</code> <strong>positions the MediaController</strong> relative to the <code>VideoView</code>.</li></ul><ul id="1af67645-92b5-80ec-8200-d9b2953ee6bf" class="bulleted-list"><li style="list-style-type:disc">Ensures that controls are displayed <strong>on top of the video</strong>.</li></ul><h3 id="1af67645-92b5-80cb-9131-c8d673961ece" class=""><strong>Main Code Snippet</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8004-9010-d6fa82c74003" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">videoView.setVideoURI(Uri.parse(&quot;android.resource://&quot; + getPackageName() + &quot;/&quot; + R.raw.sample_video));
+
+MediaController mediaController = new MediaController(this);
+mediaController.setAnchorView(videoView);
+
+videoView.setMediaController(mediaController);
+videoView.start();
+</code></pre><p id="1af67645-92b5-8041-8266-e2aa9eb99119" class="">🔹 <strong>Key Points:</strong></p><ul id="1af67645-92b5-8050-921b-c70fdb5db1da" class="bulleted-list"><li style="list-style-type:disc"><code>MediaController</code> is <strong>anchored</strong> to <code>VideoView</code> for proper alignment.</li></ul><ul id="1af67645-92b5-80ca-a8fb-f4359a5c4159" class="bulleted-list"><li style="list-style-type:disc">The user <strong>can pause, play, and seek the video</strong>.</li></ul><hr id="1af67645-92b5-805d-a5cd-dd40726227cb"/><h3 id="1af67645-92b5-80dc-b181-cc294a3c2f94" class=""><strong>Q3. Explain how Shared Preferences are different from Saved Instance State?</strong></h3><h3 id="1af67645-92b5-8056-aaae-ffacde84bf19" class=""><strong>Shared Preferences vs. Saved Instance State</strong></h3><table id="1af67645-92b5-80cb-9e4e-f35519d6328f" class="simple-table"><tbody><tr id="1af67645-92b5-80eb-874f-f7d3616b7c62"><td id="V&gt;Ou" class=""><strong>Feature</strong></td><td id="Uig&gt;" class=""><strong>Shared Preferences</strong></td><td id="iXYL" class=""><strong>Saved Instance State</strong></td></tr><tr id="1af67645-92b5-80d4-8c79-ccaccd425338"><td id="V&gt;Ou" class=""><strong>Usage</strong></td><td id="Uig&gt;" class="">Stores <strong>persistent data</strong></td><td id="iXYL" class="">Saves <strong>temporary UI data</strong></td></tr><tr id="1af67645-92b5-8027-9f42-d21a3a540dff"><td id="V&gt;Ou" class=""><strong>Scope</strong></td><td id="Uig&gt;" class="">Available even after app restarts</td><td id="iXYL" class="">Lost when app is killed</td></tr><tr id="1af67645-92b5-80e7-8809-f5635a18367e"><td id="V&gt;Ou" class=""><strong>Storage</strong></td><td id="Uig&gt;" class="">Stored as XML files</td><td id="iXYL" class="">Stored in <strong>Bundle</strong></td></tr><tr id="1af67645-92b5-804e-96ef-ddd79823efa7"><td id="V&gt;Ou" class=""><strong>Use Case</strong></td><td id="Uig&gt;" class="">Saving user settings, login info</td><td id="iXYL" class="">Retaining text in a form after screen rotation</td></tr></tbody></table><h3 id="1af67645-92b5-8014-a946-e4b2da3f5e36" class=""><strong>Example:</strong></h3><ul id="1af67645-92b5-8047-878c-d380fe5286cd" class="bulleted-list"><li style="list-style-type:disc"><strong>Shared Preferences:</strong> Storing login state<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80b8-b413-d01ffae90295" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">SharedPreferences prefs = getSharedPreferences(&quot;MyPrefs&quot;, MODE_PRIVATE);
+prefs.edit().putBoolean(&quot;isLoggedIn&quot;, true).apply();
+</code></pre></li></ul><ul id="1af67645-92b5-8082-bd8e-ebe033906476" class="bulleted-list"><li style="list-style-type:disc"><strong>Saved Instance State:</strong> Restoring text in <code>EditText</code><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8069-8cfa-f1c38df1af10" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">@Override
+protected void onSaveInstanceState(Bundle outState) {
+    outState.putString(&quot;userInput&quot;, editText.getText().toString());
+    super.onSaveInstanceState(outState);
+}
+</code></pre></li></ul><hr id="1af67645-92b5-8094-bef7-ee429aa4f717"/><h3 id="1af67645-92b5-8051-9fc7-e6c5e186bf9b" class=""><strong>Q6. Explain Different Modes of Storage in Android.</strong></h3><p id="1af67645-92b5-80aa-a5fd-f2ee14a74f13" class="">Android provides <strong>multiple storage options</strong> for saving data:</p><ol type="1" id="1af67645-92b5-80d6-8470-ef793628e21d" class="numbered-list" start="1"><li><strong>Shared Preferences</strong> – Stores <strong>key-value pairs</strong> (small data like settings).</li></ol><ol type="1" id="1af67645-92b5-804e-afd9-ccf11dbc7c2f" class="numbered-list" start="2"><li><strong>Internal Storage</strong> – Private app files stored in <strong>device memory</strong>.</li></ol><ol type="1" id="1af67645-92b5-8067-9c10-d01666d459f0" class="numbered-list" start="3"><li><strong>External Storage</strong> – Stores large files like images, videos (user can delete them).</li></ol><ol type="1" id="1af67645-92b5-8067-b64f-fd53a9c2f163" class="numbered-list" start="4"><li><strong>SQLite Database</strong> – Stores <strong>structured data</strong> in tables.</li></ol><ol type="1" id="1af67645-92b5-8038-863e-e900b5bb58d2" class="numbered-list" start="5"><li><strong>Cloud Storage</strong> – Uses Firebase or external APIs for storage.</li></ol><hr id="1af67645-92b5-80c9-ac33-dec0253f05d8"/><h3 id="1af67645-92b5-8056-a2b8-ef1961bb2f9d" class=""><strong>Q7. Explain Internal Storage in Android and its Useful Methods.</strong></h3><h3 id="1af67645-92b5-8068-b588-dea3b3250c5c" class=""><strong>What is Internal Storage?</strong></h3><p id="1af67645-92b5-80d7-b01f-e5d18a5dbc32" class="">Internal Storage saves <strong>private app files</strong> that cannot be accessed by other apps.</p><h3 id="1af67645-92b5-80f7-9b65-cde59a445476" class=""><strong>Common Methods</strong></h3><table id="1af67645-92b5-8016-930d-cda41f20d696" class="simple-table"><tbody><tr id="1af67645-92b5-804f-8938-de7d6b311f7d"><td id="qBZR" class=""><strong>Method</strong></td><td id="OCmX" class=""><strong>Description</strong></td></tr><tr id="1af67645-92b5-80d1-a2a2-ca8ef22db9fa"><td id="qBZR" class=""><code>openFileOutput()</code></td><td id="OCmX" class="">Writes data to a file.</td></tr><tr id="1af67645-92b5-80c3-bc4d-c0ea0ea3732b"><td id="qBZR" class=""><code>openFileInput()</code></td><td id="OCmX" class="">Reads data from a file.</td></tr><tr id="1af67645-92b5-807e-90b5-d5c0082af583"><td id="qBZR" class=""><code>deleteFile()</code></td><td id="OCmX" class="">Deletes a file.</td></tr></tbody></table><h3 id="1af67645-92b5-80fb-97cf-e353f2b25386" class=""><strong>Example: Writing to Internal Storage</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80b2-953f-dd8f1e1b4074" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">FileOutputStream fos = openFileOutput(&quot;example.txt&quot;, MODE_PRIVATE);
+fos.write(&quot;Hello World&quot;.getBytes());
+fos.close();
+</code></pre><hr id="1af67645-92b5-8046-b53a-e5ff1bb1da45"/><h3 id="1af67645-92b5-808d-b5a4-de27424f9c97" class=""><strong>Q8. Explain Below Given Modes of Shared Preferences with Syntax.</strong></h3><ol type="1" id="1af67645-92b5-80b9-9a88-e2a8945da2e9" class="numbered-list" start="1"><li><strong>MODE_APPEND</strong> – Appends new data to existing preferences.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-800e-8248-da821a4c30e2" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">getSharedPreferences(&quot;MyPrefs&quot;, MODE_APPEND);
+</code></pre></li></ol><ol type="1" id="1af67645-92b5-808f-a361-d99f23fc687a" class="numbered-list" start="2"><li><strong>MODE_ENABLE_WRITE_AHEAD_LOGGING</strong> – Enables faster data writes.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8082-a470-e2f424f05e09" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">getSharedPreferences(&quot;MyPrefs&quot;, MODE_ENABLE_WRITE_AHEAD_LOGGING);
+</code></pre></li></ol><ol type="1" id="1af67645-92b5-809e-82c3-f39474bc39b6" class="numbered-list" start="3"><li><strong>MODE_MULTI_PROCESS</strong> – Allows multiple processes to <strong>access shared preferences</strong> (deprecated).<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80c0-ae4e-c46c49ae08c2" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">getSharedPreferences(&quot;MyPrefs&quot;, MODE_MULTI_PROCESS);
+</code></pre></li></ol><ol type="1" id="1af67645-92b5-802e-9f72-d8a19ba68292" class="numbered-list" start="4"><li><strong>MODE_PRIVATE</strong> – Restricts access to <strong>only the app itself</strong> (default mode).<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8005-aba8-c1a9b9c133d7" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">getSharedPreferences(&quot;MyPrefs&quot;, MODE_PRIVATE);
+</code></pre></li></ol><ol type="1" id="1af67645-92b5-8078-845c-f04b6fc4cc65" class="numbered-list" start="5"><li><strong>MODE_WORLD_READABLE</strong> – Allows <strong>other apps to read</strong> preferences (deprecated).</li></ol><ol type="1" id="1af67645-92b5-80f2-968c-e7767080febf" class="numbered-list" start="6"><li><strong>MODE_WORLD_WRITEABLE</strong> – Allows <strong>other apps to modify</strong> preferences (deprecated).</li></ol></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

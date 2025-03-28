@@ -1,0 +1,685 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 4</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1ac67645-92b5-80c8-8eab-def02b1cd5fd" class="page sans"><header><h1 class="page-title">Unit 4</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Cloud%20Computing%206352a4b6d64e4eab925217ee490c1bc6.html"><img class="icon" src="https://www.notion.so/icons/computer_gray.svg"/>Cloud Computing</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td></td></tr></tbody></table></header><div class="page-body"><h3 id="1ac67645-92b5-8094-9fb0-eaf7b6193280" class=""><strong>Q1: Explain the role of controller deployment in OpenStack.</strong></h3><p id="1ac67645-92b5-804c-91f8-c5d5bda50715" class="">The <strong>Controller Node</strong> in OpenStack is the <strong>central management unit</strong> responsible for coordinating the entire cloud infrastructure. It provides <strong>authentication, networking, storage, and orchestration services</strong>.</p><h3 id="1ac67645-92b5-8091-9b56-d6f761206ea6" class=""><strong>Roles and Responsibilities of the Controller Node:</strong></h3><ol type="1" id="1ac67645-92b5-8024-8f5f-d83ee5ef6d93" class="numbered-list" start="1"><li><strong>Identity Management (Keystone)</strong><ul id="1ac67645-92b5-8039-ab98-f4716bc5fb27" class="bulleted-list"><li style="list-style-type:disc">Handles authentication and authorization for users and services.</li></ul></li></ol><ol type="1" id="1ac67645-92b5-80a8-83ad-d5a167d167fa" class="numbered-list" start="2"><li><strong>Dashboard (Horizon)</strong><ul id="1ac67645-92b5-80fd-a7cc-c4c05cd5b4e6" class="bulleted-list"><li style="list-style-type:disc">Provides a web-based interface for managing OpenStack components.</li></ul></li></ol><ol type="1" id="1ac67645-92b5-803d-bc3a-c08a7856ad11" class="numbered-list" start="3"><li><strong>Networking (Neutron)</strong><ul id="1ac67645-92b5-809b-9419-dae17027a854" class="bulleted-list"><li style="list-style-type:disc">Manages networking services, IP addresses, and virtual networks.</li></ul></li></ol><ol type="1" id="1ac67645-92b5-80c7-8c18-cb6df8c6bc44" class="numbered-list" start="4"><li><strong>Compute Scheduling (Nova-Scheduler)</strong><ul id="1ac67645-92b5-80ee-8caa-ebdcb31a685f" class="bulleted-list"><li style="list-style-type:disc">Assigns virtual machines (VMs) to compute nodes based on resources.</li></ul></li></ol><ol type="1" id="1ac67645-92b5-8014-8002-fd5a199a77f7" class="numbered-list" start="5"><li><strong>Storage Services (Cinder &amp; Swift)</strong><ul id="1ac67645-92b5-8024-9434-db072e4b611a" class="bulleted-list"><li style="list-style-type:disc"><strong>Cinder</strong> provides block storage, while <strong>Swift</strong> manages object storage.</li></ul></li></ol><ol type="1" id="1ac67645-92b5-8005-90be-cdb90e9f26f7" class="numbered-list" start="6"><li><strong>Message Queue (RabbitMQ)</strong><ul id="1ac67645-92b5-80df-ab62-d62a2634aa5f" class="bulleted-list"><li style="list-style-type:disc">Facilitates communication between OpenStack services.</li></ul></li></ol><ol type="1" id="1ac67645-92b5-8030-8928-d27918a69e8f" class="numbered-list" start="7"><li><strong>Image Service (Glance)</strong><ul id="1ac67645-92b5-80ad-b946-c27c069c48c9" class="bulleted-list"><li style="list-style-type:disc">Stores and manages VM images for instance deployment.</li></ul></li></ol><ol type="1" id="1ac67645-92b5-800b-8623-d449e612c7fc" class="numbered-list" start="8"><li><strong>Orchestration (Heat)</strong><ul id="1ac67645-92b5-809a-acaf-cebfa7e6e114" class="bulleted-list"><li style="list-style-type:disc">Automates infrastructure deployment using templates.</li></ul></li></ol><h3 id="1ac67645-92b5-8086-8b31-f2384bad5c0c" class=""><strong>Importance of Controller Node:</strong></h3><ul id="1ac67645-92b5-80c0-9b0f-dfc592b7f34f" class="bulleted-list"><li style="list-style-type:disc">Acts as the <strong>brain</strong> of the OpenStack cloud.</li></ul><ul id="1ac67645-92b5-807f-89ba-d085f814214c" class="bulleted-list"><li style="list-style-type:disc">Ensures <strong>efficient resource allocation and management</strong>.</li></ul><ul id="1ac67645-92b5-80ed-81ae-d5c1f383807b" class="bulleted-list"><li style="list-style-type:disc">Provides a <strong>centralized control panel</strong> for administrators.</li></ul><ul id="1ac67645-92b5-80e0-9678-dcb06ce9c641" class="bulleted-list"><li style="list-style-type:disc">Supports <strong>scalability and high availability</strong> in cloud environments.</li></ul><hr id="1ac67645-92b5-806d-a024-ceb599b3ecd3"/><h3 id="1ac67645-92b5-80b6-9642-e513768f9df5" class=""><strong>Q2: Write a short note on Public Key Infrastructure (PKI) and Single Sign-On (SSO).</strong></h3><h3 id="1ac67645-92b5-8026-9064-d3684701112c" class=""><strong>1. Public Key Infrastructure (PKI)</strong></h3><p id="1ac67645-92b5-8029-b643-f32aae302893" class="">PKI is a <strong>framework</strong> for managing <strong>digital certificates and cryptographic keys</strong> to secure communications and transactions.</p><h3 id="1ac67645-92b5-80af-9efb-cf4bf9dc7efa" class=""><strong>Components of PKI:</strong></h3><ul id="1ac67645-92b5-8058-a8b4-fae3ff3ba4b1" class="bulleted-list"><li style="list-style-type:disc"><strong>Certificate Authority (CA)</strong> – Issues and verifies digital certificates.</li></ul><ul id="1ac67645-92b5-8043-a526-f93278199841" class="bulleted-list"><li style="list-style-type:disc"><strong>Registration Authority (RA)</strong> – Authenticates certificate requests.</li></ul><ul id="1ac67645-92b5-80c4-bfa2-d9597758c9cd" class="bulleted-list"><li style="list-style-type:disc"><strong>Public &amp; Private Keys</strong> – Used in encryption and authentication.</li></ul><ul id="1ac67645-92b5-800e-a486-cc5794f7da24" class="bulleted-list"><li style="list-style-type:disc"><strong>Digital Certificates</strong> – Verify the identity of users or devices.</li></ul><h3 id="1ac67645-92b5-8028-b04f-d2460f2e2ab1" class=""><strong>Uses of PKI in Cloud Computing:</strong></h3><ul id="1ac67645-92b5-8059-bca5-e83ab94c03b2" class="bulleted-list"><li style="list-style-type:disc"><strong>Secure data encryption</strong> using SSL/TLS protocols.</li></ul><ul id="1ac67645-92b5-8002-9158-f1ccbb72ee3e" class="bulleted-list"><li style="list-style-type:disc"><strong>Digital signatures</strong> for authentication and integrity.</li></ul><ul id="1ac67645-92b5-80a5-9cc0-e23ea983c9b7" class="bulleted-list"><li style="list-style-type:disc"><strong>Identity verification</strong> for cloud users and services.</li></ul><hr id="1ac67645-92b5-8069-a65a-f57570982fcc"/><h3 id="1ac67645-92b5-80b5-923b-cee13e250af2" class=""><strong>2. Single Sign-On (SSO)</strong></h3><p id="1ac67645-92b5-80bd-b64a-d33c8e49ef4b" class="">SSO is an <strong>authentication mechanism</strong> that allows users to log in <strong>once</strong> and gain access to multiple applications or services <strong>without re-entering credentials</strong>.</p><h3 id="1ac67645-92b5-8032-aaa7-fccd51d66a02" class=""><strong>Working of SSO:</strong></h3><ol type="1" id="1ac67645-92b5-8096-91c2-d34a9b3fb187" class="numbered-list" start="1"><li>The user logs in <strong>once</strong> with a central authentication server.</li></ol><ol type="1" id="1ac67645-92b5-800b-b108-c32252eb265d" class="numbered-list" start="2"><li>A <strong>token</strong> is issued and used to authenticate the user across multiple applications.</li></ol><ol type="1" id="1ac67645-92b5-803a-a3ca-e0623aef1a54" class="numbered-list" start="3"><li>The user gains <strong>seamless access</strong> to various services <strong>without repeated logins</strong>.</li></ol><h3 id="1ac67645-92b5-8027-9bf7-d38a957ecd9e" class=""><strong>Examples of SSO:</strong></h3><ul id="1ac67645-92b5-80bb-8d7b-fe4ec5b816a4" class="bulleted-list"><li style="list-style-type:disc"><strong>Google SSO</strong> (Login once to access Gmail, Drive, YouTube).</li></ul><ul id="1ac67645-92b5-80c5-95c3-d589796c43f1" class="bulleted-list"><li style="list-style-type:disc"><strong>Microsoft Azure SSO</strong> (Access Office 365, Teams, OneDrive).</li></ul><hr id="1ac67645-92b5-8094-ba13-ef6443db5ff7"/><h3 id="1ac67645-92b5-8086-97d8-e4171d538d20" class=""><strong>Q3: What are the steps involved in deploying OpenStack in a production environment?</strong></h3><p id="1ac67645-92b5-809f-b8b1-eff9a0762d06" class="">Deploying OpenStack for production requires careful planning and configuration.</p><h3 id="1ac67645-92b5-80f0-87d4-fad44aef06a2" class=""><strong>Steps for OpenStack Production Deployment:</strong></h3><ol type="1" id="1ac67645-92b5-80af-bc74-d551ba515233" class="numbered-list" start="1"><li><strong>Choose a Deployment Method</strong><ul id="1ac67645-92b5-8079-bfad-d1b656860ec0" class="bulleted-list"><li style="list-style-type:disc">Manual installation (via CLI).</li></ul><ul id="1ac67645-92b5-8083-8bba-ffee9f24ce19" class="bulleted-list"><li style="list-style-type:disc">Automated deployment (using Ansible, Juju, or Packstack).</li></ul></li></ol><ol type="1" id="1ac67645-92b5-80e9-868e-fa807151d423" class="numbered-list" start="2"><li><strong>Set Up Controller Node</strong><ul id="1ac67645-92b5-8007-abf7-fe3af31362d2" class="bulleted-list"><li style="list-style-type:disc">Install OpenStack Identity (Keystone).</li></ul><ul id="1ac67645-92b5-80a6-92d3-eca8b13aaff7" class="bulleted-list"><li style="list-style-type:disc">Configure Networking (Neutron).</li></ul><ul id="1ac67645-92b5-805c-8db9-c22eeaa86c02" class="bulleted-list"><li style="list-style-type:disc">Set up storage (Cinder &amp; Swift).</li></ul></li></ol><ol type="1" id="1ac67645-92b5-806e-808b-f5f0dbce5636" class="numbered-list" start="3"><li><strong>Deploy Compute Nodes</strong><ul id="1ac67645-92b5-807e-b8ff-efd221098d3d" class="bulleted-list"><li style="list-style-type:disc">Install <strong>Nova Compute</strong> for virtual machine management.</li></ul><ul id="1ac67645-92b5-80bb-97ba-e76f199ba071" class="bulleted-list"><li style="list-style-type:disc">Configure <strong>hypervisors</strong> (KVM, Xen, or VMware).</li></ul></li></ol><ol type="1" id="1ac67645-92b5-80e9-ac74-e00f523fb0de" class="numbered-list" start="4"><li><strong>Configure Storage Services</strong><ul id="1ac67645-92b5-80ed-b80d-e2f90ed6e135" class="bulleted-list"><li style="list-style-type:disc">Use <strong>Cinder</strong> for block storage.</li></ul><ul id="1ac67645-92b5-80b4-9de8-e6efa05b0edc" class="bulleted-list"><li style="list-style-type:disc">Use <strong>Swift</strong> for object storage.</li></ul></li></ol><ol type="1" id="1ac67645-92b5-80ed-8981-ed0ae83ba83b" class="numbered-list" start="5"><li><strong>Set Up Security and Access Control</strong><ul id="1ac67645-92b5-804c-915f-fbbee1b54938" class="bulleted-list"><li style="list-style-type:disc">Implement <strong>Identity and Access Management (IAM)</strong>.</li></ul><ul id="1ac67645-92b5-80cc-affa-e0bb314c83fa" class="bulleted-list"><li style="list-style-type:disc">Use <strong>firewalls and security groups</strong> for protection.</li></ul></li></ol><ol type="1" id="1ac67645-92b5-80ea-8cce-eabdcd3b22b7" class="numbered-list" start="6"><li><strong>Monitor and Optimize Performance</strong><ul id="1ac67645-92b5-808c-af88-fb8a34c43819" class="bulleted-list"><li style="list-style-type:disc">Use <strong>Telemetry (Ceilometer)</strong> to track usage and performance.</li></ul><ul id="1ac67645-92b5-80e1-966f-f11c606610e1" class="bulleted-list"><li style="list-style-type:disc">Optimize load balancing and scaling.</li></ul></li></ol><hr id="1ac67645-92b5-80e5-b9ef-dc037244def3"/><h3 id="1ac67645-92b5-8036-923e-fb872f175b2a" class=""><strong>Q4: Difference between Symmetric Encryption and Asymmetric Encryption</strong></h3><table id="1ac67645-92b5-8087-85c9-e00f8ba64df0" class="simple-table"><tbody><tr id="1ac67645-92b5-80d1-aa88-c6f80fee4828"><td id="Q]x&gt;" class=""><strong>Feature</strong></td><td id="h}q:" class=""><strong>Symmetric Encryption</strong></td><td id="D^Dz" class=""><strong>Asymmetric Encryption</strong></td></tr><tr id="1ac67645-92b5-8050-90be-d5dab3801895"><td id="Q]x&gt;" class=""><strong>Keys Used</strong></td><td id="h}q:" class="">Single key for encryption &amp; decryption</td><td id="D^Dz" class="">Uses a public key (encryption) and private key (decryption)</td></tr><tr id="1ac67645-92b5-801d-933f-dd44f0d9971f"><td id="Q]x&gt;" class=""><strong>Speed</strong></td><td id="h}q:" class="">Faster</td><td id="D^Dz" class="">Slower</td></tr><tr id="1ac67645-92b5-80fc-8d58-f09593c2e607"><td id="Q]x&gt;" class=""><strong>Security</strong></td><td id="h}q:" class="">Less secure due to single key usage</td><td id="D^Dz" class="">More secure due to two-key mechanism</td></tr><tr id="1ac67645-92b5-808a-b834-fb8e1aba1a04"><td id="Q]x&gt;" class=""><strong>Examples</strong></td><td id="h}q:" class="">AES, DES</td><td id="D^Dz" class="">RSA, ECC</td></tr><tr id="1ac67645-92b5-80a8-8d76-f9fa6737a5d2"><td id="Q]x&gt;" class=""><strong>Use Cases</strong></td><td id="h}q:" class="">Data encryption at rest</td><td id="D^Dz" class="">Secure key exchange, digital signatures</td></tr><tr id="1ac67645-92b5-803d-b105-d57a23d4a015"><td id="Q]x&gt;" class=""><strong>Computational Overhead</strong></td><td id="h}q:" class="">Low</td><td id="D^Dz" class="">High</td></tr></tbody></table><hr id="1ac67645-92b5-806c-830b-db4e8de40fd4"/><h3 id="1ac67645-92b5-800d-b3d5-cec21a7a972f" class=""><strong>Q5: Write a short note on Hashing and Digital Signature.</strong></h3><h3 id="1ac67645-92b5-8050-91e1-f84836e85441" class=""><strong>1. Hashing</strong></h3><p id="1ac67645-92b5-8027-b349-e516a9ac6540" class="">Hashing is a <strong>one-way cryptographic process</strong> that converts data into a <strong>fixed-length hash value</strong>.</p><h3 id="1ac67645-92b5-8029-aa06-c0c58ed543f7" class=""><strong>Properties of Hashing:</strong></h3><ul id="1ac67645-92b5-800e-8ab5-f48bd84f7fb0" class="bulleted-list"><li style="list-style-type:disc"><strong>Deterministic</strong> – The same input always produces the same output.</li></ul><ul id="1ac67645-92b5-8065-92d9-c347b506ad0f" class="bulleted-list"><li style="list-style-type:disc"><strong>Irreversible</strong> – Cannot retrieve original data from hash.</li></ul><ul id="1ac67645-92b5-807b-8896-d8a1943e4119" class="bulleted-list"><li style="list-style-type:disc"><strong>Fast Computation</strong> – Efficient processing even for large data.</li></ul><h3 id="1ac67645-92b5-80bd-89e1-c5beb2b9fcbe" class=""><strong>Examples of Hashing Algorithms:</strong></h3><ul id="1ac67645-92b5-8071-a740-c49d73015de4" class="bulleted-list"><li style="list-style-type:disc"><strong>MD5</strong> (128-bit hash, weak security).</li></ul><ul id="1ac67645-92b5-809d-8a3b-fa8cc861ebb1" class="bulleted-list"><li style="list-style-type:disc"><strong>SHA-256</strong> (256-bit hash, strong security).</li></ul><h3 id="1ac67645-92b5-8097-a416-ed312fe3aee2" class=""><strong>Uses in Cloud Security:</strong></h3><ul id="1ac67645-92b5-809e-957e-d587376146a5" class="bulleted-list"><li style="list-style-type:disc"><strong>Password storage</strong> (hashed passwords instead of plaintext).</li></ul><ul id="1ac67645-92b5-8064-bfee-d70f4c849c1a" class="bulleted-list"><li style="list-style-type:disc"><strong>Data integrity verification</strong>.</li></ul><hr id="1ac67645-92b5-8026-9829-c875f506c42b"/><h3 id="1ac67645-92b5-808b-bd9d-de67b98a0437" class=""><strong>2. Digital Signature</strong></h3><p id="1ac67645-92b5-8094-928f-f3c021f86940" class="">A <strong>digital signature</strong> is a cryptographic technique that ensures:</p><ol type="1" id="1ac67645-92b5-8075-8817-cad61fa90fd2" class="numbered-list" start="1"><li><strong>Authentication</strong> – Confirms the sender’s identity.</li></ol><ol type="1" id="1ac67645-92b5-80f3-a0b4-ed15fa261b70" class="numbered-list" start="2"><li><strong>Integrity</strong> – Ensures data is not altered.</li></ol><ol type="1" id="1ac67645-92b5-8049-b487-cbd02613b089" class="numbered-list" start="3"><li><strong>Non-repudiation</strong> – Prevents the sender from denying they signed a document.</li></ol><h3 id="1ac67645-92b5-804e-bf1d-e788fc0e1657" class=""><strong>Working of Digital Signature:</strong></h3><ol type="1" id="1ac67645-92b5-80d1-afb2-cf065400bae4" class="numbered-list" start="1"><li>Sender hashes the message.</li></ol><ol type="1" id="1ac67645-92b5-804b-8d77-fb4ba0fcbe2c" class="numbered-list" start="2"><li>The hash is encrypted using the sender’s <strong>private key</strong>.</li></ol><ol type="1" id="1ac67645-92b5-80b0-8fe9-c10e92cbc1ae" class="numbered-list" start="3"><li>The receiver verifies the signature using the sender’s <strong>public key</strong>.</li></ol><h3 id="1ac67645-92b5-808e-ad44-c913fb79b64c" class=""><strong>Example:</strong></h3><ul id="1ac67645-92b5-803f-9d93-e8ff69a18942" class="bulleted-list"><li style="list-style-type:disc"><strong>RSA Digital Signature Algorithm (DSA)</strong> used in secure email communication.</li></ul><hr id="1ac67645-92b5-8009-8af5-c92f6d991ccb"/><h3 id="1ac67645-92b5-8042-bc81-fc0fb679da06" class=""><strong>Q6: What is SSO? What are the advantages of SSO?</strong></h3><p id="1ac67645-92b5-8019-938e-e2b200b9e024" class=""><strong>Single Sign-On (SSO)</strong> is an authentication process that allows users to log in once and access multiple applications <strong>without repeated credential entry</strong>.</p><h3 id="1ac67645-92b5-8050-b401-d02d57bc00c4" class=""><strong>Advantages of SSO:</strong></h3><ol type="1" id="1ac67645-92b5-807e-802b-cb07731a4405" class="numbered-list" start="1"><li><strong>User Convenience</strong> – No need to remember multiple passwords.</li></ol><ol type="1" id="1ac67645-92b5-80c5-8d87-eff1572b2b9c" class="numbered-list" start="2"><li><strong>Enhanced Security</strong> – Reduces the risk of weak passwords.</li></ol><ol type="1" id="1ac67645-92b5-8046-a3c1-fa5f3ff0e458" class="numbered-list" start="3"><li><strong>Improved Productivity</strong> – Saves time by eliminating multiple logins.</li></ol><ol type="1" id="1ac67645-92b5-809d-8977-d2e77651f978" class="numbered-list" start="4"><li><strong>Centralized Control</strong> – Admins can manage user access more efficiently.</li></ol><ol type="1" id="1ac67645-92b5-8027-8907-e68e34af8c26" class="numbered-list" start="5"><li><strong>Reduces IT Costs</strong> – Fewer password reset requests.</li></ol><p id="1ac67645-92b5-80d0-81f6-fe95292b021c" class=""><strong>Examples:</strong> Google SSO, Facebook Login, Microsoft Azure SSO.</p><hr id="1ac67645-92b5-8068-817a-cd3d5349966c"/><h3 id="1ac67645-92b5-805f-b66d-eabb5bcf7963" class=""><strong>Q7: What is Identity and Access Management (IAM)?</strong></h3><p id="1ac67645-92b5-80fa-b5d5-e273d5f1fe5f" class=""><strong>Identity and Access Management (IAM)</strong> is a security framework that controls <strong>who can access cloud resources</strong> and <strong>what actions they can perform</strong>.</p><h3 id="1ac67645-92b5-80cb-860d-c55ff56ae426" class=""><strong>Components of IAM:</strong></h3><ol type="1" id="1ac67645-92b5-80dd-aa42-e89a9a0cad70" class="numbered-list" start="1"><li><strong>Authentication</strong> – Verifies user identity (via passwords, biometrics, MFA).</li></ol><ol type="1" id="1ac67645-92b5-803b-8a12-c18d6b3b2f86" class="numbered-list" start="2"><li><strong>Authorization</strong> – Grants permissions to users based on roles.</li></ol><ol type="1" id="1ac67645-92b5-808b-bab1-d822abf7ed88" class="numbered-list" start="3"><li><strong>User Management</strong> – Admins can add, modify, or remove user accounts.</li></ol><ol type="1" id="1ac67645-92b5-8034-bafc-e790e36c1761" class="numbered-list" start="4"><li><strong>Access Control Policies</strong> – Defines rules for accessing cloud resources.</li></ol><h3 id="1ac67645-92b5-80c2-98e1-c113b0782999" class=""><strong>Benefits of IAM in Cloud Computing:</strong></h3><ul id="1ac67645-92b5-80ca-8853-d2fb3cbe969b" class="bulleted-list"><li style="list-style-type:disc"><strong>Improves security</strong> by restricting unauthorized access.</li></ul><ul id="1ac67645-92b5-80b9-8104-e58191c8d72c" class="bulleted-list"><li style="list-style-type:disc"><strong>Ensures compliance</strong> with regulations (e.g., GDPR, HIPAA).</li></ul><ul id="1ac67645-92b5-8001-ac05-c4a5688654c0" class="bulleted-list"><li style="list-style-type:disc"><strong>Enhances operational efficiency</strong> through centralized access control.</li></ul><p id="1ac67645-92b5-800e-aaf0-f00883dfebbf" class=""><strong>Examples:</strong> AWS IAM, Azure Active Directory, Google Cloud IAM.</p><hr id="1ac67645-92b5-8071-b747-f15652726646"/><h3 id="1ac67645-92b5-80f2-8ba9-ecc1dc0e3c38" class=""><strong>Q8: What are Cloud-Based Security Groups?</strong></h3><p id="1ac67645-92b5-80e0-8b5c-c579eb21284e" class=""><strong>Security Groups</strong> in cloud computing are <strong>firewall-like rules</strong> that control <strong>inbound and outbound network traffic</strong> for virtual machines (VMs).</p><h3 id="1ac67645-92b5-8074-ada3-cafe8c8929b9" class=""><strong>Features of Security Groups:</strong></h3><ol type="1" id="1ac67645-92b5-80eb-af97-fcc6023eb908" class="numbered-list" start="1"><li><strong>Traffic Filtering</strong> – Define <strong>allow/deny rules</strong> for IP addresses and ports.</li></ol><ol type="1" id="1ac67645-92b5-80cb-a570-f5dd08aaa19f" class="numbered-list" start="2"><li><strong>Stateful Firewall</strong> – If incoming traffic is allowed, the response traffic is automatically permitted.</li></ol><ol type="1" id="1ac67645-92b5-803c-b15c-e16cd411a81b" class="numbered-list" start="3"><li><strong>Granular Access Control</strong> – Allows restrictions at the <strong>instance level</strong>.</li></ol><ol type="1" id="1ac67645-92b5-80ae-9698-c98add39528e" class="numbered-list" start="4"><li><strong>Dynamic Updates</strong> – Security group rules can be modified in real-time.</li></ol><h3 id="1ac67645-92b5-80a5-a59e-d1ea2fb983f7" class=""><strong>Example in OpenStack:</strong></h3><ul id="1ac67645-92b5-80a8-948a-ff5f2314feda" class="bulleted-list"><li style="list-style-type:disc">Create a security group rule allowing <strong>SSH access (port 22)</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ac67645-92b5-804c-ae51-dedb19a7afb8" class="code"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">openstack security group rule create --protocol tcp --dst-port 22 --remote-ip 0.0.0.0/0 SECURITY_GROUP_ID
+</code></pre></li></ul><h3 id="1ac67645-92b5-80fe-ac18-f66a022102c6" class=""><strong>Benefits:</strong></h3><ul id="1ac67645-92b5-8005-86a4-e74423fe8ca7" class="bulleted-list"><li style="list-style-type:disc">Enhances <strong>network security</strong> for cloud applications.</li></ul><ul id="1ac67645-92b5-8031-bfc2-f84dcf701adf" class="bulleted-list"><li style="list-style-type:disc">Prevents <strong>unauthorized access</strong> to cloud instances.</li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

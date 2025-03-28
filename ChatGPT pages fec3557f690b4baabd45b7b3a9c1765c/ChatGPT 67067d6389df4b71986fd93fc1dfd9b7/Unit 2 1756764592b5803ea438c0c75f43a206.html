@@ -1,0 +1,687 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="17567645-92b5-803e-a438-c0c75f43a206" class="page sans"><header><h1 class="page-title">Unit 2</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Ethical%20Hacking%20359edc2bebda4eb7bdce213b4e960664.html"><img class="icon" src="https://www.notion.so/icons/laptop_gray.svg"/>Ethical Hacking</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td></td></tr></tbody></table></header><div class="page-body"><ol type="1" id="17567645-92b5-8085-9fe3-fec6ea53ec00" class="numbered-list" start="1"><li><strong>Compare between Vulnerability Assessment and Penetration Testing (5 marks)</strong>:</li></ol><p id="17567645-92b5-80ee-9bce-c52ee6743288" class="">Vulnerability Assessment (VA):</p><ul id="17567645-92b5-8090-828c-ee450e5de1d4" class="bulleted-list"><li style="list-style-type:disc">Focuses on identifying, quantifying, and categorizing potential vulnerabilities in a system or network.</li></ul><ul id="17567645-92b5-809e-ad2d-cf78fe6e8d7f" class="bulleted-list"><li style="list-style-type:disc">Provides a comprehensive, &quot;horizontal&quot; overview of the security posture.</li></ul><ul id="17567645-92b5-807b-ab6a-c06d3e68accf" class="bulleted-list"><li style="list-style-type:disc">Uses automated tools to scan for known issues without deeper interaction.</li></ul><ul id="17567645-92b5-80e2-bb1a-c2a2866a8ada" class="bulleted-list"><li style="list-style-type:disc">Aims to ensure no vulnerability goes undetected.</li></ul><p id="17567645-92b5-80eb-88a2-dbf41b410287" class="">Penetration Testing (PT):</p><ul id="17567645-92b5-800b-88e0-da9af3746ebe" class="bulleted-list"><li style="list-style-type:disc">Conducts a deep, &quot;vertical&quot; exploration to exploit identified vulnerabilities.</li></ul><ul id="17567645-92b5-80a7-be96-dfdb983e5c13" class="bulleted-list"><li style="list-style-type:disc">Simulates real-world attacks to demonstrate the potential impact of vulnerabilities.</li></ul><ul id="17567645-92b5-807a-b1e4-f9a8c052c177" class="bulleted-list"><li style="list-style-type:disc">Typically involves manual, human-driven efforts to mimic hacker behavior.</li></ul><ul id="17567645-92b5-8054-b121-e9747d46ee6c" class="bulleted-list"><li style="list-style-type:disc">Verifies the exploitability of vulnerabilities and their consequences.</li></ul><p id="17567645-92b5-8084-bcd1-c352e37e6e50" class="">The key difference is that VA focuses on breadth, while PT focuses on depth. VA identifies potential risks, while PT confirms and demonstrates their impact.</p><ol type="1" id="17567645-92b5-809a-89de-e3a46450f548" class="numbered-list" start="1"><li><strong>Pen Testing and its Types (5 marks)</strong>:</li></ol><p id="17567645-92b5-80e8-bfce-dd3e6c2bdd29" class="">Penetration testing, or pen testing, is the practice of simulating cyber attacks to evaluate the security of a system or network. There are three main types of pen testing:</p><p id="17567645-92b5-8057-b8d4-cbb9b06af45d" class="">a. <strong>Black Box Pen Testing</strong>:</p><ul id="17567645-92b5-800e-91d4-d6a1a7b32fd8" class="bulleted-list"><li style="list-style-type:disc">Tester has no prior knowledge of the target system.</li></ul><ul id="17567645-92b5-8091-a9a6-e3d8724dbf72" class="bulleted-list"><li style="list-style-type:disc">Mimics an external, unknown attacker.</li></ul><ul id="17567645-92b5-80e4-859c-dee3f8d58f01" class="bulleted-list"><li style="list-style-type:disc">Focuses on functionality without internal system details.</li></ul><ul id="17567645-92b5-805b-94cd-dd41dbe32be0" class="bulleted-list"><li style="list-style-type:disc">Tests the system from an end-user&#x27;s perspective.</li></ul><p id="17567645-92b5-803c-ae6d-c0727707f155" class="">b. <strong>White Box Pen Testing</strong>:</p><ul id="17567645-92b5-8013-8093-cb9eeedfff53" class="bulleted-list"><li style="list-style-type:disc">Tester has full access to internal system information, such as source code and architecture.</li></ul><ul id="17567645-92b5-805a-a351-e42c21a12c00" class="bulleted-list"><li style="list-style-type:disc">Simulates an insider threat or a developer testing their own system.</li></ul><ul id="17567645-92b5-800a-b31f-f7a40aff8a24" class="bulleted-list"><li style="list-style-type:disc">Examines the system&#x27;s internal workings and logic.</li></ul><ul id="17567645-92b5-8010-94f1-e991aad075fb" class="bulleted-list"><li style="list-style-type:disc">Ensures all independent paths are tested and all logical decisions are verified.</li></ul><p id="17567645-92b5-80a8-aee4-c2196e5532f8" class="">c. <strong>Grey Box Pen Testing</strong>:</p><ul id="17567645-92b5-8044-bd2b-c11ff3dcfb4d" class="bulleted-list"><li style="list-style-type:disc">Tester has partial knowledge of the internal system details.</li></ul><ul id="17567645-92b5-8054-9772-fb9e3a3846ef" class="bulleted-list"><li style="list-style-type:disc">Combines elements of both black box and white box testing.</li></ul><ul id="17567645-92b5-8061-ac4a-c8942a020072" class="bulleted-list"><li style="list-style-type:disc">Mimics an attacker with some insider information about the target.</li></ul><ul id="17567645-92b5-8064-bdc6-ce0c38d0c211" class="bulleted-list"><li style="list-style-type:disc">Provides a balanced perspective between external and internal threats.</li></ul><ol type="1" id="17567645-92b5-807d-8e80-e9640922dc29" class="numbered-list" start="1"><li><strong>SQL Injection Attack and Preventions (5 marks)</strong>:</li></ol><p id="17567645-92b5-8009-b4a4-e342479b8d98" class=""><strong>SQL Injection Attack:</strong><br/>SQL injection is a technique where malicious SQL statements are inserted into application queries to manipulate the database. This can lead to unauthorized access, data manipulation, or even complete system takeover.<br/></p><p id="17567645-92b5-80eb-bb21-dc8854c16811" class=""><strong>Example Payload:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="17567645-92b5-8036-ad43-c73d3e2ba6cb" class="code"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">SELECT * FROM users WHERE username = &#x27;admin&#x27; OR &#x27;1&#x27;=&#x27;1&#x27;;
+</code></pre><p id="17567645-92b5-80e7-bcf6-ee0f5ede5b23" class="">This payload tricks the application into returning all user records, bypassing authentication.</p><p id="17567645-92b5-8055-b7f4-cc66eddb472d" class=""><strong>Preventions:</strong></p><ol type="1" id="17567645-92b5-807a-918c-f49f95b92481" class="numbered-list" start="1"><li><strong>Parameterized Queries</strong>: Use prepared statements with parameters instead of directly concatenating user input into SQL queries.</li></ol><ol type="1" id="17567645-92b5-805f-905c-e2fad481997e" class="numbered-list" start="2"><li><strong>Input Validation</strong>: Thoroughly validate and sanitize all user inputs to ensure they conform to expected formats and do not contain malicious code.</li></ol><ol type="1" id="17567645-92b5-80b9-ac56-ee02def9dc1f" class="numbered-list" start="3"><li><strong>Principle of Least Privilege</strong>: Grant the minimum database permissions required for the application to function, reducing the impact of a successful SQL injection attack.</li></ol><p id="17567645-92b5-80e9-96a3-e5fb03381210" class="">
+</p><ol type="1" id="17567645-92b5-8021-bb8c-d8fa54eb74e3" class="numbered-list" start="1"><li><strong>Phases of Ethical Hacking (5 marks)</strong>:</li></ol><p id="17567645-92b5-801a-90f2-e29ed13902cb" class="">The typical phases of ethical hacking are:</p><ol type="1" id="17567645-92b5-80d7-8c02-d1663fdf84f3" class="numbered-list" start="1"><li><strong>Information Gathering</strong>:<ul id="17567645-92b5-8025-9004-f948d8fb3761" class="bulleted-list"><li style="list-style-type:disc">Collect information about the target system, network, and environment.</li></ul><ul id="17567645-92b5-805d-853e-ea557ec4c871" class="bulleted-list"><li style="list-style-type:disc">Gather details such as IP addresses, domain names, software versions, and potential vulnerabilities.</li></ul></li></ol><ol type="1" id="17567645-92b5-800d-b819-e084d7e9bfd2" class="numbered-list" start="2"><li><strong>Vulnerability Assessment</strong>:<ul id="17567645-92b5-805e-967c-ceaf14cf5178" class="bulleted-list"><li style="list-style-type:disc">Identify and catalog security weaknesses in the target system.</li></ul><ul id="17567645-92b5-800e-938e-ec5b8f1ec2e9" class="bulleted-list"><li style="list-style-type:disc">Use automated tools and manual techniques to scan for known vulnerabilities.</li></ul></li></ol><ol type="1" id="17567645-92b5-808c-847f-da238cbcc1f1" class="numbered-list" start="3"><li><strong>Penetration Testing</strong>:<ul id="17567645-92b5-80cb-a7c2-d3ed9accefd1" class="bulleted-list"><li style="list-style-type:disc">Attempt to exploit the identified vulnerabilities to gain unauthorized access or execute malicious actions.</li></ul><ul id="17567645-92b5-8030-9c92-eef3757a1884" class="bulleted-list"><li style="list-style-type:disc">Simulate real-world attack scenarios to demonstrate the potential impact of vulnerabilities.</li></ul></li></ol><ol type="1" id="17567645-92b5-804d-9d5b-d5e9560dc05b" class="numbered-list" start="4"><li><strong>Post-Exploitation</strong>:<ul id="17567645-92b5-8060-b374-fe19b9c08548" class="bulleted-list"><li style="list-style-type:disc">Maintain access to the compromised system and explore further possibilities for data extraction or privilege escalation.</li></ul><ul id="17567645-92b5-80ea-a68e-e3892039e850" class="bulleted-list"><li style="list-style-type:disc">Gather evidence and document the findings.</li></ul></li></ol><ol type="1" id="17567645-92b5-808a-9074-e1957be33d88" class="numbered-list" start="5"><li><strong>Reporting and Remediation</strong>:<ul id="17567645-92b5-80c5-8c73-f60bd80d6f88" class="bulleted-list"><li style="list-style-type:disc">Compile a comprehensive report detailing the findings, impact, and recommendations for remediation.</li></ul><ul id="17567645-92b5-80f3-af46-cdf5ca17d220" class="bulleted-list"><li style="list-style-type:disc">Provide the client with actionable steps to address the identified security issues.</li></ul></li></ol><p id="17567645-92b5-8060-bc3e-ffb306ab9ed3" class="">These phases, when executed systematically, help organizations improve their overall security posture by identifying and addressing vulnerabilities before they can be exploited by malicious actors.</p><ol type="1" id="17567645-92b5-804d-8c54-dcd6f0e721bb" class="numbered-list" start="1"><li><strong>Purpose of Vulnerability Assessment and its Steps (5 marks)</strong>:</li></ol><p id="17567645-92b5-8008-9196-ce64b8cc8e57" class="">The primary purpose of Vulnerability Assessment (VA) is to identify and catalog security weaknesses in a system or network that could be exploited by attackers.</p><p id="17567645-92b5-808f-a3f7-eba5a70a538f" class=""><strong>Steps in Vulnerability Assessment:</strong></p><ol type="1" id="17567645-92b5-801a-a076-fd4660b8d1ad" class="numbered-list" start="1"><li><strong>Scanning</strong>:<ul id="17567645-92b5-80be-b08a-c8d7915acc1c" class="bulleted-list"><li style="list-style-type:disc">Use automated tools to scan the target system for known vulnerabilities.</li></ul><ul id="17567645-92b5-809e-8606-c78d3c07f6a8" class="bulleted-list"><li style="list-style-type:disc">Detect missing patches, misconfigurations, and other security flaws.</li></ul></li></ol><ol type="1" id="17567645-92b5-80ae-962b-cdb018b4ff86" class="numbered-list" start="2"><li><strong>Assessment</strong>:<ul id="17567645-92b5-8036-850a-d4885ea5c12d" class="bulleted-list"><li style="list-style-type:disc">Analyze the severity and potential impact of the identified vulnerabilities.</li></ul><ul id="17567645-92b5-80d2-85fd-ed2dffc34417" class="bulleted-list"><li style="list-style-type:disc">Prioritize the vulnerabilities based on risk factors such as exploit complexity and business impact.</li></ul></li></ol><ol type="1" id="17567645-92b5-8080-b58f-fe78bc8e50f7" class="numbered-list" start="3"><li><strong>Reporting</strong>:<ul id="17567645-92b5-80fc-a0a5-eb3f83d709dc" class="bulleted-list"><li style="list-style-type:disc">Document the findings in a comprehensive report.</li></ul><ul id="17567645-92b5-802e-952e-cf75db5b2d61" class="bulleted-list"><li style="list-style-type:disc">Provide detailed information about each vulnerability, including its description, severity, and potential consequences.</li></ul></li></ol><ol type="1" id="17567645-92b5-80b6-8127-cb8d735fbc56" class="numbered-list" start="4"><li><strong>Remediation</strong>:<ul id="17567645-92b5-803d-87b0-d225861e1b46" class="bulleted-list"><li style="list-style-type:disc">Recommend appropriate actions to mitigate or eliminate the identified vulnerabilities.</li></ul><ul id="17567645-92b5-803a-a4a2-f7a66016f49e" class="bulleted-list"><li style="list-style-type:disc">Provide guidance on implementing security patches, configuration changes, or other countermeasures.</li></ul></li></ol><ol type="1" id="17567645-92b5-80f7-8e48-f49a835298e4" class="numbered-list" start="5"><li><strong>Verification</strong>:<ul id="17567645-92b5-80e1-b62c-ccdd5382d65e" class="bulleted-list"><li style="list-style-type:disc">Repeat the assessment process to ensure the implemented remediation measures are effective.</li></ul><ul id="17567645-92b5-80da-b4cb-ece5b7baea97" class="bulleted-list"><li style="list-style-type:disc">Validate that the vulnerabilities have been adequately addressed.</li></ul></li></ol><p id="17567645-92b5-8041-bb95-cc317647f94c" class="">By conducting regular vulnerability assessments, organizations can proactively identify and address security weaknesses, reducing the risk of successful attacks and improving their overall security posture.</p><ol type="1" id="17567645-92b5-806a-ae88-fd228eed30f6" class="numbered-list" start="1"><li><strong>Cross-Site Request Forgery (CSRF/XSRF) (5 marks)</strong>:</li></ol><p id="17567645-92b5-801e-a922-ea4870447f97" class="">Cross-Site Request Forgery (CSRF) is a type of attack that occurs when a malicious website tricks a user&#x27;s browser into performing an unwanted action on a trusted website where the user is currently authenticated.</p><p id="17567645-92b5-804a-91a1-c51bd405d3ba" class=""><strong>How CSRF Works:</strong></p><ol type="1" id="17567645-92b5-80cf-8250-cfd43e60543f" class="numbered-list" start="1"><li>The attacker creates a malicious script or request, often embedded in an HTML or JavaScript payload.</li></ol><ol type="1" id="17567645-92b5-80e2-ba98-f573ebf62337" class="numbered-list" start="2"><li>The victim unknowingly executes the script, which interacts with the target website on the victim&#x27;s behalf.</li></ol><ol type="1" id="17567645-92b5-80c2-b0de-e85c74a25c1f" class="numbered-list" start="3"><li>The attack can perform various actions, such as posting content, initiating transactions, or sending emails, without the victim&#x27;s knowledge or consent.</li></ol><p id="17567645-92b5-80cd-b8c1-e3e422aa048a" class=""><strong>Preventions:</strong></p><ol type="1" id="17567645-92b5-8055-b659-deb1d9099a49" class="numbered-list" start="1"><li><strong>Synchronizer Token Pattern</strong>: Generate and validate a unique token for each user session to ensure the request originates from the expected source.</li></ol><ol type="1" id="17567645-92b5-80e9-9323-e00d116622ac" class="numbered-list" start="2"><li><strong>Same-Site Cookie Attribute</strong>: Set the &quot;SameSite&quot; cookie attribute to limit the cookie&#x27;s use to the originating site, preventing its inclusion in cross-site requests.</li></ol><ol type="1" id="17567645-92b5-80c3-bcba-d2cf9ff46857" class="numbered-list" start="3"><li><strong>Referer Header Validation</strong>: Verify the Referer header to ensure the request is coming from the expected source.</li></ol><p id="17567645-92b5-80b4-9db4-e864be18417b" class=""><strong>Diagram:</strong><br/>Illustrate the CSRF attack flow, showing how the malicious script is injected into the victim&#x27;s browser and how it interacts with the target website without the user&#x27;s knowledge.<br/></p><ol type="1" id="17567645-92b5-8054-8db9-e189988ac2c6" class="numbered-list" start="1"><li><strong>Purpose of Vulnerability Assessment and its Contribution (5 marks)</strong>:</li></ol><p id="17567645-92b5-80e2-b781-c7e8611971b0" class="">The primary purpose of Vulnerability Assessment (VA) is to identify and catalog security weaknesses in a system or network that could be exploited by attackers.</p><p id="17567645-92b5-80fb-aba4-d7dc75126248" class=""><strong>Contribution to Enhancing Organizational Security:</strong></p><ol type="1" id="17567645-92b5-80c2-942c-fbc134536a34" class="numbered-list" start="1"><li><strong>Comprehensive Risk Identification</strong>:<ul id="17567645-92b5-8053-8544-e9b387d2a337" class="bulleted-list"><li style="list-style-type:disc">VA provides a detailed understanding of the organization&#x27;s security posture.</li></ul><ul id="17567645-92b5-8080-8b3d-df7ff431cebc" class="bulleted-list"><li style="list-style-type:disc">It helps identify potential entry points and weaknesses that could be exploited.</li></ul></li></ol><ol type="1" id="17567645-92b5-80fd-a953-eb32e7def7c6" class="numbered-list" start="2"><li><strong>Prioritized Remediation</strong>:<ul id="17567645-92b5-80c8-af07-fa2ac890168a" class="bulleted-list"><li style="list-style-type:disc">VA results enable organizations to prioritize remediation efforts based on risk severity.</li></ul><ul id="17567645-92b5-8073-9bfc-ec0acd56f899" class="bulleted-list"><li style="list-style-type:disc">This ensures that the most critical vulnerabilities are addressed first, effectively reducing the attack surface.</li></ul></li></ol><ol type="1" id="17567645-92b5-80f5-a250-e8637a88ce79" class="numbered-list" start="3"><li><strong>Proactive Security Posture</strong>:<ul id="17567645-92b5-8012-ad87-d79dc6c1aa8a" class="bulleted-list"><li style="list-style-type:disc">Regular VA activities help organizations stay ahead of emerging threats and vulnerabilities.</li></ul><ul id="17567645-92b5-801e-9c4e-f25ae50785f3" class="bulleted-list"><li style="list-style-type:disc">By proactively identifying and addressing weaknesses, organizations can better protect their assets and maintain business continuity.</li></ul></li></ol><ol type="1" id="17567645-92b5-801f-8a39-cdbf99b030eb" class="numbered-list" start="4"><li><strong>Compliance and Regulatory Alignment</strong>:<ul id="17567645-92b5-80a5-bc4e-e887a05788c7" class="bulleted-list"><li style="list-style-type:disc">VA reports can demonstrate an organization&#x27;s commitment to security best practices and adherence to industry standards and regulations.</li></ul><ul id="17567645-92b5-80ef-80d7-ccbbe7901299" class="bulleted-list"><li style="list-style-type:disc">This can be vital for organizations operating in highly regulated environments.</li></ul></li></ol><ol type="1" id="17567645-92b5-80ec-96f3-d93242ca1232" class="numbered-list" start="5"><li><strong>Continuous Improvement</strong>:<ul id="17567645-92b5-80ab-8093-f68ed0b2d023" class="bulleted-list"><li style="list-style-type:disc">VA findings and remediation efforts provide valuable feedback for enhancing security policies, procedures, and controls.</li></ul><ul id="17567645-92b5-80ca-a2ca-fb42c66b346a" class="bulleted-list"><li style="list-style-type:disc">This iterative process helps organizations maintain a strong and resilient security posture over time.</li></ul></li></ol><p id="17567645-92b5-8009-90b3-ff6a457e5a3f" class="">By conducting comprehensive vulnerability assessments and addressing the identified weaknesses, organizations can significantly improve their overall security, reduce the risk of successful attacks, and build trust with customers, partners, and regulators.</p><ol type="1" id="17567645-92b5-809f-87d8-d205b84f5371" class="numbered-list" start="1"><li><strong>Types of Penetration Testing and Manual vs. Automated Approaches (5 marks)</strong>:</li></ol><p id="17567645-92b5-8008-8039-e72ca5d6e5e1" class=""><strong>Types of Penetration Testing:</strong></p><ol type="1" id="17567645-92b5-8031-b644-f96cc74ac89e" class="numbered-list" start="1"><li><strong>Black Box Penetration Testing</strong>:<ul id="17567645-92b5-80ad-a68e-dc961143c818" class="bulleted-list"><li style="list-style-type:disc">Tester has no prior knowledge of the target system.</li></ul><ul id="17567645-92b5-8074-a40b-e61b820c8159" class="bulleted-list"><li style="list-style-type:disc">Simulates an external, unknown attacker.</li></ul><ul id="17567645-92b5-808f-a494-d4406dc638dc" class="bulleted-list"><li style="list-style-type:disc">Focuses on functionality without internal system details.</li></ul><ul id="17567645-92b5-8012-8a85-c603c74ba975" class="bulleted-list"><li style="list-style-type:disc">Tests the system from an end-user&#x27;s perspective.</li></ul></li></ol><ol type="1" id="17567645-92b5-80c2-a34f-db365551962e" class="numbered-list" start="2"><li><strong>White Box Penetration Testing</strong>:<ul id="17567645-92b5-80e8-834d-e5c23e27c623" class="bulleted-list"><li style="list-style-type:disc">Tester has full access to internal system information, such as source code and architecture.</li></ul><ul id="17567645-92b5-808e-b24d-e091a82b785a" class="bulleted-list"><li style="list-style-type:disc">Simulates an insider threat or a developer testing their own system.</li></ul><ul id="17567645-92b5-80a9-b3fe-c36f016fab91" class="bulleted-list"><li style="list-style-type:disc">Examines the system&#x27;s internal workings and logic.</li></ul><ul id="17567645-92b5-8013-8874-cc0989efaf18" class="bulleted-list"><li style="list-style-type:disc">Ensures all independent paths are tested and all logical decisions are verified.</li></ul></li></ol><ol type="1" id="17567645-92b5-80db-8c63-d6eb2d53e5bc" class="numbered-list" start="3"><li><strong>Grey Box Penetration Testing</strong>:<ul id="17567645-92b5-808e-848a-df2d8b4a7793" class="bulleted-list"><li style="list-style-type:disc">Tester has partial knowledge of the internal system details.</li></ul><ul id="17567645-92b5-80cc-8b54-d666b867fb52" class="bulleted-list"><li style="list-style-type:disc">Combines elements of both black box and white box testing.</li></ul><ul id="17567645-92b5-80ec-a949-d1d2d67a83ad" class="bulleted-list"><li style="list-style-type:disc">Mimics an attacker with some insider information about the target.</li></ul><ul id="17567645-92b5-804d-990e-e1748ee79747" class="bulleted-list"><li style="list-style-type:disc">Provides a balanced perspective between external and internal threats.</li></ul></li></ol><p id="17567645-92b5-805f-b7d2-c662e8edf290" class=""><strong>Manual vs. Automated Penetration Testing:</strong></p><ol type="1" id="17567645-92b5-804f-9962-dd9b9de0ca79" class="numbered-list" start="1"><li><strong>Manual Penetration Testing</strong>:<ul id="17567645-92b5-808d-ac2f-ed4548f24e7e" class="bulleted-list"><li style="list-style-type:disc">Conducted by skilled human experts who simulate real-world attack scenarios.</li></ul><ul id="17567645-92b5-80ec-a21f-c442a1adde94" class="bulleted-list"><li style="list-style-type:disc">Involves comprehensive data collection, vulnerability assessment, exploitation, and reporting.</li></ul><ul id="17567645-92b5-80c4-96cc-dbe8aa438747" class="bulleted-list"><li style="list-style-type:disc">Provides deeper, more nuanced analysis of the target system.</li></ul><ul id="17567645-92b5-80b9-9397-c3e4c36beddb" class="bulleted-list"><li style="list-style-type:disc">Time-consuming and requires extensive expertise.</li></ul></li></ol><ol type="1" id="17567645-92b5-8015-800e-f03a6ad8ee7b" class="numbered-list" start="2"><li><strong>Automated Penetration Testing</strong>:<ul id="17567645-92b5-80d7-b05c-e8f137183bf7" class="bulleted-list"><li style="list-style-type:disc">Utilizes specialized tools and scripts to quickly identify and exploit vulnerabilities.</li></ul><ul id="17567645-92b5-8071-930e-f620a2140a42" class="bulleted-list"><li style="list-style-type:disc">Provides efficient, repeatable, and consistent results.</li></ul><ul id="17567645-92b5-808a-98df-dd2d872f6f48" class="bulleted-list"><li style="list-style-type:disc">Requires less technical expertise to operate compared to manual testing.</li></ul><ul id="17567645-92b5-8000-86bb-e6b115f57c88" class="bulleted-list"><li style="list-style-type:disc">May miss some subtleties or context-specific vulnerabilities.</li></ul></li></ol><p id="17567645-92b5-80e2-9a74-cae390bdea61" class="">The choice between manual and automated approaches often depends on the scope, complexity, and criticality of the target system, as well as the available resources and expertise within the organization.</p><ol type="1" id="17567645-92b5-80b6-8287-d59d4578797a" class="numbered-list" start="1"><li><strong>Differences between Black Box and White Box Penetration Testing (5 marks)</strong>:</li></ol><p id="17567645-92b5-80db-a1b3-c3bf2f1549a9" class=""><strong>Black Box Penetration Testing:</strong></p><ul id="17567645-92b5-8070-951f-c3dc60f27945" class="bulleted-list"><li style="list-style-type:disc">Tester has no prior knowledge of the target system&#x27;s internal details.</li></ul><ul id="17567645-92b5-8038-b36d-efc51c9c5911" class="bulleted-list"><li style="list-style-type:disc">Focuses on testing the system&#x27;s functionality from an external, end-user perspective.</li></ul><ul id="17567645-92b5-8001-8ce2-e675bdd1c25b" class="bulleted-list"><li style="list-style-type:disc">Simulates an attacker with no inside information about the system.</li></ul><ul id="17567645-92b5-80ef-8c91-ffc8e770fc33" class="bulleted-list"><li style="list-style-type:disc">Test cases can be more challenging to design, as the tester has limited knowledge.</li></ul><ul id="17567645-92b5-8034-a4d3-fd175cb99138" class="bulleted-list"><li style="list-style-type:disc">May miss some vulnerabilities that are specific to the system&#x27;s internal workings.</li></ul><p id="17567645-92b5-804b-bc13-dff170261560" class=""><strong>White Box Penetration Testing:</strong></p><ul id="17567645-92b5-80a9-99f0-f4ee15f31943" class="bulleted-list"><li style="list-style-type:disc">Tester has full access to the target system&#x27;s internal information, such as source code, network architecture, and configuration details.</li></ul><ul id="17567645-92b5-80d7-9d13-f090ec643799" class="bulleted-list"><li style="list-style-type:disc">Simulates an insider threat or a developer testing their own system.</li></ul><ul id="17567645-92b5-80db-a058-c90e560a61cc" class="bulleted-list"><li style="list-style-type:disc">Examines the system&#x27;s internal logic, code structure, and vulnerability patterns.</li></ul><ul id="17567645-92b5-80d5-91b6-e24a90502e0e" class="bulleted-list"><li style="list-style-type:disc">Ensures all independent paths and logical decisions are thoroughly tested.</li></ul><ul id="17567645-92b5-80a1-a94a-ee844fc83705" class="bulleted-list"><li style="list-style-type:disc">Provides a more comprehensive and in-depth analysis of the system&#x27;s security.</li></ul><ul id="17567645-92b5-80b4-931c-ce11a5c816f6" class="bulleted-list"><li style="list-style-type:disc">Requires a deeper understanding of programming concepts and system internals.</li></ul><p id="17567645-92b5-8082-a2ed-f21b59ffbe04" class="">The key differences lie in the level of information available to the tester and the corresponding approach to identifying and exploiting vulnerabilities. Black box testing focuses on external functionality, while white box testing delves into the system&#x27;s internal workings.</p><hr id="17567645-92b5-801c-b674-d2c5eec40ea2"/><p id="17567645-92b5-8079-9ae7-d85d60341f1c" class="">Red Hat Hackers:</p><ul id="17567645-92b5-80cc-a8d6-d870c93815b7" class="bulleted-list"><li style="list-style-type:disc">Red hat hackers are a combination of white hat and black hat hacking techniques.</li></ul><ul id="17567645-92b5-80ef-9f82-d01afeedf62f" class="bulleted-list"><li style="list-style-type:disc">They focus on finding and exploiting vulnerabilities, but unlike black hat hackers, their intent is not malicious.</li></ul><ul id="17567645-92b5-801a-8538-e5455ed8aecc" class="bulleted-list"><li style="list-style-type:disc">Red hat hackers may report vulnerabilities to vendors or companies, often in exchange for a bounty or reward.</li></ul><ul id="17567645-92b5-8097-bb1f-d0cb2c0782aa" class="bulleted-list"><li style="list-style-type:disc">Their goal is to improve security and raise awareness of potential issues, rather than causing harm.</li></ul><ul id="17567645-92b5-8023-833e-cbe6e2fa5fdf" class="bulleted-list"><li style="list-style-type:disc">Red hat hackers operate in a legal gray area, as they do not always have explicit permission to test systems.</li></ul><p id="17567645-92b5-8030-bdf3-d9eb9518eba6" class="">Blue Hat Hackers:</p><ul id="17567645-92b5-80c2-aec9-f5571e9250bf" class="bulleted-list"><li style="list-style-type:disc">Blue hat hackers are security professionals who are hired by organizations to perform security testing and identify vulnerabilities.</li></ul><ul id="17567645-92b5-80c2-b7b4-f7dbd0138fa9" class="bulleted-list"><li style="list-style-type:disc">They are essentially white hat hackers, but the &quot;blue hat&quot; terminology distinguishes them from independent security researchers.</li></ul><ul id="17567645-92b5-80a9-aac5-eba618d7266b" class="bulleted-list"><li style="list-style-type:disc">Blue hat hackers are typically employed by the organization they are testing, or they work for a third-party security firm contracted by the organization.</li></ul><ul id="17567645-92b5-80f0-863c-c6ec04939f45" class="bulleted-list"><li style="list-style-type:disc">Their role is to ethically hack the target systems, document their findings, and provide recommendations for remediation.</li></ul><ul id="17567645-92b5-8013-95ad-efc6d51c93c6" class="bulleted-list"><li style="list-style-type:disc">Blue hat hacking is a legitimate, authorized activity, unlike the unauthorized actions of black hat hackers.</li></ul><p id="17567645-92b5-80b7-8f71-cd30fde85518" class="">The key differences between red hat and blue hat hackers are:</p><ol type="1" id="17567645-92b5-8090-80f1-f05471371e08" class="numbered-list" start="1"><li>Authorization:<ul id="17567645-92b5-8080-801c-f8c954548c91" class="bulleted-list"><li style="list-style-type:disc">Blue hat hackers have explicit permission and a contract to test the target organization&#x27;s systems.</li></ul><ul id="17567645-92b5-8044-996d-e57f7c68823f" class="bulleted-list"><li style="list-style-type:disc">Red hat hackers may not have such explicit authorization, operating in a legal gray area.</li></ul></li></ol><ol type="1" id="17567645-92b5-808e-a8c1-dc3f52f5ae28" class="numbered-list" start="2"><li>Motivation:<ul id="17567645-92b5-80dc-ab8d-c198c4846430" class="bulleted-list"><li style="list-style-type:disc">Blue hat hackers are hired to improve the organization&#x27;s security posture.</li></ul><ul id="17567645-92b5-8023-be06-c41394dfa9f1" class="bulleted-list"><li style="list-style-type:disc">Red hat hackers are motivated by a desire to find and report vulnerabilities, often for a reward.</li></ul></li></ol><ol type="1" id="17567645-92b5-8057-a6f9-d094d84d3bf0" class="numbered-list" start="3"><li>Scope:<ul id="17567645-92b5-8065-a0b0-f5b513ead114" class="bulleted-list"><li style="list-style-type:disc">Blue hat hackers are typically hired for a specific, contracted security assessment.</li></ul><ul id="17567645-92b5-8020-a0fe-c2089282b481" class="bulleted-list"><li style="list-style-type:disc">Red hat hackers may take a broader, more independent approach to finding vulnerabilities.</li></ul></li></ol><p id="17567645-92b5-8012-9d15-d8b330148258" class="">Both red hat and blue hat hackers share the common goal of improving security, but their approaches and authorization levels differ. Understanding these distinctions is important when discussing the various hacker personas and their roles in the cybersecurity landscape.</p><p id="17667645-92b5-80be-98f2-e8f7493a6516" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

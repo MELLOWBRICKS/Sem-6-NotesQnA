@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 4</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1af67645-92b5-80d6-a3f6-d2c37d4a2703" class="page sans"><header><h1 class="page-title">Unit 4</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Android%20Programming%205db7a135d18946689c07a2aa33ecea98.html"><img class="icon" src="https://www.notion.so/icons/robot_gray.svg"/>Android Programming</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td></td></tr></tbody></table></header><div class="page-body"><h3 id="1af67645-92b5-80ff-b12f-ca1d5ebdb63d" class=""><strong>Q7. Explain in detail the Content Providers with a diagram.</strong></h3><h3 id="1af67645-92b5-807b-9be6-e548ef667e54" class=""><strong>What is a Content Provider?</strong></h3><p id="1af67645-92b5-80ef-b812-dc5b6f1cf783" class="">A <strong>Content Provider</strong> is a component in Android that allows apps to <strong><span style="border-bottom:0.05em solid">share and manage data securely</span></strong>. It acts as an<strong><span style="border-bottom:0.05em solid"> interface </span></strong>between an application’s database and other apps, enabling them to <strong>read, write, update, and delete data</strong> without direct database access.<br/><br/><br/><strong>Key Features of a Content Provider</strong></p><p id="1af67645-92b5-8075-95eb-dbfa0602f0e2" class="">✔ <strong>Manages data sharing between apps securely</strong></p><p id="1af67645-92b5-80f8-99f6-feb7657725c1" class="">✔ <strong>Uses a URI (Uniform Resource Identifier) to access data</strong></p><p id="1af67645-92b5-801d-8af2-c435b23d0098" class="">✔ <strong>Provides CRUD (Create, Read, Update, Delete) operations</strong></p><p id="1af67645-92b5-80d0-a719-f816ffe3f81a" class="">✔ <strong>Works with SQLite, files, or even cloud-based data</strong></p><p id="1af67645-92b5-8063-ab31-dda8b3f84460" class="">✔ <strong>Accessed via </strong><code><strong>ContentResolver</strong></code><strong> class</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8091-8cf3-dc758c7ee586" class="code"><code class="language-Mermaid" style="white-space:pre-wrap;word-break:break-all">graph TD;
+    A[Application 1] --&gt;|Query| B[Content Provider]
+    B --&gt;|Data| C[SQLite Database]
+    D[Application 2] --&gt;|Insert/Update/Delete| B
+</code></pre><hr id="1af67645-92b5-806e-894c-cdd6c6a27bec"/><h3 id="1af67645-92b5-8022-b0e6-fc6b13f94bb2" class=""><strong>Q2. Explain the following</strong></h3><h3 id="1af67645-92b5-80a8-b666-d71bbfb7d341" class=""><strong>1. CursorLoader</strong></h3><p id="1af67645-92b5-80af-8dfc-cebee634f08f" class="">A <strong>CursorLoader</strong> is a specialized <code>Loader</code> used to <strong>query a database asynchronously</strong> without blocking the main UI thread. It automatically manages <strong>query execution, data updates, and lifecycle events</strong>.</p><h2 id="1af67645-92b5-80dd-9cc6-d63b35e5085a" class=""><strong>Why Use CursorLoader?</strong></h2><p id="1af67645-92b5-8065-8218-d26ab84d7937" class="">✔ <strong>Runs queries in the background</strong> (avoids ANR - Application Not Responding errors).</p><p id="1af67645-92b5-80b4-ad48-e89bc0d20d2d" class="">✔ <strong>Automatically reloads data</strong> when the database changes.</p><p id="1af67645-92b5-80b4-aa0a-e65bd80b36d0" class="">✔ <strong>Handles configuration changes (like screen rotation) gracefully</strong>.</p><h2 id="1af67645-92b5-80c5-92b9-e36929b3b52b" class=""><strong>How CursorLoader Works</strong></h2><ol type="1" id="1af67645-92b5-8050-847f-c41f6fb718d4" class="numbered-list" start="1"><li><strong>Initiate the Loader</strong> in <code>onCreateLoader()</code>.</li></ol><ol type="1" id="1af67645-92b5-80c1-82d3-eef69f26e809" class="numbered-list" start="2"><li><strong>Perform the query</strong> in <code>loadInBackground()</code>.</li></ol><ol type="1" id="1af67645-92b5-8064-a263-cf29786ac93c" class="numbered-list" start="3"><li><strong>Return results</strong> via <code>onLoadFinished()</code>.</li></ol><ol type="1" id="1af67645-92b5-808c-b064-f90f5e0a95ec" class="numbered-list" start="4"><li><strong>Release resources</strong> in <code>onLoaderReset()</code>.</li></ol><h3 id="1af67645-92b5-80d2-97be-d9c27641e933" class=""><strong>2. ContentURI</strong></h3><ul id="1af67645-92b5-80fb-84bc-cfcdbbf55b9a" class="bulleted-list"><li style="list-style-type:disc">A <strong>ContentURI (Uniform Resource Identifier)</strong> is a unique address used to access data from a <strong>Content Provider</strong>.</li></ul><ul id="1af67645-92b5-80b0-8e25-cfa40aaa0620" class="bulleted-list"><li style="list-style-type:disc">Example: <code>content://com.example.provider/places</code></li></ul><p id="1af67645-92b5-80f5-b0ea-ca21a58d7455" class="">🔹<code><strong>content://</strong></code>→ Identifies it as a ContentURI.</p><p id="1af67645-92b5-8016-a50e-cea0f5b93695" class="">🔹<code><strong>com.example.provider</strong></code>→ Authority (Content Provider name).</p><p id="1af67645-92b5-80fc-90c1-de68d575fd37" class="">🔹<code><strong>users</strong></code>→ Table or dataset.</p><p id="1af67645-92b5-80d3-9452-e874bdc0700d" class="">🔹<code><strong>id</strong></code><strong> (optional) </strong>→ Specifies a single record.</p><h3 id="1af67645-92b5-8087-b6ec-d82ea8c9caa7" class=""><strong>3. LoaderCallbacks</strong></h3><ul id="1af67645-92b5-80cd-bbdd-efdc77b93b08" class="bulleted-list"><li style="list-style-type:disc"><code>LoaderCallbacks</code> is an interface used to <strong>manage Loaders</strong> for asynchronous data loading in an Activity or Fragment. It prevents <strong>UI freezing</strong> by handling background queries efficiently.</li></ul><h3 id="1af67645-92b5-8044-b852-ce65342a4b1b" class=""><strong>Methods:</strong></h3><ol type="1" id="1af67645-92b5-80e6-8cdc-d6e05cecbeb2" class="numbered-list" start="1"><li><strong>onCreateLoader()</strong> – Initializes the loader.</li></ol><ol type="1" id="1af67645-92b5-80a4-b50d-db22b05c92db" class="numbered-list" start="2"><li><strong>onLoadFinished()</strong> – Called when data is loaded.</li></ol><ol type="1" id="1af67645-92b5-800e-b2d4-dae6bd100a65" class="numbered-list" start="3"><li><strong>onLoaderReset()</strong> – Clears data when the loader is reset.</li></ol><ul id="1af67645-92b5-801d-b4d0-fb635dcef291" class="bulleted-list"><li style="list-style-type:disc">Used for handling <strong>CursorLoader lifecycle</strong>.</li></ul><hr id="1af67645-92b5-806c-90ae-d33eea6e6a21"/><h3 id="1af67645-92b5-801c-ad03-c66b1e5c81a7" class=""><strong>Q6. Define the following terms</strong></h3><h3 id="1af67645-92b5-80a5-b12f-f4393f3fb1ee" class=""><strong>ContentResolver Class</strong></h3><p id="1af67645-92b5-8070-b3a8-f249c07c8297" class=""><code>ContentResolver</code> is a class used to <strong>interact with a Content Provider</strong> to <strong>query, insert, update, and delete data</strong> from another app or database. It acts as a <strong>bridge between an application and a Content Provider</strong>.</p><h3 id="1af67645-92b5-803b-ada9-dbc8db921d1a" class=""><strong>Key Methods:</strong></h3><ol type="1" id="1af67645-92b5-80c9-9dde-e8d2046ed0ff" class="numbered-list" start="1"><li><strong>query(Uri, projection, selection, selectionArgs, sortOrder)</strong> – Retrieves data.</li></ol><ol type="1" id="1af67645-92b5-80c0-b761-db278d8f35a7" class="numbered-list" start="2"><li><strong>insert(Uri, ContentValues)</strong> – Inserts new data.</li></ol><ol type="1" id="1af67645-92b5-80c3-a48e-e8f53a5adba0" class="numbered-list" start="3"><li><strong>update(Uri, ContentValues, where, whereArgs)</strong> – Updates existing data.</li></ol><ol type="1" id="1af67645-92b5-8089-9944-e1304305f2b2" class="numbered-list" start="4"><li><strong>delete(Uri, where, whereArgs)</strong> – Deletes data.</li></ol><p id="1af67645-92b5-80fe-bb9e-d41b9ac9e316" class="">✔ Used to <strong>access shared data</strong> between apps securely. </p><h3 id="1af67645-92b5-8055-ab12-f653ed20a23c" class=""><strong>Example:</strong> Querying Contacts</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80c8-8f76-ec713a7371bd" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">Cursor cursor = getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);</code></pre><hr id="1af67645-92b5-80bd-a801-f650453a9458"/><h3 id="1af67645-92b5-8031-a7d5-dba415622739" class=""><strong>Q3. Do as directed</strong></h3><h3 id="1af67645-92b5-80cb-8f46-faa56fd4a589" class=""><strong>1. What do you mean by Normal and Dangerous Permissions?</strong></h3><h3 id="1af67645-92b5-8062-80f9-ef05b8a035bc" class=""><strong>Difference Between Normal and Dangerous Permissions in Android</strong></h3><table id="1af67645-92b5-80fb-aff7-eb4e92584eb2" class="simple-table"><tbody><tr id="1af67645-92b5-8026-ad61-d50934d93f7c"><td id="SJO&lt;" class="" style="width:118.625px"><strong>Feature</strong></td><td id="vNtN" class="" style="width:268px"><strong>Normal Permissions</strong></td><td id="mUJO" class="" style="width:262px"><strong>Dangerous Permissions</strong></td></tr><tr id="1af67645-92b5-80c4-931c-ec44b178de58"><td id="SJO&lt;" class="" style="width:118.625px"><strong>Definition</strong></td><td id="vNtN" class="" style="width:268px">Permissions that do <strong>not affect user privacy or security</strong>.</td><td id="mUJO" class="" style="width:262px">Permissions that <strong>access sensitive user data</strong> or <strong>control device functions</strong>.</td></tr><tr id="1af67645-92b5-8001-bd96-ea35fd98bb66"><td id="SJO&lt;" class="" style="width:118.625px"><strong>User Approval</strong></td><td id="vNtN" class="" style="width:268px"><strong>Automatically granted</strong> by the system.</td><td id="mUJO" class="" style="width:262px"><strong>Requires user approval</strong> at runtime.</td></tr><tr id="1af67645-92b5-801b-aea9-f9cb62284927"><td id="SJO&lt;" class="" style="width:118.625px"><strong>Examples</strong></td><td id="vNtN" class="" style="width:268px"><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code> (Internet access, network info).</td><td id="mUJO" class="" style="width:262px"><code>READ_CONTACTS</code>, <code>ACCESS_FINE_LOCATION</code> (Contacts, location access).</td></tr><tr id="1af67645-92b5-807c-81b3-e8e9eed6453b"><td id="SJO&lt;" class="" style="width:118.625px"><strong>Declaration</strong></td><td id="vNtN" class="" style="width:268px">Only in <code>AndroidManifest.xml</code>.</td><td id="mUJO" class="" style="width:262px">Declared in <code>AndroidManifest.xml</code> and requested at runtime.</td></tr><tr id="1af67645-92b5-80e8-8543-f5d6ba9852cc"><td id="SJO&lt;" class="" style="width:118.625px"><strong>Requesting at Runtime</strong></td><td id="vNtN" class="" style="width:268px"><strong>Not required</strong> (granted by default).</td><td id="mUJO" class="" style="width:262px">Required using <code>requestPermissions()</code>.</td></tr></tbody></table><h3 id="1af67645-92b5-8017-89d9-c49e46ef2fc4" class=""><strong>Example: Requesting a Dangerous Permission (Location)</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8069-a0cf-e319fe674c1a" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">ActivityCompat.requestPermissions(this, new String[]{
+Manifest.permission.ACCESS_FINE_LOCATION}, 1);</code></pre><p id="1af67645-92b5-80da-8525-c2aaaa35d117" class="">✔ <strong>Normal permissions</strong> are safe, while <strong>dangerous permissions</strong> need user consent for privacy and security. 🚀</p><h3 id="1af67645-92b5-80eb-bd9e-f19e2948b834" class=""><strong>2. List and Explain Monitors in Android</strong></h3><h3 id="1af67645-92b5-80ac-a566-db4936ad026d" class=""><strong>Monitors in Android</strong></h3><p id="1af67645-92b5-80e2-b936-d14d7eb53f1a" class="">Monitors in Android are tools and components used to <strong>track, analyze, and optimize</strong> app performance, system resources, and security.</p><h3 id="1af67645-92b5-804b-be8f-f867fd6da2ff" class=""><strong>Types of Monitors in Android:</strong></h3><ol type="1" id="1af67645-92b5-80d1-b6f7-ec6de7f65a1b" class="numbered-list" start="1"><li><strong>Battery Monitor</strong><ul id="1af67645-92b5-800b-9b38-debc3aaf8517" class="bulleted-list"><li style="list-style-type:disc">Tracks <strong>battery consumption</strong> of apps.</li></ul><ul id="1af67645-92b5-80ba-8744-d5498bce7c5d" class="bulleted-list"><li style="list-style-type:disc">Helps optimize power usage and detect battery-draining apps.</li></ul><ul id="1af67645-92b5-80b1-8766-ec97e00c6670" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong> <code>BatteryManager</code> API provides battery status.</li></ul></li></ol><ol type="1" id="1af67645-92b5-80f1-bbe8-f0914c1b5361" class="numbered-list" start="2"><li><strong>Network Monitor</strong><ul id="1af67645-92b5-80b6-a8cf-e7f6f65f3a43" class="bulleted-list"><li style="list-style-type:disc">Monitors <strong>network usage</strong> and connection status (WiFi, Mobile Data).</li></ul><ul id="1af67645-92b5-80d6-bfef-d8d2d511ee01" class="bulleted-list"><li style="list-style-type:disc">Helps detect slow networks and data consumption.</li></ul><ul id="1af67645-92b5-80ca-9d0a-c3aa05bd06d0" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong> <code>ConnectivityManager</code> API to check network state.</li></ul></li></ol><ol type="1" id="1af67645-92b5-80a2-bd55-c237e634cc0a" class="numbered-list" start="3"><li><strong>Performance Monitor</strong><ul id="1af67645-92b5-80f4-83ac-f38ef5756082" class="bulleted-list"><li style="list-style-type:disc">Tracks <strong>CPU, RAM, and GPU</strong> usage to ensure smooth app performance.</li></ul><ul id="1af67645-92b5-80b1-bfc0-dcb64b48054c" class="bulleted-list"><li style="list-style-type:disc">Helps detect <strong>lag, memory leaks, and crashes</strong>.</li></ul><ul id="1af67645-92b5-806b-b6d3-cf9ee15a556f" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong> Android Profiler in Android Studio.</li></ul></li></ol><ol type="1" id="1af67645-92b5-8092-903b-d9aafbaad8bb" class="numbered-list" start="4"><li><strong>Security Monitor</strong><ul id="1af67645-92b5-80f1-805e-e6cdeac5e289" class="bulleted-list"><li style="list-style-type:disc">Detects <strong>security threats</strong> like malware or unauthorized access.</li></ul><ul id="1af67645-92b5-8080-96d0-c72465a15967" class="bulleted-list"><li style="list-style-type:disc">Helps protect user data and ensure compliance with security policies.</li></ul><ul id="1af67645-92b5-8029-88e8-cecad7241893" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong> Google Play Protect scans installed apps.</li></ul></li></ol><ol type="1" id="1af67645-92b5-808e-956f-eb6464c82eb4" class="numbered-list" start="5"><li><strong>Storage Monitor</strong><ul id="1af67645-92b5-809a-af36-fed93d451464" class="bulleted-list"><li style="list-style-type:disc">Tracks <strong>storage usage</strong> by apps and media files.</li></ul><ul id="1af67645-92b5-800f-bcfe-cc30b828cfd9" class="bulleted-list"><li style="list-style-type:disc">Helps <strong>clear cache and manage disk space</strong>.</li></ul><ul id="1af67645-92b5-80f8-a9a9-c1e3cc8b0c59" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong> <code>StorageManager</code> API provides storage details.</li></ul></li></ol><hr id="1af67645-92b5-80cf-ae7d-e440856b2b2f"/><h3 id="1af67645-92b5-8075-807b-d4e0053716a0" class=""><strong>Q8. Explain Android Performance and its Parameters in Detail.</strong></h3><h2 id="1af67645-92b5-807c-b32e-cf1415b98ba8" class=""><strong>Android Performance and Its Parameters</strong></h2><p id="1af67645-92b5-8013-8d13-f53ddfd0406b" class="">Android <strong>performance optimization</strong> ensures that apps run <strong>smoothly, efficiently, and consume fewer resources</strong> (CPU, memory, battery, network, and storage).</p><hr id="1af67645-92b5-806d-8046-e3ba55b86d18"/><h2 id="1af67645-92b5-80dc-b3e6-ee37bae2841a" class=""><strong>Key Performance Parameters</strong></h2><h3 id="1af67645-92b5-8032-b37f-c8aa5c57a9aa" class=""><strong>1. CPU Usage</strong></h3><ul id="1af67645-92b5-8096-b587-e9a5919e4f6b" class="bulleted-list"><li style="list-style-type:disc">The <strong>Central Processing Unit (CPU)</strong> handles all computations.</li></ul><ul id="1af67645-92b5-8001-8f46-f571b455200f" class="bulleted-list"><li style="list-style-type:disc">High CPU usage leads to <strong>lag, overheating, and battery drain</strong>.</li></ul><ul id="1af67645-92b5-80dd-baa1-c3e1ea8d9ba7" class="bulleted-list"><li style="list-style-type:disc"><strong>Optimization:</strong><ul id="1af67645-92b5-80dd-a87f-e1b3a3b1ef0f" class="bulleted-list"><li style="list-style-type:circle">Use <strong>background threads (</strong><code><strong>AsyncTask</strong></code><strong>, </strong><code><strong>HandlerThread</strong></code><strong>)</strong> for heavy tasks.</li></ul><ul id="1af67645-92b5-8002-bc9e-eebaa404e51e" class="bulleted-list"><li style="list-style-type:circle">Avoid <strong>unnecessary loops and computations</strong> in the main thread.</li></ul></li></ul><hr id="1af67645-92b5-8082-b4b1-d60efb343aac"/><h3 id="1af67645-92b5-80e8-aa67-faaf27632d50" class=""><strong>2. Memory (RAM) Management</strong></h3><ul id="1af67645-92b5-80aa-b394-d6712966f584" class="bulleted-list"><li style="list-style-type:disc">Android apps should use <strong>RAM efficiently</strong> to avoid crashes due to <strong>OutOfMemory (OOM) errors</strong>.</li></ul><ul id="1af67645-92b5-808e-953d-e3fa9006e6bb" class="bulleted-list"><li style="list-style-type:disc"><strong>Optimization:</strong><ul id="1af67645-92b5-80ed-98ad-d426dc6a15fb" class="bulleted-list"><li style="list-style-type:circle">Use <code>WeakReference</code> to avoid <strong>memory leaks</strong>.</li></ul><ul id="1af67645-92b5-8074-90e1-efd5ca909c94" class="bulleted-list"><li style="list-style-type:circle">Call <code>recycle()</code> on bitmaps when no longer needed.</li></ul><ul id="1af67645-92b5-80fb-879e-f96d6427dd8a" class="bulleted-list"><li style="list-style-type:circle">Use <strong>Garbage Collection</strong> efficiently (<code>System.gc()</code> is discouraged).</li></ul></li></ul><hr id="1af67645-92b5-8038-b527-f80535934b48"/><h3 id="1af67645-92b5-803c-be60-dba9ed30d8c4" class=""><strong>3. Battery Consumption</strong></h3><ul id="1af67645-92b5-804c-9364-d849123f6a51" class="bulleted-list"><li style="list-style-type:disc">Apps that frequently wake the CPU <strong>drain battery faster</strong>.</li></ul><ul id="1af67645-92b5-809b-8c60-fbc53449d4cd" class="bulleted-list"><li style="list-style-type:disc"><strong>Optimization:</strong><ul id="1af67645-92b5-80de-bf1c-d6ed0d8b9221" class="bulleted-list"><li style="list-style-type:circle">Use <code>JobScheduler</code> or <code>WorkManager</code> for background tasks.</li></ul><ul id="1af67645-92b5-80a0-a63c-dcf3dd471145" class="bulleted-list"><li style="list-style-type:circle">Reduce <code>WakeLocks</code> and <strong>optimize location updates</strong>.</li></ul></li></ul><hr id="1af67645-92b5-80c0-b38d-e26463b0a674"/><h3 id="1af67645-92b5-804b-99d3-cd2ec20114ff" class=""><strong>4. Network Efficiency</strong></h3><ul id="1af67645-92b5-8039-8fce-fe87949bafe8" class="bulleted-list"><li style="list-style-type:disc">Slow or frequent network requests <strong>increase data usage and battery drain</strong>.</li></ul><ul id="1af67645-92b5-8051-ba51-cdfeb4cef0cf" class="bulleted-list"><li style="list-style-type:disc"><strong>Optimization:</strong><ul id="1af67645-92b5-8071-8c3b-f5f6c2771396" class="bulleted-list"><li style="list-style-type:circle">Use <strong>caching</strong> to avoid repeated requests.</li></ul><ul id="1af67645-92b5-80d5-8cd3-c844a5d97f5e" class="bulleted-list"><li style="list-style-type:circle">Optimize image loading using libraries like <strong>Glide/Picasso</strong>.</li></ul></li></ul><hr id="1af67645-92b5-8064-ae59-f389173b78ee"/><h3 id="1af67645-92b5-80a5-8099-e5109c5f0161" class=""><strong>5. Storage Management</strong></h3><ul id="1af67645-92b5-8011-b5c5-fe127c6a83a6" class="bulleted-list"><li style="list-style-type:disc">Apps should <strong>minimize disk writes and cache management</strong>.</li></ul><ul id="1af67645-92b5-80c9-bfe9-cf12eebd6a36" class="bulleted-list"><li style="list-style-type:disc"><strong>Optimization:</strong><ul id="1af67645-92b5-8068-9a6d-d2d791edcd1e" class="bulleted-list"><li style="list-style-type:circle">Store <strong>only necessary data</strong> in internal storage.</li></ul><ul id="1af67645-92b5-80e9-bcc9-f9fbf6982cbd" class="bulleted-list"><li style="list-style-type:circle">Use <strong>SQLite or SharedPreferences</strong> efficiently.</li></ul></li></ul><hr id="1af67645-92b5-803a-8f41-c625b1970092"/><h3 id="1af67645-92b5-803b-9ac4-e801cc88d1b6" class=""><strong>6. UI &amp; Rendering Performance</strong></h3><ul id="1af67645-92b5-8054-bf1c-dec6ab622d4c" class="bulleted-list"><li style="list-style-type:disc">UI should be <strong>smooth at 60 FPS (frames per second)</strong>.</li></ul><ul id="1af67645-92b5-803a-97ff-d01a293faeda" class="bulleted-list"><li style="list-style-type:disc"><strong>Optimization:</strong><ul id="1af67645-92b5-80ca-80be-fe04a80a8a1f" class="bulleted-list"><li style="list-style-type:circle">Reduce <strong>nested layouts</strong> (use <code>ConstraintLayout</code>).</li></ul><ul id="1af67645-92b5-802b-93f1-d5a57e9dca25" class="bulleted-list"><li style="list-style-type:circle">Use <code>RecyclerView</code> instead of <code>ListView</code> for large lists.</li></ul><ul id="1af67645-92b5-8058-9ab0-e34b5bba71e6" class="bulleted-list"><li style="list-style-type:circle">Enable <strong>hardware acceleration</strong> for smoother rendering.</li></ul></li></ul><hr id="1af67645-92b5-80b0-bf93-f300a7611089"/><h3 id="1af67645-92b5-802f-a210-d297c2ff8201" class=""><strong>Q4. Explain Android Permission Best Practices.</strong></h3><ol type="1" id="1af67645-92b5-809f-8a84-c34daf0f6f60" class="numbered-list" start="1"><li><strong>Request Only Required Permissions</strong> – Avoid unnecessary permissions.</li></ol><ol type="1" id="1af67645-92b5-808e-9200-db005fa4e5e6" class="numbered-list" start="2"><li><strong>Ask for Permissions at Runtime</strong> – Use <code>requestPermissions()</code>.</li></ol><ol type="1" id="1af67645-92b5-8068-8234-dad43648c4e2" class="numbered-list" start="3"><li><strong>Provide Justification</strong> – Explain why the permission is needed.</li></ol><ol type="1" id="1af67645-92b5-807b-b87e-fd04a947b195" class="numbered-list" start="4"><li><strong>Handle Permission Denial Gracefully</strong> – Guide users if they deny a permission.</li></ol><ol type="1" id="1af67645-92b5-8063-9c11-f7c4284f559a" class="numbered-list" start="5"><li><strong>Use Permissions in Manifest</strong> – Declare necessary permissions in <code>AndroidManifest.xml</code>.</li></ol><p id="1af67645-92b5-806a-a7c9-dd5083da2a5b" class=""><strong>Example:</strong> Requesting Location Permission</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8090-b8c8-d46baa48a3ee" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+</code></pre><hr id="1af67645-92b5-8057-ba76-ffa666266841"/><h3 id="1af67645-92b5-80f8-9cb6-e45923456128" class=""><strong>Q1. Develop an Android app to insert the place name and location into the map table in the SQLite database.</strong></h3><h3 id="1af67645-92b5-8079-8e86-f4fe3cd040e2" class=""><strong>What is SQLite in Android?</strong></h3><p id="1af67645-92b5-8028-ae56-dec274041e83" class="">SQLite is a <strong>lightweight, embedded database</strong> that stores structured data locally. It is useful for apps that require <strong>offline storage</strong>.</p><h3 id="1af67645-92b5-8059-9607-de9997252207" class=""><strong>Main Code Snippet:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-801c-b356-f9e4ba74d574" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">SQLiteDatabase db = openOrCreateDatabase(&quot;PlacesDB&quot;, MODE_PRIVATE, null);
+db.execSQL(&quot;CREATE TABLE IF NOT EXISTS MapTable(id INTEGER PRIMARY KEY AUTOINCREMENT, place TEXT, location TEXT)&quot;);
+
+ContentValues values = new ContentValues();
+values.put(&quot;place&quot;, &quot;Eiffel Tower&quot;);
+values.put(&quot;location&quot;, &quot;Paris, France&quot;);
+db.insert(&quot;MapTable&quot;, null, values);
+db.close();
+</code></pre><p id="1af67645-92b5-80b8-90ff-d5cd1c20ac64" class="">🔹 <strong>Key Points:</strong></p><ul id="1af67645-92b5-80a6-8a4d-dbe62f19f9b4" class="bulleted-list"><li style="list-style-type:disc"><code>execSQL()</code> creates the table if it doesn&#x27;t exist.</li></ul><ul id="1af67645-92b5-80f6-b173-f2959c34bd46" class="bulleted-list"><li style="list-style-type:disc"><code>insert()</code> adds a new entry to the database.</li></ul><ul id="1af67645-92b5-8019-b7a2-dcde223eacf9" class="bulleted-list"><li style="list-style-type:disc"><code>ContentValues</code> holds the key-value pairs for insertion.</li></ul><hr id="1af67645-92b5-803a-a510-f6019b6a84a2"/><h3 id="1af67645-92b5-80b0-89d3-eca25b75d151" class=""><strong>Q5. Explain how to store data using SQLiteDatabase with the help of the following methods of SQLiteDatabase Class</strong></h3><h3 id="1af67645-92b5-80a9-a173-c98d11505ab1" class=""><strong>Methods of SQLiteDatabase Class</strong></h3><ol type="1" id="1af67645-92b5-8000-b3d8-c1ea2d870f9f" class="numbered-list" start="1"><li><strong>execSQL()</strong> – Executes SQL commands.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8090-b985-eb386a50f21d" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">db.execSQL(&quot;CREATE TABLE IF NOT EXISTS Users(id INTEGER PRIMARY KEY, name TEXT)&quot;);
+</code></pre></li></ol><ol type="1" id="1af67645-92b5-800c-adcd-eae21c1c896f" class="numbered-list" start="2"><li><strong>update()</strong> – Updates existing records.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80cb-b0f2-d9627358bd5a" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">ContentValues values = new ContentValues();
+values.put(&quot;name&quot;, &quot;John Doe&quot;);
+db.update(&quot;Users&quot;, values, &quot;id=?&quot;, new String[]{&quot;1&quot;});
+</code></pre></li></ol><ol type="1" id="1af67645-92b5-8010-8864-dbca00c3dccf" class="numbered-list" start="3"><li><strong>insert()</strong> – Inserts new records.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-800c-93f1-e13c6e074127" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">db.insert(&quot;Users&quot;, null, values);
+</code></pre></li></ol><ol type="1" id="1af67645-92b5-8005-a225-ef8f3d2b3156" class="numbered-list" start="4"><li><strong>query()</strong> – Retrieves data from a table.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8067-a879-f9be5e0cf028" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">Cursor cursor = db.query(&quot;Users&quot;, null, null, null, null, null, null);
+</code></pre></li></ol><h3 id="1af67645-92b5-80e0-a436-eb50cd5b40ff" class=""><strong>Methods of SQLiteOpenHelper Class</strong></h3><ol type="1" id="1af67645-92b5-80a1-9bfa-cd331371bbff" class="numbered-list" start="1"><li><strong>onCreate()</strong> – Creates the database and tables when the app runs for the first time.</li></ol><ol type="1" id="1af67645-92b5-80f0-9d18-f9344c3dbfdd" class="numbered-list" start="2"><li><strong>close()</strong> – Closes the database connection.</li></ol><hr id="1af67645-92b5-803d-8e0e-dcc958072a64"/><h3 id="1af67645-92b5-8075-b16a-c5e82e065cd1" class=""><strong>Q9. What is SQLiteDatabase class, openOrCreateDatabase(), DBHelper class, SQLiteOpenHelper class with syntax?</strong></h3><h3 id="1af67645-92b5-805c-9546-dd0d571496a1" class=""><strong>1. SQLiteDatabase Class</strong></h3><ul id="1af67645-92b5-806e-8f63-d5b242a4743e" class="bulleted-list"><li style="list-style-type:disc">Provides methods to perform CRUD (Create, Read, Update, Delete) operations on an SQLite database.</li></ul><h3 id="1af67645-92b5-8031-957d-fecde4d49510" class=""><strong>2. </strong><code><strong>openOrCreateDatabase()</strong></code></h3><ul id="1af67645-92b5-80ea-9a6f-e57872a0b7e1" class="bulleted-list"><li style="list-style-type:disc">Opens an existing database or creates a new one.<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80de-8251-e56c79e83d44" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">SQLiteDatabase db = openOrCreateDatabase(&quot;MyDB&quot;, MODE_PRIVATE, null);
+</code></pre></li></ul><h3 id="1af67645-92b5-803b-ade1-f02a486bdadf" class=""><strong>3. DBHelper Class</strong></h3><ul id="1af67645-92b5-8012-9c4c-e7b38c6bb763" class="bulleted-list"><li style="list-style-type:disc">A helper class that extends <code>SQLiteOpenHelper</code> to manage the database.</li></ul><h3 id="1af67645-92b5-8049-a896-ca9f59db582e" class=""><strong>4. SQLiteOpenHelper Class</strong></h3><ul id="1af67645-92b5-8085-80c5-f4fafcbfd698" class="bulleted-list"><li style="list-style-type:disc">Provides methods to create and upgrade the database.</li></ul><p id="1af67645-92b5-80d4-8625-fee99923f3af" class=""><strong>Example: Creating a Database Helper Class</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-804c-a546-ce3a2cd15af9" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">class DBHelper extends SQLiteOpenHelper {
+    public DBHelper(Context context) {
+        super(context, &quot;MyDB&quot;, null, 1);
+    }
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(&quot;CREATE TABLE Users(id INTEGER PRIMARY KEY, name TEXT)&quot;);
+    }
+}
+</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

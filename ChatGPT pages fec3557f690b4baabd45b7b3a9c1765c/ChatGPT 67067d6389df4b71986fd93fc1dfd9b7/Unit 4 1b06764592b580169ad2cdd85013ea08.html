@@ -1,0 +1,696 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 4</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1b067645-92b5-8016-9ad2-cdd85013ea08" class="page sans"><header><h1 class="page-title">Unit 4</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Ethical%20Hacking%20359edc2bebda4eb7bdce213b4e960664.html"><img class="icon" src="https://www.notion.so/icons/laptop_gray.svg"/>Ethical Hacking</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td></td></tr></tbody></table></header><div class="page-body"><h3 id="1b067645-92b5-805b-adb3-d5dfe7c4b59e" class=""><strong>Q1. With the help of a diagram, explain MAC Spoofing and Flooding in detail.</strong></h3><p id="1b067645-92b5-808d-8e37-e4b62ca8cacd" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-8008-a492-c07ea95df396" class=""><em>&quot;MAC Spoofing is a technique where an attacker alters the Media Access Control (MAC) address of their network device to impersonate another device on the network. MAC Flooding is an attack where an attacker sends numerous packets with different MAC addresses to a switch, exhausting its memory and forcing it into a fail-open mode, allowing packet sniffing.&quot;</em></p><h3 id="1b067645-92b5-80c1-9ee9-cfec13fc6d2b" class=""><strong>MAC Spoofing</strong></h3><ul id="1b067645-92b5-808a-8c43-c643067d5cb9" class="bulleted-list"><li style="list-style-type:disc">Attacker changes their MAC address to bypass network security policies.</li></ul><ul id="1b067645-92b5-80b5-9879-f86627cadfa3" class="bulleted-list"><li style="list-style-type:disc">Used for identity theft, evading access control, and Man-in-the-Middle (MITM) attacks.</li></ul><ul id="1b067645-92b5-80ca-bfa2-dd932e4f877a" class="bulleted-list"><li style="list-style-type:disc">Tools: MAC Changer, SMAC, Technitium MAC Address Changer.</li></ul><h3 id="1b067645-92b5-8028-a723-ceff38558201" class=""><strong>MAC Flooding</strong></h3><ul id="1b067645-92b5-8024-8b72-da9a764dc653" class="bulleted-list"><li style="list-style-type:disc">Overloads a switch’s MAC address table, converting it into a hub.</li></ul><ul id="1b067645-92b5-80b7-afb3-cf05152b090b" class="bulleted-list"><li style="list-style-type:disc">Attacker can capture unicast traffic not meant for them.</li></ul><ul id="1b067645-92b5-8016-90bd-e48c53d5ebd6" class="bulleted-list"><li style="list-style-type:disc">Used in network sniffing and MITM attacks.</li></ul><h3 id="1b067645-92b5-805d-9d32-e471eba0aba4" class=""><strong>Mermaid Diagram for MAC Spoofing and Flooding</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1b067645-92b5-8012-9673-d9e6ed9b75d5" class="code"><code class="language-Mermaid" style="white-space:pre-wrap;word-break:break-all">graph TD
+  A[Attacker] -- Changes MAC Address --&gt; B[Network Device]
+  B --&gt;|Spoofed MAC Address| C[Target Device]
+  D[Attacker] -- Sends Multiple MAC Packets --&gt; E[Switch]
+  E -- Overloaded --&gt; F[Becomes a Hub]
+  F -- Broadcasts Data --&gt; G[Attacker Captures Data]
+</code></pre><hr id="1b067645-92b5-80e0-b445-cd803355c638"/><h3 id="1b067645-92b5-80cc-900d-c3cc285b02e3" class=""><strong>Q2. Provide a comprehensive explanation of Intrusion Detection Systems (IDS), outlining their purpose, components, and functioning.</strong></h3><p id="1b067645-92b5-80e8-abbd-e506b975d876" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-809d-a334-f7f1ec298e0e" class=""><em>&quot;An Intrusion Detection System (IDS) is a security tool that monitors network traffic or system activities for malicious activities or policy violations and alerts administrators about potential threats.&quot;</em></p><h3 id="1b067645-92b5-806b-9aa2-d88a95cc9e06" class=""><strong>Purpose:</strong></h3><ul id="1b067645-92b5-8018-b312-fd0181e153ec" class="bulleted-list"><li style="list-style-type:disc">Detects unauthorized access attempts.</li></ul><ul id="1b067645-92b5-8080-8061-c4111c8c7db1" class="bulleted-list"><li style="list-style-type:disc">Identifies malware, DoS attacks, and data breaches.</li></ul><ul id="1b067645-92b5-8087-b37e-cc81545bd74b" class="bulleted-list"><li style="list-style-type:disc">Supports forensic analysis of security incidents.</li></ul><h3 id="1b067645-92b5-80ec-89cb-c1b20987bc2e" class=""><strong>Components:</strong></h3><ol type="1" id="1b067645-92b5-80d6-b6bc-c986b0d96102" class="numbered-list" start="1"><li><strong>Sensors</strong> – Collects data from network traffic and system logs.</li></ol><ol type="1" id="1b067645-92b5-805a-86c9-d7dd189164ed" class="numbered-list" start="2"><li><strong>Analysis Engine</strong> – Processes collected data to identify threats.</li></ol><ol type="1" id="1b067645-92b5-803e-ab73-c7c29f5868b1" class="numbered-list" start="3"><li><strong>User Interface</strong> – Alerts administrators and provides reports.</li></ol><h3 id="1b067645-92b5-80d4-9816-fa13eed76df3" class=""><strong>Functioning:</strong></h3><ul id="1b067645-92b5-8085-9e6c-e0e5783f9d9c" class="bulleted-list"><li style="list-style-type:disc"><strong>Signature-Based Detection</strong> – Compares traffic against known attack patterns.</li></ul><ul id="1b067645-92b5-80a7-aed8-d49a069f94d5" class="bulleted-list"><li style="list-style-type:disc"><strong>Anomaly-Based Detection</strong> – Detects deviations from normal behavior.</li></ul><ul id="1b067645-92b5-80ac-b4e9-f5f1ffdb423d" class="bulleted-list"><li style="list-style-type:disc"><strong>Hybrid Detection</strong> – Combines both methods for improved accuracy.</li></ul><hr id="1b067645-92b5-80b7-8f66-fb700b2b2031"/><h3 id="1b067645-92b5-80fb-9d5b-c2721b74e6db" class=""><strong>Q3. Write a short note on Keystroke Logger and its types in detail.</strong></h3><p id="1b067645-92b5-807b-86ea-ed077134c8a1" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-80a1-bfe8-fad49ed55fb6" class=""><em>&quot;A keystroke logger is a surveillance tool that records keystrokes made by a user to capture sensitive information such as passwords and messages.&quot;</em></p><h3 id="1b067645-92b5-80a1-89fc-e24022edf20b" class=""><strong>Types of Keyloggers:</strong></h3><ol type="1" id="1b067645-92b5-806b-a8b2-f79442b79455" class="numbered-list" start="1"><li><strong>Hardware Keyloggers</strong> – Physical devices plugged into keyboards.</li></ol><ol type="1" id="1b067645-92b5-808e-b352-f30480c5bd41" class="numbered-list" start="2"><li><strong>Software Keyloggers</strong> – Malicious programs running in the background.</li></ol><ol type="1" id="1b067645-92b5-8005-8729-efe558acff68" class="numbered-list" start="3"><li><strong>Kernel-Level Keyloggers</strong> – Operates at the OS kernel level for deep access.</li></ol><ol type="1" id="1b067645-92b5-80d2-8388-e63b3ee8529d" class="numbered-list" start="4"><li><strong>Memory Injection Keyloggers</strong> – Injects malicious code into running processes.</li></ol><ol type="1" id="1b067645-92b5-8002-9bdb-c6a8c86ed4af" class="numbered-list" start="5"><li><strong>Remote Access Keyloggers</strong> – Transmits recorded keystrokes to an attacker remotely.</li></ol><hr id="1b067645-92b5-800e-9304-d3cdc77a3219"/><h3 id="1b067645-92b5-809c-9f16-e8b9fd3b01aa" class=""><strong>Q4. Distinguish between Intrusion Detection System (IDS) vs. Intrusion Prevention System (IPS).</strong></h3><table id="1b067645-92b5-8086-80f4-e29e2e0a3a1b" class="simple-table"><tbody><tr id="1b067645-92b5-80a0-b213-cdea6c6a4e21"><td id="CG=]" class="">Feature</td><td id="s{gw" class="">IDS</td><td id="lemV" class="">IPS</td></tr><tr id="1b067645-92b5-805f-89d4-d50f385bd533"><td id="CG=]" class=""><strong>Functionality</strong></td><td id="s{gw" class="">Detects malicious activities and alerts administrators.</td><td id="lemV" class="">Detects and blocks malicious activities.</td></tr><tr id="1b067645-92b5-8082-84f7-c191d25c414d"><td id="CG=]" class=""><strong>Action Taken</strong></td><td id="s{gw" class="">Passive monitoring and logging.</td><td id="lemV" class="">Active intervention to prevent attacks.</td></tr><tr id="1b067645-92b5-8009-979f-ca0d4d1ee389"><td id="CG=]" class=""><strong>Deployment</strong></td><td id="s{gw" class="">Out-of-band (monitors traffic separately).</td><td id="lemV" class="">In-line (blocks threats in real-time).</td></tr><tr id="1b067645-92b5-8079-8047-e00bad52c114"><td id="CG=]" class=""><strong>Response Time</strong></td><td id="s{gw" class="">Requires manual response.</td><td id="lemV" class="">Automatic response to threats.</td></tr><tr id="1b067645-92b5-80d1-a1b1-e5b448ea8e73"><td id="CG=]" class=""><strong>Example</strong></td><td id="s{gw" class="">Snort (IDS Mode), OSSEC.</td><td id="lemV" class="">Snort (IPS Mode), Suricata.</td></tr></tbody></table><hr id="1b067645-92b5-802e-a32f-caa05f67345e"/><h3 id="1b067645-92b5-801f-a6a9-d04ec96a9da5" class=""><strong>Q5. Explain in brief Steganography with respect to hacking.</strong></h3><p id="1b067645-92b5-8053-83e0-f71121af8add" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-8038-a7f4-da6b8b050707" class=""><em>&quot;Steganography is the practice of concealing information within digital files, such as images, audio, or video, to avoid detection.&quot;</em></p><h3 id="1b067645-92b5-800c-a0e0-d650b5f11691" class=""><strong>Steganography in Hacking:</strong></h3><ul id="1b067645-92b5-80fa-8b7e-d723a5eb72ad" class="bulleted-list"><li style="list-style-type:disc"><strong>Data Concealment:</strong> Attackers embed malicious payloads within digital media.</li></ul><ul id="1b067645-92b5-805c-b519-f9e0e3784beb" class="bulleted-list"><li style="list-style-type:disc"><strong>Evasion of Security Measures:</strong> Hidden data bypasses firewalls and antivirus systems.</li></ul><ul id="1b067645-92b5-80a7-b978-cb0d1c7e794c" class="bulleted-list"><li style="list-style-type:disc"><strong>Common Techniques:</strong><ol type="1" id="1b067645-92b5-8051-b300-c07eda7c405e" class="numbered-list" start="1"><li><strong>Least Significant Bit (LSB) Manipulation</strong> – Alters pixel values in images to store data.</li></ol><ol type="1" id="1b067645-92b5-80e9-b017-d531e37ff579" class="numbered-list" start="2"><li><strong>Metadata Injection</strong> – Stores hidden code in file properties (e.g., EXIF data in images).</li></ol><ol type="1" id="1b067645-92b5-8043-ab4e-f1fcdecdf69b" class="numbered-list" start="3"><li><strong>Whitespace Steganography</strong> – Uses invisible characters in text files to hide information.</li></ol></li></ul><h3 id="1b067645-92b5-809f-8758-ffdf87ac50fe" class=""><strong>Example:</strong></h3><p id="1b067645-92b5-802d-aaba-c2b997a3be56" class="">An attacker embeds a malicious script inside an image file and distributes it via email. When executed, the script extracts and runs the hidden payload.</p><h3 id="1b067645-92b5-8060-9e75-f7981022d130" class=""><strong>Prevention Techniques:</strong></h3><ul id="1b067645-92b5-80ea-814d-dc66a9dd571e" class="bulleted-list"><li style="list-style-type:disc">Use steganalysis tools like StegExpose and Stegdetect.</li></ul><ul id="1b067645-92b5-80df-802c-d4c36b8edfc0" class="bulleted-list"><li style="list-style-type:disc">Monitor unusual file sizes and metadata inconsistencies.</li></ul><ul id="1b067645-92b5-80bb-a915-cee1f95e013f" class="bulleted-list"><li style="list-style-type:disc">Implement strict file integrity checks and anomaly detection.</li></ul><hr id="1b067645-92b5-8042-aba1-f12622ae65dd"/><h3 id="1b067645-92b5-808e-9d95-d5300d751527" class=""><strong>Q6. Short Notes on:</strong></h3><h3 id="1b067645-92b5-806c-8e27-f3d875f3034f" class=""><strong>a) URL Obfuscation</strong></h3><ul id="1b067645-92b5-8030-9f44-ecf34f73b45d" class="bulleted-list"><li style="list-style-type:disc">Hides the true destination of a URL to deceive users.</li></ul><ul id="1b067645-92b5-80db-a0da-e4be093e795f" class="bulleted-list"><li style="list-style-type:disc">Example: Using hexadecimal encoding (e.g., <code>http://%77%77%77.example.com</code>).</li></ul><ul id="1b067645-92b5-80b6-9981-f460e5c36a85" class="bulleted-list"><li style="list-style-type:disc">Used in phishing and malware distribution.</li></ul><h3 id="1b067645-92b5-802b-b270-c33b1bd3583c" class=""><strong>b) Clickjacking</strong></h3><ul id="1b067645-92b5-808e-9fc6-ecd95d943184" class="bulleted-list"><li style="list-style-type:disc">Tricks users into clicking invisible buttons or links.</li></ul><ul id="1b067645-92b5-80ec-9736-f01fab029292" class="bulleted-list"><li style="list-style-type:disc">Example: A fake &quot;Play&quot; button over a malicious ad.</li></ul><ul id="1b067645-92b5-8070-af4f-d5a9823504c5" class="bulleted-list"><li style="list-style-type:disc">Prevented using X-Frame-Options in HTTP headers.</li></ul><hr id="1b067645-92b5-80ab-bdd5-c1f8e132d410"/><h3 id="1b067645-92b5-80f3-82c9-ec85c93ab1b2" class=""><strong>Q7. Write a short note on SYN Flooding.</strong></h3><p id="1b067645-92b5-8039-a410-d394e691e2f9" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-8089-86f6-eee178c9b863" class=""><em>&quot;SYN flooding is a Denial-of-Service (DoS) attack where an attacker sends numerous SYN requests to a server without completing the handshake, exhausting resources.&quot;</em></p><h3 id="1b067645-92b5-8050-ba46-d8f81c08ff0c" class=""><strong>How It Works:</strong></h3><ol type="1" id="1b067645-92b5-8042-a48e-c0baeb7373d5" class="numbered-list" start="1"><li>Attacker sends multiple SYN requests.</li></ol><ol type="1" id="1b067645-92b5-800a-9360-c26a0031e192" class="numbered-list" start="2"><li>Server allocates resources for each request.</li></ol><ol type="1" id="1b067645-92b5-804d-8850-d88832007061" class="numbered-list" start="3"><li>Attacker never completes the handshake, causing resource exhaustion.</li></ol><h3 id="1b067645-92b5-8025-8378-e4becc651ac8" class=""><strong>Prevention Methods:</strong></h3><ul id="1b067645-92b5-8087-9f04-f8d38e029c84" class="bulleted-list"><li style="list-style-type:disc"><strong>SYN Cookies</strong> – Validates requests before allocating resources.</li></ul><ul id="1b067645-92b5-80a3-a6c5-e294ebe6328d" class="bulleted-list"><li style="list-style-type:disc"><strong>Rate Limiting</strong> – Limits SYN requests per second.</li></ul><hr id="1b067645-92b5-80c4-81d4-ec62165bc8f8"/><h3 id="1b067645-92b5-809c-85c3-c93b0d04913d" class=""><strong>Q8. Explain Honeypots and different evasion techniques.</strong></h3><p id="1b067645-92b5-80ea-ac24-e1faeab88f09" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-8066-84a7-c44351bf8481" class=""><em>&quot;A honeypot is a decoy system designed to attract attackers, gather intelligence, and monitor malicious activities.&quot;</em></p><h3 id="1b067645-92b5-80f7-832f-d86e983b7137" class=""><strong>Types of Honeypots:</strong></h3><ul id="1b067645-92b5-80c0-a7c5-c1a288788e90" class="bulleted-list"><li style="list-style-type:disc"><strong>Low-Interaction</strong> – Simulates basic vulnerabilities.</li></ul><ul id="1b067645-92b5-800b-8997-f75e5377f898" class="bulleted-list"><li style="list-style-type:disc"><strong>High-Interaction</strong> – Provides full-fledged systems to study attacker behavior.</li></ul><h3 id="1b067645-92b5-80e0-a139-f63fea707a4a" class=""><strong>Evasion Techniques:</strong></h3><ul id="1b067645-92b5-80bd-94ae-f031b487fcf4" class="bulleted-list"><li style="list-style-type:disc"><strong>Encryption</strong> – Hides malicious traffic from IDS/IPS.</li></ul><ul id="1b067645-92b5-802f-bc5e-d140866e7a2a" class="bulleted-list"><li style="list-style-type:disc"><strong>Polymorphic Malware</strong> – Changes code structure to avoid detection.</li></ul><ul id="1b067645-92b5-8029-824e-d1446bad6e61" class="bulleted-list"><li style="list-style-type:disc"><strong>Traffic Fragmentation</strong> – Splits attack payloads into multiple packets.</li></ul><hr id="1b067645-92b5-80d6-b9d0-df6b307602b8"/><h3 id="1b067645-92b5-802a-b4f3-de42983c795f" class=""><strong>Q9. Describe Intrusion Detection System with an appropriate diagram and two advantages.</strong></h3><h3 id="1b067645-92b5-80dc-8d72-f9f6a9577002" class=""><strong>Definition:</strong></h3><p id="1b067645-92b5-80f7-8499-df8c9fa7b93b" class=""><em>&quot;An Intrusion Detection System (IDS) monitors network and system activities for potential security threats and unauthorized access.&quot;</em></p><h3 id="1b067645-92b5-8083-a368-ee29f9ee2568" class=""><strong>Advantages:</strong></h3><ol type="1" id="1b067645-92b5-808a-9971-f09565727330" class="numbered-list" start="1"><li><strong>Early Threat Detection</strong> – Identifies security breaches before damage occurs.</li></ol><ol type="1" id="1b067645-92b5-8068-97e7-f03e12ba3fb2" class="numbered-list" start="2"><li><strong>Forensic Analysis</strong> – Provides logs and reports for investigation.</li></ol><h3 id="1b067645-92b5-80b3-9222-ff31c84fd566" class=""><strong>Mermaid Diagram for IDS:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1b067645-92b5-8011-9de0-c336984d7ba8" class="code"><code class="language-Mermaid" style="white-space:pre-wrap;word-break:break-all">graph TD
+  A[User] -- Sends Data --&gt; B[Network]
+  B -- Traffic Flow --&gt; C[Intrusion Detection System]
+  C -- Normal Traffic --&gt; D[Allowed]
+  C -- Suspicious Activity --&gt; E[Alert Admin]
+  E -- Response Action --&gt; F[Security Team]
+</code></pre><hr id="1b067645-92b5-806d-9641-cbe011b0510d"/><p id="1b067645-92b5-80ac-927b-f59e66645385" class="">This concludes all answers for Unit 4. Let me know if you need any modifications or additional explanations! 🚀</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

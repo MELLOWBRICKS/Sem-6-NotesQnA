@@ -1,0 +1,695 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1ab67645-92b5-80db-a875-decededb767b" class="page sans"><header><h1 class="page-title">Unit 2</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Software%20Testing%20&amp;%20Quality%20Assurance%208462a7124d6d4b5488adb1acba858011.html"><img class="icon" src="https://www.notion.so/icons/cursor-click_gray.svg"/>Software Testing &amp; Quality Assurance</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td></td></tr></tbody></table></header><div class="page-body"><h3 id="1ab67645-92b5-80dc-baf4-df55b5c40f2b" class=""><strong>Q1. Explain types of software metrics in detail.</strong></h3><p id="1ab67645-92b5-807b-bb96-fafff07a9a6a" class=""><strong>Software Metrics</strong> are quantitative measures that help evaluate software quality, efficiency, and performance.</p><h3 id="1ab67645-92b5-80f5-b495-f0aa7813531e" class=""><strong>Types of Software Metrics:</strong></h3><ol type="1" id="1ab67645-92b5-8001-ab1a-d4e540e7a510" class="numbered-list" start="1"><li><strong>Process Metrics:</strong><ul id="1ab67645-92b5-80b0-98ad-c432cf83f5eb" class="bulleted-list"><li style="list-style-type:disc">Measure characteristics of the <strong>software development process</strong>.</li></ul><ul id="1ab67645-92b5-807a-bd31-ff5365fc5d8d" class="bulleted-list"><li style="list-style-type:disc">Examples: Defect density, review efficiency, cycle time.</li></ul></li></ol><ol type="1" id="1ab67645-92b5-805e-9e71-e7c6b162c33a" class="numbered-list" start="2"><li><strong>Product Metrics:</strong><ul id="1ab67645-92b5-801e-84ec-c9971292b062" class="bulleted-list"><li style="list-style-type:disc">Measure attributes of the <strong>software product itself</strong>.</li></ul><ul id="1ab67645-92b5-8074-ac04-cf17dc346144" class="bulleted-list"><li style="list-style-type:disc">Examples: Code complexity, maintainability, testability.</li></ul></li></ol><ol type="1" id="1ab67645-92b5-809a-acbd-f2d538271349" class="numbered-list" start="3"><li><strong>Project Metrics:</strong><ul id="1ab67645-92b5-80c8-aa9f-d421835630ce" class="bulleted-list"><li style="list-style-type:disc">Measure aspects related to <strong>software project management</strong>.</li></ul><ul id="1ab67645-92b5-8023-be12-c24d5822de6b" class="bulleted-list"><li style="list-style-type:disc">Examples: Cost estimation, schedule variance, effort estimation.</li></ul></li></ol><ol type="1" id="1ab67645-92b5-800e-839b-de6eb9f81bde" class="numbered-list" start="4"><li><strong>Size Metrics:</strong><ul id="1ab67645-92b5-80af-bc98-fdd338dafeca" class="bulleted-list"><li style="list-style-type:disc">Determine software size using <strong>Lines of Code (LOC)</strong> or <strong>Function Point (FP)</strong>.</li></ul><ul id="1ab67645-92b5-8078-ad89-d4d7ac677d98" class="bulleted-list"><li style="list-style-type:disc">Example: &quot;A program has 5000 LOC&quot;.</li></ul></li></ol><ol type="1" id="1ab67645-92b5-803e-9ceb-e3b687630898" class="numbered-list" start="5"><li><strong>Complexity Metrics:</strong><ul id="1ab67645-92b5-809f-a84c-f368a027ef03" class="bulleted-list"><li style="list-style-type:disc">Measure the <strong>logical complexity</strong> of code.</li></ul><ul id="1ab67645-92b5-80d1-ae74-e63bf2dceac6" class="bulleted-list"><li style="list-style-type:disc">Example: <strong>Cyclomatic Complexity</strong> (higher complexity increases testing effort).</li></ul></li></ol><ol type="1" id="1ab67645-92b5-8019-a151-fd20a4436094" class="numbered-list" start="6"><li><strong>Defect Metrics:</strong><ul id="1ab67645-92b5-804f-a3d9-efcf01981a29" class="bulleted-list"><li style="list-style-type:disc">Track software <strong>defect rates</strong> during testing.</li></ul><ul id="1ab67645-92b5-805d-b5c1-eb6ce17ac344" class="bulleted-list"><li style="list-style-type:disc">Examples: Defect density, Mean Time to Failure (MTTF).</li></ul></li></ol><hr id="1ab67645-92b5-8095-aec0-c2f0a0a1ee2e"/><h3 id="1ab67645-92b5-809c-8e8d-e3e202e0c352" class=""><strong>Q2. Difference between White Box and Black Box Testing.</strong></h3><table id="1ab67645-92b5-807e-8abe-fb35f686e5b6" class="simple-table"><tbody><tr id="1ab67645-92b5-8097-a2ad-ffafabe17dc8"><td id="K?`&gt;" class=""><strong>Aspect</strong></td><td id="k;Ww" class=""><strong>White Box Testing</strong></td><td id="K|&gt;a" class=""><strong>Black Box Testing</strong></td></tr><tr id="1ab67645-92b5-8005-9711-c9163510830d"><td id="K?`&gt;" class=""><strong>Definition</strong></td><td id="k;Ww" class="">Testing based on internal code structure.</td><td id="K|&gt;a" class="">Testing based on software functionality without seeing code.</td></tr><tr id="1ab67645-92b5-804d-8e8f-d2c93343b27b"><td id="K?`&gt;" class=""><strong>Performed By</strong></td><td id="k;Ww" class="">Developers or experienced testers.</td><td id="K|&gt;a" class="">Testers with no knowledge of internal code.</td></tr><tr id="1ab67645-92b5-806e-9752-c126c1df7945"><td id="K?`&gt;" class=""><strong>Focus</strong></td><td id="k;Ww" class="">Code logic, paths, and conditions.</td><td id="K|&gt;a" class="">User interface, requirements, and expected outputs.</td></tr><tr id="1ab67645-92b5-8062-94fb-f1888a98b4df"><td id="K?`&gt;" class=""><strong>Techniques</strong></td><td id="k;Ww" class="">Statement coverage, branch coverage, path coverage.</td><td id="K|&gt;a" class="">Equivalence partitioning, boundary value analysis.</td></tr><tr id="1ab67645-92b5-805a-a917-f450566ea2e4"><td id="K?`&gt;" class=""><strong>Best For</strong></td><td id="k;Ww" class="">Unit testing and integration testing.</td><td id="K|&gt;a" class="">System testing and acceptance testing.</td></tr><tr id="1ab67645-92b5-8050-b900-ccb3f155c512"><td id="K?`&gt;" class=""><strong>Example</strong></td><td id="k;Ww" class="">Checking if all <strong>if-else</strong> conditions are covered in code.</td><td id="K|&gt;a" class="">Entering different values in a form to check validation.</td></tr></tbody></table><hr id="1ab67645-92b5-805c-b53e-dc25e585f46f"/><h3 id="1ab67645-92b5-8089-82c0-e038aa5fefc2" class=""><strong>Statement Coverage Testing for Given Code:</strong></h3><p id="1ab67645-92b5-802b-8910-fdeffb104af6" class=""><strong>Code:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ab67645-92b5-8070-bb28-c317de6930b5" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">Read A
+Read B
+if A &gt; B
+    Print &quot;A is greater than B&quot;
+else
+    Print &quot;B is greater than A&quot;
+endif
+</code></pre><p id="1ab67645-92b5-80ea-ac1b-fe8f5e0d4a62" class=""><strong>Test Cases for Statement Coverage:</strong></p><ol type="1" id="1ab67645-92b5-80bd-9e0d-e80ad37416a8" class="numbered-list" start="1"><li><strong>If A = 4, B = 2 →</strong> Executes both the <code>if</code> condition and <code>print</code> statement for &quot;A is greater than B&quot;.</li></ol><ol type="1" id="1ab67645-92b5-801e-ae2a-c3560f759e04" class="numbered-list" start="2"><li><strong>If A = 4, B = -8 →</strong> Executes the same path as above (same if condition).</li></ol><ol type="1" id="1ab67645-92b5-8064-9e70-cc71b783cec1" class="numbered-list" start="3"><li><strong>If A = 2, B = 4 →</strong> Executes the <code>else</code> condition and prints &quot;B is greater than A&quot;.</li></ol><p id="1ab67645-92b5-8001-b05b-c1a419b9e772" class=""><strong>Statement Coverage Calculation:</strong></p><ul id="1ab67645-92b5-8008-84b7-f07028842ff8" class="bulleted-list"><li style="list-style-type:disc">Total statements: <strong>4</strong> (Read A, Read B, If-Else condition, Print statement).</li></ul><ul id="1ab67645-92b5-803e-962e-ef290f0b0448" class="bulleted-list"><li style="list-style-type:disc">Covered statements: <strong>All statements are executed at least once</strong> → <strong>100% Statement Coverage.</strong></li></ul><hr id="1ab67645-92b5-80ee-a645-f0e43e0c320b"/><h3 id="1ab67645-92b5-800e-9d76-c8208652615a" class=""><strong>Q3. What is System Testing and Acceptance Testing?</strong></h3><h3 id="1ab67645-92b5-80ab-b06c-d797b117e153" class=""><strong>System Testing:</strong></h3><ul id="1ab67645-92b5-80d8-a36a-ce6c3ecf1f39" class="bulleted-list"><li style="list-style-type:disc">A level of testing where the entire <strong>integrated system</strong> is tested.</li></ul><ul id="1ab67645-92b5-80ee-9a43-e971d3a0a7d8" class="bulleted-list"><li style="list-style-type:disc">Ensures that the system meets functional and non-functional requirements.</li></ul><ul id="1ab67645-92b5-8068-821f-d61493d28c02" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong> Checking if an e-commerce website can handle 1000 users at once.</li></ul><p id="1ab67645-92b5-800c-9d09-d262b0d01284" class=""><strong>Types of System Testing:</strong></p><ol type="1" id="1ab67645-92b5-808a-96e1-c52b944e5c5f" class="numbered-list" start="1"><li><strong>Functional Testing</strong> – Ensures all features work as expected.</li></ol><ol type="1" id="1ab67645-92b5-804b-a0ed-ccb2c42b2d52" class="numbered-list" start="2"><li><strong>Performance Testing</strong> – Checks system speed and responsiveness.</li></ol><ol type="1" id="1ab67645-92b5-80ea-902c-f099ef50f9c6" class="numbered-list" start="3"><li><strong>Security Testing</strong> – Identifies security vulnerabilities.</li></ol><h3 id="1ab67645-92b5-80c1-98d6-fa92b7896544" class=""><strong>Acceptance Testing:</strong></h3><ul id="1ab67645-92b5-8089-9c48-c26a5d03624c" class="bulleted-list"><li style="list-style-type:disc">Conducted to validate whether the software is <strong>ready for deployment</strong>.</li></ul><ul id="1ab67645-92b5-8054-a1f0-ea89ebc16fc5" class="bulleted-list"><li style="list-style-type:disc">Ensures it meets <strong>business needs and customer expectations</strong>.</li></ul><ul id="1ab67645-92b5-804f-833e-f9a0d1a6c6b8" class="bulleted-list"><li style="list-style-type:disc"><strong>Types of Acceptance Testing:</strong><ol type="1" id="1ab67645-92b5-8075-bc84-c52de9280276" class="numbered-list" start="1"><li><strong>User Acceptance Testing (UAT)</strong> – Conducted by end-users.</li></ol><ol type="1" id="1ab67645-92b5-80e2-88bf-dd39b1824808" class="numbered-list" start="2"><li><strong>Alpha Testing</strong> – Done in a controlled environment before release.</li></ol><ol type="1" id="1ab67645-92b5-80bd-a78f-cd80da069877" class="numbered-list" start="3"><li><strong>Beta Testing</strong> – Done by real users before final launch.</li></ol></li></ul><hr id="1ab67645-92b5-80d3-8afd-f719820a77a3"/><h3 id="1ab67645-92b5-80ad-b175-f95e204257cb" class=""><strong>Q4. What is Boundary Value Analysis? Explain with an example.</strong></h3><h3 id="1ab67645-92b5-8080-a114-d141edf29420" class=""><strong>Boundary Value Analysis (BVA):</strong></h3><ul id="1ab67645-92b5-805f-974f-e1b84e87cead" class="bulleted-list"><li style="list-style-type:disc">A <strong>Black Box Testing</strong> technique that tests boundary values of input ranges.</li></ul><ul id="1ab67645-92b5-80fc-b464-f092e187d6a5" class="bulleted-list"><li style="list-style-type:disc">Errors often occur at <strong>boundary values</strong> rather than middle values.</li></ul><p id="1ab67645-92b5-80c9-b1e4-def63c3060ac" class=""><strong>Example:</strong> Suppose a login system accepts passwords of <strong>6 to 12 characters</strong>.</p><ul id="1ab67645-92b5-8033-b0a8-c790dcfbba3f" class="bulleted-list"><li style="list-style-type:disc"><strong>Valid Inputs:</strong> 6, 7, 11, 12 characters.</li></ul><ul id="1ab67645-92b5-80fe-b383-ed27a9531c1d" class="bulleted-list"><li style="list-style-type:disc"><strong>Invalid Inputs:</strong> 5, 13 characters.</li></ul><table id="1ab67645-92b5-803a-a067-f95d141197f8" class="simple-table"><tbody><tr id="1ab67645-92b5-800c-be3b-f6c2d12e8e85"><td id="li`O" class=""><strong>Test Case</strong></td><td id="}FJg" class=""><strong>Input Value</strong></td><td id="}D_h" class=""><strong>Expected Output</strong></td></tr><tr id="1ab67645-92b5-80e4-9870-fd0a5e774fa8"><td id="li`O" class="">Minimum Boundary (Valid)</td><td id="}FJg" class="">6 characters</td><td id="}D_h" class="">Accepted</td></tr><tr id="1ab67645-92b5-806f-823d-fdf6eed6e78b"><td id="li`O" class="">Below Minimum (Invalid)</td><td id="}FJg" class="">5 characters</td><td id="}D_h" class="">Rejected</td></tr><tr id="1ab67645-92b5-8049-a9a8-cbfa8580f2be"><td id="li`O" class="">Maximum Boundary (Valid)</td><td id="}FJg" class="">12 characters</td><td id="}D_h" class="">Accepted</td></tr><tr id="1ab67645-92b5-8066-89eb-db077c056011"><td id="li`O" class="">Above Maximum (Invalid)</td><td id="}FJg" class="">13 characters</td><td id="}D_h" class="">Rejected</td></tr></tbody></table><hr id="1ab67645-92b5-80f1-bb96-c6aae3f73c1c"/><h3 id="1ab67645-92b5-8092-909b-f5567a0f845b" class=""><strong>Q5. Why are test cases prioritized? What are the Priorities given to test cases?</strong></h3><h3 id="1ab67645-92b5-80d5-bea7-f62294e5a3b1" class=""><strong>Why Test Cases are Prioritized?</strong></h3><ul id="1ab67645-92b5-803a-ae5f-db18cbefb430" class="bulleted-list"><li style="list-style-type:disc">To focus on <strong>critical functionalities</strong> first.</li></ul><ul id="1ab67645-92b5-803c-a75e-e74dde44c615" class="bulleted-list"><li style="list-style-type:disc">To <strong>identify high-risk defects</strong> early.</li></ul><ul id="1ab67645-92b5-80fa-a1c3-f979b915665a" class="bulleted-list"><li style="list-style-type:disc">To <strong>optimize testing time</strong> when resources are limited.</li></ul><ul id="1ab67645-92b5-8085-8d28-f9a5c5abe36f" class="bulleted-list"><li style="list-style-type:disc">To ensure that most important features work as expected.</li></ul><h3 id="1ab67645-92b5-8064-bb1e-fca8a82901a0" class=""><strong>Test Case Priorities:</strong></h3><ol type="1" id="1ab67645-92b5-80ff-bb0c-e2d4dab29b61" class="numbered-list" start="1"><li><strong>High Priority:</strong> Critical functions (e.g., Login, Payment Processing).</li></ol><ol type="1" id="1ab67645-92b5-8017-9b7d-eff39646dedc" class="numbered-list" start="2"><li><strong>Medium Priority:</strong> Important but non-critical features (e.g., User Profile Update).</li></ol><ol type="1" id="1ab67645-92b5-8024-9c1c-f70703d93c75" class="numbered-list" start="3"><li><strong>Low Priority:</strong> UI enhancements, minor bugs.</li></ol><h3 id="1ab67645-92b5-8047-b099-edae71047395" class=""><strong>Test Cases for Sign-Up Page:</strong></h3><table id="1ab67645-92b5-8002-a892-c79eaf92a47a" class="simple-table"><tbody><tr id="1ab67645-92b5-80c8-ad43-f0c22d4f40ab"><td id="I[[v" class=""><strong>Test Case</strong></td><td id="WipW" class=""><strong>Input Data</strong></td><td id="~u{Z" class=""><strong>Expected Output</strong></td></tr><tr id="1ab67645-92b5-80fb-99bb-d2c9495c3773"><td id="I[[v" class="">Valid Sign-Up</td><td id="WipW" class="">Correct details</td><td id="~u{Z" class="">Successful registration</td></tr><tr id="1ab67645-92b5-801b-a168-c2ca98d90c61"><td id="I[[v" class="">Invalid Email</td><td id="WipW" class="">Wrong email format</td><td id="~u{Z" class="">Error message</td></tr><tr id="1ab67645-92b5-8057-a80e-d5802eb8a7a3"><td id="I[[v" class="">Weak Password</td><td id="WipW" class="">Short password</td><td id="~u{Z" class="">Error: &quot;Password too weak&quot;</td></tr></tbody></table><hr id="1ab67645-92b5-80c9-99b2-e58b1d504966"/><h3 id="1ab67645-92b5-8065-9ec4-d98e36b7092e" class=""><strong>Q6. Explain Integration Testing. Describe the need for Stub and Driver in Unit Testing.</strong></h3><h3 id="1ab67645-92b5-804c-b86b-ec0e7616098a" class=""><strong>Integration Testing:</strong></h3><ul id="1ab67645-92b5-802e-92cf-c6034c884e19" class="bulleted-list"><li style="list-style-type:disc">Testing performed <strong>after unit testing</strong> to check how modules interact.</li></ul><ul id="1ab67645-92b5-8046-a363-e46b2b815df1" class="bulleted-list"><li style="list-style-type:disc">Ensures smooth <strong>data flow between components</strong>.</li></ul><h3 id="1ab67645-92b5-8098-ac1c-ee8c213ae043" class=""><strong>Types of Integration Testing:</strong></h3><ol type="1" id="1ab67645-92b5-804a-9525-e634fa004ab7" class="numbered-list" start="1"><li><strong>Top-Down Approach:</strong> Start testing from <strong>main modules to submodules</strong>.</li></ol><ol type="1" id="1ab67645-92b5-8033-b9de-c725c124b492" class="numbered-list" start="2"><li><strong>Bottom-Up Approach:</strong> Test <strong>submodules first</strong>, then integrate them.</li></ol><ol type="1" id="1ab67645-92b5-8091-86be-f4b458d24543" class="numbered-list" start="3"><li><strong>Big Bang Approach:</strong> Integrate and test <strong>all modules at once</strong>.</li></ol><h3 id="1ab67645-92b5-80a8-80a3-e5517e428b1d" class=""><strong>Need for Stub and Driver in Unit Testing:</strong></h3><ul id="1ab67645-92b5-80f3-abb2-c832684d9494" class="bulleted-list"><li style="list-style-type:disc"><strong>Stub:</strong> A dummy module that <strong>simulates</strong> a missing component. Used in <strong>Top-Down Testing</strong>.</li></ul><ul id="1ab67645-92b5-8069-871e-c70b5c670831" class="bulleted-list"><li style="list-style-type:disc"><strong>Driver:</strong> A temporary program that <strong>calls lower-level modules</strong>. Used in <strong>Bottom-Up Testing</strong>.</li></ul><hr id="1ab67645-92b5-8021-8b2b-e604c277f878"/><h3 id="1ab67645-92b5-8093-901c-f7f6430da674" class=""><strong>Q7. What are the testing fundamentals?</strong></h3><p id="1ab67645-92b5-8037-8367-faf8303db1ff" class=""><strong>Testing Fundamentals:</strong></p><ol type="1" id="1ab67645-92b5-8082-9e8a-d352f1580254" class="numbered-list" start="1"><li><strong>Testing Shows the Presence of Defects, Not Their Absence</strong> – Finding <strong>no bugs</strong> does not mean the software is perfect.</li></ol><ol type="1" id="1ab67645-92b5-804d-bd59-c80d739aae2d" class="numbered-list" start="2"><li><strong>Exhaustive Testing is Impossible</strong> – Testing all inputs is unrealistic.</li></ol><ol type="1" id="1ab67645-92b5-8036-80c6-d9a7a323a1bb" class="numbered-list" start="3"><li><strong>Defect Clustering</strong> – <strong>Most defects</strong> are found in <strong>few modules</strong>.</li></ol><ol type="1" id="1ab67645-92b5-80cd-8047-caa8bfb354d0" class="numbered-list" start="4"><li><strong>Pesticide Paradox</strong> – Repeating the same tests <strong>reduces effectiveness</strong>.</li></ol><ol type="1" id="1ab67645-92b5-8092-b2fe-f8196fd6c344" class="numbered-list" start="5"><li><strong>Testing is Context Dependent</strong> – Different software requires different testing techniques.</li></ol><ol type="1" id="1ab67645-92b5-8067-a376-ce2fb5a4424c" class="numbered-list" start="6"><li><strong>Absence of Errors Fallacy</strong> – A defect-free software <strong>can still fail</strong> if it does not meet requirements.</li></ol><hr id="1ab67645-92b5-801f-bfc8-d8ac9a5b63c0"/><h3 id="1ab67645-92b5-809a-a1ef-e50459ef73ec" class=""><strong>Q8. Explain Statement Coverage Testing and Decision Coverage Testing.</strong></h3><h3 id="1ab67645-92b5-80b3-a018-e1b08a93374e" class=""><strong>Statement Coverage Testing:</strong></h3><ul id="1ab67645-92b5-802b-ac1d-c0a43939014a" class="bulleted-list"><li style="list-style-type:disc">Ensures <strong>every line of code is executed</strong> at least once.</li></ul><ul id="1ab67645-92b5-802b-94ee-d534d3b6d26c" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong> If a program has 10 lines, all lines should be tested at least once.</li></ul><h3 id="1ab67645-92b5-8029-8bea-dedecb2bc73b" class=""><strong>Decision Coverage Testing:</strong></h3><ul id="1ab67645-92b5-801d-a5d0-fd4d09737abf" class="bulleted-list"><li style="list-style-type:disc">Ensures that <strong>all possible outcomes of decision points</strong> (if-else, switch) are tested.</li></ul><ul id="1ab67645-92b5-801f-9d9b-e69fcf8336d3" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ab67645-92b5-8093-80f4-d6a28285dac8" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">if (A &gt; B)
+    print &quot;A is greater&quot;;
+else
+    print &quot;B is greater&quot;;
+</code></pre><ul id="1ab67645-92b5-806b-807b-e7af9ebeeb5b" class="bulleted-list"><li style="list-style-type:circle">Statement Coverage: Executes all lines at least once.</li></ul><ul id="1ab67645-92b5-8015-860c-e750f652f0cd" class="bulleted-list"><li style="list-style-type:circle">Decision Coverage: Tests both <strong>A &gt; B</strong> and <strong>A ≤ B</strong> conditions.</li></ul></li></ul><hr id="1ab67645-92b5-8042-9f33-dc377fdae3d6"/><h3 id="1ab67645-92b5-8008-9857-fa6b97d61cef" class=""><strong>Q9. What is System Testing? What are the types of System Testing?</strong></h3><p id="1ab67645-92b5-80d0-be48-dde45714fa0e" class=""><strong>System Testing:</strong></p><ul id="1ab67645-92b5-809d-9c87-f6f712596127" class="bulleted-list"><li style="list-style-type:disc">Ensures that the complete system works <strong>as expected</strong>.</li></ul><ul id="1ab67645-92b5-8084-b2b6-f5756df1bcc5" class="bulleted-list"><li style="list-style-type:disc">Validates both <strong>functional and non-functional</strong> aspects.</li></ul><p id="1ab67645-92b5-8098-8d94-c4914ef99c0f" class=""><strong>Types of System Testing:</strong></p><ol type="1" id="1ab67645-92b5-8010-93e2-d03ac939c2cd" class="numbered-list" start="1"><li><strong>Functional Testing</strong> – Ensures all functionalities work correctly.</li></ol><ol type="1" id="1ab67645-92b5-8067-b517-c62210fb5c04" class="numbered-list" start="2"><li><strong>Performance Testing</strong> – Measures speed, scalability, and responsiveness.</li></ol><ol type="1" id="1ab67645-92b5-807c-bc33-c5fc49b0d70a" class="numbered-list" start="3"><li><strong>Security Testing</strong> – Identifies vulnerabilities and security risks.</li></ol><ol type="1" id="1ab67645-92b5-8086-9737-dc685a9b99e1" class="numbered-list" start="4"><li><strong>Usability Testing</strong> – Checks how user-friendly the software is.</li></ol><ol type="1" id="1ab67645-92b5-80ff-8b5a-c0f8a0fc1910" class="numbered-list" start="5"><li><strong>Compatibility Testing</strong> – Ensures the system works across different environments.</li></ol></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

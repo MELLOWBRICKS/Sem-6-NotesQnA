@@ -1,0 +1,778 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1af67645-92b5-8034-a948-dc87470f43eb" class="page sans"><header><h1 class="page-title">Unit 2</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Android%20Programming%205db7a135d18946689c07a2aa33ecea98.html"><img class="icon" src="https://www.notion.so/icons/robot_gray.svg"/>Android Programming</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td></td></tr></tbody></table></header><div class="page-body"><h2 id="1af67645-92b5-801c-ae6d-d4dcd2dfb2de" class=""><strong>Q1. List and Explain the Elements for Menu in Android</strong></h2><p id="1af67645-92b5-80e7-bdf3-d62ed9fcb77c" class="">A <strong>menu</strong> in Android is a collection of <strong>UI options</strong> that provide <strong>actions</strong> to the user. Android supports <strong>three types of menus</strong>:</p><h3 id="1af67645-92b5-8004-800e-f7bed50c7286" class=""><strong>1. Options Menu</strong></h3><ul id="1af67645-92b5-8025-a62d-c2ba83228689" class="bulleted-list"><li style="list-style-type:disc">The primary menu for an activity, shown when the user presses the menu button.</li></ul><ul id="1af67645-92b5-80f2-a6e1-cd3a64ea5284" class="bulleted-list"><li style="list-style-type:disc">Declared in <code>res/menu/</code> directory as an XML file.</li></ul><h3 id="1af67645-92b5-8087-9efb-f7fe466188a2" class=""><strong>2. Context Menu</strong></h3><ul id="1af67645-92b5-8048-be8e-d0f0c36c4f7c" class="bulleted-list"><li style="list-style-type:disc">A floating menu that appears when a <strong>long press</strong> is performed on a view.</li></ul><ul id="1af67645-92b5-80b3-ab2b-e7086ea198ed" class="bulleted-list"><li style="list-style-type:disc">Used for <strong>actions related to a specific UI element</strong>.</li></ul><h3 id="1af67645-92b5-8033-9e6d-f97d5efa0a70" class=""><strong>3. Popup Menu</strong></h3><ul id="1af67645-92b5-80ae-8424-ca90b6041faf" class="bulleted-list"><li style="list-style-type:disc">A <strong>small floating menu</strong> that anchors to a specific view.</li></ul><ul id="1af67645-92b5-8019-89fa-f75e8523cae6" class="bulleted-list"><li style="list-style-type:disc">Appears when a button is clicked and disappears automatically when an item is selected.</li></ul><h3 id="1af67645-92b5-805a-842d-c42562c973d3" class=""><strong>Common Menu Elements</strong></h3><table id="1af67645-92b5-80a6-95c5-e8212a657a42" class="simple-table"><tbody><tr id="1af67645-92b5-80e3-ab37-f01d965e80fc"><td id="hmzZ" class=""><strong>Element</strong></td><td id="NW=J" class=""><strong>Description</strong></td></tr><tr id="1af67645-92b5-8040-96d5-f16e44cff071"><td id="hmzZ" class=""><code>&lt;menu&gt;</code></td><td id="NW=J" class="">The root element of a menu file.</td></tr><tr id="1af67645-92b5-80fb-97e3-cba76267a86a"><td id="hmzZ" class=""><code>&lt;item&gt;</code></td><td id="NW=J" class="">Defines a menu item. Contains attributes like <code>title</code>, <code>id</code>, and <code>icon</code>.</td></tr><tr id="1af67645-92b5-80b5-8920-f5ea3c0a8f7e"><td id="hmzZ" class=""><code>&lt;group&gt;</code></td><td id="NW=J" class="">Groups multiple items together to apply properties like visibility.</td></tr><tr id="1af67645-92b5-80b5-9635-f5880de830be"><td id="hmzZ" class=""><code>&lt;submenu&gt;</code></td><td id="NW=J" class="">A nested menu within an item.</td></tr></tbody></table><hr id="1af67645-92b5-80d4-b33a-e3c14d47c21b"/><h2 id="1af67645-92b5-8062-8787-d6584d207d4f" class=""><strong>Q2. Explain Popup Menu in Android with Example</strong></h2><p id="1af67645-92b5-805c-aba7-ec5482095e70" class="">A <strong>Popup Menu</strong> is a temporary menu that appears when a user taps a button. It <strong>does not persist</strong> and disappears when the user selects an item.</p><h3 id="1af67645-92b5-8044-bc8b-eac164993bf9" class=""><strong>Example: Implementing Popup Menu</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8069-8332-f94ab477ff66" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">PopupMenu popup = new PopupMenu(this, button);
+popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+
+popup.setOnMenuItemClickListener(item -&gt; {
+    if (item.getItemId() == R.id.option1) {
+        Toast.makeText(this, &quot;Option 1 selected&quot;, Toast.LENGTH_SHORT).show();
+    }
+    return true;
+});
+
+popup.show();
+</code></pre><p id="1af67645-92b5-802b-86cf-fdb50171c25c" class="">🔹 <strong>Key Points:</strong></p><ul id="1af67645-92b5-8018-9cd4-faaa38b95db6" class="bulleted-list"><li style="list-style-type:disc"><code>PopupMenu</code> is attached to a <strong>view (button)</strong>.</li></ul><ul id="1af67645-92b5-80d8-987e-ee2baa02c8c3" class="bulleted-list"><li style="list-style-type:disc"><code>setOnMenuItemClickListener()</code> handles item clicks.</li></ul><hr id="1af67645-92b5-8014-9a12-e65ba9b14911"/><h2 id="1af67645-92b5-8058-9a74-f21f4f3d1967" class=""><strong>Q3. Explain the Following Events in Intent Class in Android</strong></h2><h3 id="1af67645-92b5-805e-8ab4-d44f56dbfef5" class=""><strong>1. </strong><code><strong>android.intent.action.BATTERY_CHANGED</strong></code></h3><ul id="1af67645-92b5-804b-9c33-d790a743eb82" class="bulleted-list"><li style="list-style-type:disc">Broadcast when the <strong>battery level or charging status</strong> changes.</li></ul><ul id="1af67645-92b5-80ee-9dda-ef1c1eec571d" class="bulleted-list"><li style="list-style-type:disc">Apps can register for this event to <strong>monitor battery percentage</strong>.</li></ul><h3 id="1af67645-92b5-80e8-b1e2-d373abce6017" class=""><strong>2. </strong><code><strong>android.intent.action.BATTERY_LOW</strong></code></h3><ul id="1af67645-92b5-80f7-b635-f9072e04cb57" class="bulleted-list"><li style="list-style-type:disc">Sent when the battery <strong>falls below a critical level</strong>.</li></ul><ul id="1af67645-92b5-8059-8e9f-e3c148f77bad" class="bulleted-list"><li style="list-style-type:disc">Apps should <strong>reduce power usage</strong> (e.g., stop background tasks).</li></ul><h3 id="1af67645-92b5-8073-8bc2-eae12f33b23c" class=""><strong>3. </strong><code><strong>android.intent.action.BATTERY_OKAY</strong></code></h3><ul id="1af67645-92b5-804f-8259-ff36ed691ea0" class="bulleted-list"><li style="list-style-type:disc">Sent when the battery <strong>recovers from a low state</strong>.</li></ul><ul id="1af67645-92b5-805b-9840-e27594ed5a92" class="bulleted-list"><li style="list-style-type:disc">Apps can <strong>resume normal operations</strong>.</li></ul><h3 id="1af67645-92b5-8009-9419-c64e4f1ca36d" class=""><strong>4. </strong><code><strong>android.intent.action.BOOT_COMPLETED</strong></code></h3><ul id="1af67645-92b5-8014-b1a4-ca4a359f2e42" class="bulleted-list"><li style="list-style-type:disc">Broadcast after the <strong>device finishes booting</strong>.</li></ul><ul id="1af67645-92b5-80a6-b7fc-e1b2530c7729" class="bulleted-list"><li style="list-style-type:disc">Used by apps that <strong>need to start automatically</strong> after reboot.</li></ul><h3 id="1af67645-92b5-8085-b73f-e994be36e0c7" class=""><strong>5. </strong><code><strong>android.intent.action.BUG_REPORT</strong></code></h3><ul id="1af67645-92b5-80a2-a8aa-e59ce8601198" class="bulleted-list"><li style="list-style-type:disc">Used to send <strong>bug reports</strong> to developers.</li></ul><ul id="1af67645-92b5-80fb-9ccd-eeebd8788eea" class="bulleted-list"><li style="list-style-type:disc">Triggered when a <strong>user reports an issue</strong>.</li></ul><h3 id="1af67645-92b5-8077-b94c-c17721a30497" class=""><strong>6. </strong><code><strong>android.intent.action.CALL</strong></code></h3><ul id="1af67645-92b5-80ea-8d49-eec057ea0ad6" class="bulleted-list"><li style="list-style-type:disc">Used to <strong>initiate a phone call</strong> from an app.</li></ul><ul id="1af67645-92b5-800d-b22f-f175f2057a7a" class="bulleted-list"><li style="list-style-type:disc">Requires <code>CALL_PHONE</code> permission.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8033-8d7e-ebdf27d65ef7" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">Intent callIntent = new Intent(Intent.ACTION_CALL);
+callIntent.setData(Uri.parse(&quot;tel:+911234567890&quot;));
+startActivity(callIntent);
+</code></pre><hr id="1af67645-92b5-80ad-87e0-e0499ffd6da9"/><h2 id="1af67645-92b5-801a-a78e-ee89a40f5c5b" class=""><strong>Q4. What is ContextMenu? Write a Program to Create the Same</strong></h2><p id="1af67645-92b5-804b-9bc0-c9eb0b3a973f" class="">A <strong>ContextMenu</strong> is a floating menu that appears <strong>on long press</strong> on a UI element.</p><h3 id="1af67645-92b5-808b-ae41-c94f11e0e954" class=""><strong>Example: Implementing Context Menu</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80e9-9354-d2a59ea0e97a" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">registerForContextMenu(myButton);
+
+@Override
+public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+    getMenuInflater().inflate(R.menu.context_menu, menu);
+}
+</code></pre><p id="1af67645-92b5-808e-8058-d71f403c035e" class="">🔹 <strong>Key Points:</strong></p><ul id="1af67645-92b5-805a-8020-f87724831cda" class="bulleted-list"><li style="list-style-type:disc"><strong>Register the view</strong> using <code>registerForContextMenu(view)</code>.</li></ul><ul id="1af67645-92b5-8066-8bc3-cb650c29630b" class="bulleted-list"><li style="list-style-type:disc">Implement <code>onCreateContextMenu()</code> to inflate the menu.</li></ul><hr id="1af67645-92b5-80f0-94e5-ec9756ae4c64"/><h2 id="1af67645-92b5-80e7-aa5c-cb4cf6096f31" class=""><strong>Q5. Explain Screen Navigation in Android</strong></h2><p id="1af67645-92b5-8016-b711-f8ab53796dac" class="">Screen navigation in Android refers to <strong>moving between different screens (activities/fragments)</strong> within an app. This can be done using <strong>buttons, menus, gestures, or the system back button</strong>.</p><h3 id="1af67645-92b5-80fe-86a8-c4be35e36c0d" class=""><strong>Types of Navigation:</strong></h3><ol type="1" id="1af67645-92b5-80eb-ae24-d6270caa419e" class="numbered-list" start="1"><li><strong>Up Navigation (Parent-Child Relationship)</strong><ul id="1af67645-92b5-8031-882e-cf44e31a3a36" class="bulleted-list"><li style="list-style-type:disc">Moves to the <strong>parent activity</strong>.</li></ul><ul id="1af67645-92b5-80ea-afd7-f906d7b70e29" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80ec-9b3f-e0688ac3e5c8" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+</code></pre></li></ul></li></ol><ol type="1" id="1af67645-92b5-80e2-8281-fc3c2cfc6959" class="numbered-list" start="2"><li><strong>Back Navigation (History Stack)</strong><ul id="1af67645-92b5-8020-8340-c447d5223bfe" class="bulleted-list"><li style="list-style-type:disc">Moves to the <strong>previous screen</strong> using the back button.</li></ul><ul id="1af67645-92b5-800c-aee3-c312fdc68b04" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8097-b693-f1e91b0015ba" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">java
+CopyEdit
+@Override
+public void onBackPressed() {
+    super.onBackPressed();
+}
+
+</code></pre></li></ul></li></ol><ol type="1" id="1af67645-92b5-808d-8025-f2b995c6d8cd" class="numbered-list" start="3"><li><strong>Intent-Based Navigation (Explicit Intent)</strong><ul id="1af67645-92b5-80dd-bbff-e3862dc46736" class="bulleted-list"><li style="list-style-type:disc">Moves between activities.</li></ul><ul id="1af67645-92b5-808e-95f3-c605eaebaf48" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80f6-9604-e563d1da700d" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">java
+CopyEdit
+Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+startActivity(intent);
+
+</code></pre></li></ul></li></ol><ol type="1" id="1af67645-92b5-8078-9c3c-f71ee807ab49" class="numbered-list" start="4"><li><strong>Fragment Navigation (Single Activity Apps)</strong><ul id="1af67645-92b5-8086-a0e7-d81c7c1138d4" class="bulleted-list"><li style="list-style-type:disc">Switches fragments instead of activities.</li></ul><ul id="1af67645-92b5-800e-82ba-ec782e108133" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8092-bf65-e98620381ddc" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">java
+CopyEdit
+getSupportFragmentManager().beginTransaction()
+    .replace(R.id.fragment_container, new ExampleFragment())
+    .commit();
+
+</code></pre></li></ul></li></ol><ol type="1" id="1af67645-92b5-8041-971e-f694f46ef773" class="numbered-list" start="5"><li><strong>Bottom Navigation (Tab-Based UI)</strong><ul id="1af67645-92b5-803a-9095-f055bd2efd0f" class="bulleted-list"><li style="list-style-type:disc">Uses a bottom bar to switch fragments.</li></ul><ul id="1af67645-92b5-808d-80a0-c08b01c5a842" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8046-8430-d1c51e2d305e" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">java
+CopyEdit
+bottomNavigationView.setOnNavigationItemSelectedListener(item -&gt; {
+    loadFragment(new HomeFragment());
+    return true;
+});
+
+</code></pre></li></ul></li></ol><ol type="1" id="1af67645-92b5-80f5-906b-cc6c54c23a05" class="numbered-list" start="6"><li><strong>Navigation Drawer (Sliding Menu)</strong><ul id="1af67645-92b5-80b3-8c60-f12eceec7b51" class="bulleted-list"><li style="list-style-type:disc">Uses a side panel for navigation.</li></ul><ul id="1af67645-92b5-80af-a0cd-f23f2c0e8bd4" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-805d-9e3f-d94e114f8b0f" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">java
+CopyEdit
+drawerLayout.openDrawer(GravityCompat.START);
+
+</code></pre></li></ul></li></ol><h3 id="1af67645-92b5-8085-9ebd-d35059560d49" class=""><strong>Conclusion:</strong></h3><p id="1af67645-92b5-80d6-a105-ef7e991fbe4d" class="">Navigation helps users move within the app efficiently. Methods vary based on UI structure, including <strong>intents, fragments, bottom navigation, and navigation drawers</strong>.</p><hr id="1af67645-92b5-8043-9fe9-cffc434d0699"/><h2 id="1af67645-92b5-80d6-ba01-e346264c877a" class=""><strong>Q6. Explain What is Notification in Android</strong></h2><p id="1af67645-92b5-807d-b39d-c84c1e74c898" class="">A <strong>notification</strong> is a message that appears outside the app UI to <strong>inform the user</strong> about events (e.g., new message, update).</p><h3 id="1af67645-92b5-805c-89a0-dfd86d7171d9" class=""><strong>Example: Creating a Basic Notification</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80aa-a305-d8b402550dcc" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">NotificationCompat.Builder builder = new NotificationCompat.Builder(this, &quot;channel_id&quot;)
+        .setSmallIcon(R.drawable.ic_notification)
+        .setContentTitle(&quot;New Message&quot;)
+        .setContentText(&quot;You have a new message&quot;)
+        .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+NotificationManagerCompat manager = NotificationManagerCompat.from(this);
+manager.notify(1, builder.build());
+</code></pre><p id="1af67645-92b5-80e8-9c45-e9d0abf27c10" class="">🔹 <strong>Key Points:</strong></p><ul id="1af67645-92b5-8005-bd40-c8cda81f6398" class="bulleted-list"><li style="list-style-type:disc"><code>NotificationCompat.Builder</code> is used to create notifications.</li></ul><ul id="1af67645-92b5-80f2-b174-d6739762a3d2" class="bulleted-list"><li style="list-style-type:disc"><code>notify()</code> displays the notification.</li></ul><hr id="1af67645-92b5-8017-afb5-c621c804fa04"/><h2 id="1af67645-92b5-8031-8f80-e6eb60abfbfe" class=""><strong>Q7. Explain AsyncTask and AsyncTaskLoader</strong></h2><h3 id="1af67645-92b5-80a0-93ff-cf51bedf409f" class=""><strong>1. AsyncTask</strong></h3><ul id="1af67645-92b5-80cc-ac5e-d984ac901c6c" class="bulleted-list"><li style="list-style-type:disc">A helper class for performing <strong>background tasks</strong>.</li></ul><ul id="1af67645-92b5-8013-a2fa-c5215360734e" class="bulleted-list"><li style="list-style-type:disc">Consists of <strong>three main methods</strong>:<ul id="1af67645-92b5-800d-ba7f-c6c48d8838a2" class="bulleted-list"><li style="list-style-type:circle"><code>doInBackground()</code> – Runs in the background.</li></ul><ul id="1af67645-92b5-8098-ad83-f30452369605" class="bulleted-list"><li style="list-style-type:circle"><code>onPreExecute()</code> – Runs before execution starts.</li></ul><ul id="1af67645-92b5-80fe-89d3-e6c30430fd81" class="bulleted-list"><li style="list-style-type:circle"><code>onPostExecute()</code> – Runs after execution is finished.</li></ul></li></ul><p id="1af67645-92b5-8072-87f6-f8403fad936a" class=""><strong>Example:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80f3-b2a8-f1be3f972e1a" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">class DownloadTask extends AsyncTask&lt;String, Void, String&gt; {
+    protected String doInBackground(String... urls) {
+        return &quot;Downloading...&quot;;
+    }
+    protected void onPostExecute(String result) {
+        textView.setText(result);
+    }
+}
+</code></pre><h3 id="1af67645-92b5-80a9-a49a-db04db4d16cd" class=""><strong>2. AsyncTaskLoader</strong></h3><ul id="1af67645-92b5-80b1-94fd-c4695cf7f79d" class="bulleted-list"><li style="list-style-type:disc">A more <strong>efficient alternative to AsyncTask</strong>.</li></ul><ul id="1af67645-92b5-80a5-874d-fbd50d75eebf" class="bulleted-list"><li style="list-style-type:disc">Survives <strong>configuration changes (e.g., screen rotation)</strong>.</li></ul><p id="1af67645-92b5-801f-bffc-f1632877b3bf" class=""><strong>Example:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80ff-ad6a-d4b008179c1a" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">@Override
+public String loadInBackground() {
+    return &quot;Loading data...&quot;;
+}
+</code></pre><hr id="1af67645-92b5-8007-b76c-c67773ce139c"/><h2 id="1af67645-92b5-80c6-989a-ce1d7ae44f10" class=""><strong>Q8. Define Option Menu in Android with a Program</strong></h2><p id="1af67645-92b5-809b-ace9-ca8d1b2bb6b7" class="">The <strong>Options Menu</strong> is the primary menu in Android, appearing at the <strong>top-right corner</strong>.</p><h3 id="1af67645-92b5-80cb-a949-cdfcd835389c" class=""><strong>Example: Creating an Options Menu</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-805b-b7df-ccc2b3aee903" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.options_menu, menu);
+    return true;
+}
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    if (item.getItemId() == R.id.settings) {
+        Toast.makeText(this, &quot;Settings clicked&quot;, Toast.LENGTH_SHORT).show();
+        return true;
+    }
+    return super.onOptionsItemSelected(item);
+}
+</code></pre><p id="1af67645-92b5-80bb-85ac-cfa6ebd23e8b" class="">🔹 <strong>Key Points:</strong></p><ul id="1af67645-92b5-803f-be9d-d9135af7a58c" class="bulleted-list"><li style="list-style-type:disc"><code>onCreateOptionsMenu()</code> inflates the menu.</li></ul><ul id="1af67645-92b5-8020-bf0f-de71d00ccd35" class="bulleted-list"><li style="list-style-type:disc"><code>onOptionsItemSelected()</code> handles menu item clicks.</li></ul><hr id="1af67645-92b5-8046-bcdc-c0e859180ba9"/><h2 id="1af67645-92b5-80c8-8867-cd836b44f2f8" class=""><strong>Q9. Explain Android Unbounded Service Lifecycle</strong></h2><p id="1af67645-92b5-80ad-a01a-dd59fbef0c30" class="">A <strong>Service</strong> is a background process in Android. An <strong>Unbounded Service</strong> is one that runs independently of the calling component and does not return results.</p><h3 id="1af67645-92b5-804f-9119-d5ca2c3cb1b9" class=""><strong>Lifecycle of an Unbounded Service</strong></h3><ol type="1" id="1af67645-92b5-8082-b1f6-ea826f5b1c93" class="numbered-list" start="1"><li><strong>onCreate()</strong> – Called when the service is first created.</li></ol><ol type="1" id="1af67645-92b5-80b9-a331-c3d5e2368a67" class="numbered-list" start="2"><li><strong>onStartCommand()</strong> – Called every time a client starts the service.</li></ol><ol type="1" id="1af67645-92b5-8065-9be2-cf484de3a4cf" class="numbered-list" start="3"><li><strong>onDestroy()</strong> – Called when the service is stopped.</li></ol><h3 id="1af67645-92b5-8002-b527-d80884f7f869" class=""><strong>Example: Implementing an Unbounded Service</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-802d-8ebc-ff5a493fd326" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">public class MyService extends Service {
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return START_STICKY;
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+}
+</code></pre><p id="1af67645-92b5-804a-bd92-fe6363fcdd3d" class="">🔹 <strong>Key Points:</strong></p><ul id="1af67645-92b5-8004-9388-cb0c310ffb04" class="bulleted-list"><li style="list-style-type:disc"><code>START_STICKY</code> keeps the service running even if the app is closed.</li></ul><ul id="1af67645-92b5-80dc-9fc6-e8671fa3a1f8" class="bulleted-list"><li style="list-style-type:disc">The service runs <strong>independently</strong> without binding to any activity.</li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

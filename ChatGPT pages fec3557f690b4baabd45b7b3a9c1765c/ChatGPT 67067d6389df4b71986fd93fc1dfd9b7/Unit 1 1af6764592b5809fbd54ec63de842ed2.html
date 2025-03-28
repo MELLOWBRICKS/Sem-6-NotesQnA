@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1af67645-92b5-809f-bd54-ec63de842ed2" class="page sans"><header><h1 class="page-title">Unit 1</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Android%20Programming%205db7a135d18946689c07a2aa33ecea98.html"><img class="icon" src="https://www.notion.so/icons/robot_gray.svg"/>Android Programming</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td></td></tr></tbody></table></header><div class="page-body"><h2 id="1af67645-92b5-80ed-b54d-da71fa7db608" class=""><strong>Q1. List the methods in the activity lifecycle with an appropriate diagram</strong></h2><p id="1af67645-92b5-80f3-b496-da05d414fc3b" class="">The <strong>Android Activity Lifecycle</strong> defines how an activity transitions between different states during its lifetime. The system invokes lifecycle callback methods when an activity is created, started, resumed, paused, stopped, or destroyed.</p><h3 id="1af67645-92b5-80f1-b47d-d0507381faa1" class=""><strong>Activity Lifecycle Methods</strong></h3><ol type="1" id="1af67645-92b5-8066-bcb9-ec16c76acd2c" class="numbered-list" start="1"><li><strong>onCreate()</strong><ul id="1af67645-92b5-8074-99b9-f4c9ba9712e0" class="bulleted-list"><li style="list-style-type:disc">Called when the activity is first created.</li></ul><ul id="1af67645-92b5-80e3-9473-df005e54d3fd" class="bulleted-list"><li style="list-style-type:disc">Used for initialization (e.g., setting up UI, loading data).</li></ul></li></ol><ol type="1" id="1af67645-92b5-8085-b488-d15fcda7f43f" class="numbered-list" start="2"><li><strong>onStart()</strong><ul id="1af67645-92b5-80d6-b90a-e1ceaf250a62" class="bulleted-list"><li style="list-style-type:disc">Called when the activity becomes visible to the user.</li></ul><ul id="1af67645-92b5-80d5-85ce-d71c7ac706d0" class="bulleted-list"><li style="list-style-type:disc">UI updates and animations can be started here.</li></ul></li></ol><ol type="1" id="1af67645-92b5-80e9-a41b-f078ebb44751" class="numbered-list" start="3"><li><strong>onResume()</strong><ul id="1af67645-92b5-8074-9bf0-da65abf02a0c" class="bulleted-list"><li style="list-style-type:disc">Called when the activity is in the foreground and ready for interaction.</li></ul><ul id="1af67645-92b5-800b-920a-c8cdebbc96b6" class="bulleted-list"><li style="list-style-type:disc">Ideal for starting UI updates, animations, and resuming paused resources (like a video).</li></ul></li></ol><ol type="1" id="1af67645-92b5-809a-bb83-c793cf9e7260" class="numbered-list" start="4"><li><strong>onPause()</strong><ul id="1af67645-92b5-8090-a72c-efde3285cb2b" class="bulleted-list"><li style="list-style-type:disc">Called when another activity comes in front of the current activity.</li></ul><ul id="1af67645-92b5-80c3-9f1d-daffe9b56012" class="bulleted-list"><li style="list-style-type:disc">Save user input or pause animations and processes that consume CPU.</li></ul></li></ol><ol type="1" id="1af67645-92b5-80cf-921c-eca10f71ba7c" class="numbered-list" start="5"><li><strong>onStop()</strong><ul id="1af67645-92b5-8099-9e1e-e4f544522538" class="bulleted-list"><li style="list-style-type:disc">Called when the activity is no longer visible.</li></ul><ul id="1af67645-92b5-8016-bc3b-dc49260da9e7" class="bulleted-list"><li style="list-style-type:disc">Used to release resources, stop services, or save data.</li></ul></li></ol><ol type="1" id="1af67645-92b5-8077-9e5b-de1729225fa9" class="numbered-list" start="6"><li><strong>onRestart()</strong><ul id="1af67645-92b5-80c0-9e64-fbd001303272" class="bulleted-list"><li style="list-style-type:disc">Called when the activity is restarted after being stopped.</li></ul></li></ol><ol type="1" id="1af67645-92b5-80e6-81d2-e9c5b24f1502" class="numbered-list" start="7"><li><strong>onDestroy()</strong><ul id="1af67645-92b5-80ed-a321-f20f25be0573" class="bulleted-list"><li style="list-style-type:disc">Called before the activity is completely removed from memory.</li></ul><ul id="1af67645-92b5-80d7-9154-f6ebe704cf81" class="bulleted-list"><li style="list-style-type:disc">Used for final cleanup of resources.</li></ul></li></ol><h3 id="1af67645-92b5-8007-aec2-fe7edbe813c7" class=""><strong>Activity Lifecycle Diagram</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80e9-be44-eab6b5d27f13" class="code"><code class="language-Mermaid" style="white-space:pre-wrap;word-break:break-all">graph TD;
+    A[onCreate] --&gt; B[onStart]
+    B --&gt; C[onResume]
+    C --&gt; D[onPause]
+    D --&gt;|User Navigates Away| E[onStop]
+    E --&gt;|User Reopens Activity| F[onRestart]
+    F --&gt; B
+    D --&gt;|User Closes App| G[onDestroy]
+</code></pre><hr id="1af67645-92b5-80d7-b182-c4b15d45037e"/><h2 id="1af67645-92b5-80df-918d-fee3ef17febe" class=""><strong>Q2. Android App with Checkboxes for Food Items and Order Button</strong></h2><h3 id="1af67645-92b5-8095-8cea-e267a25e58e3" class=""><strong>Implementation Details:</strong></h3><ul id="1af67645-92b5-8035-b437-f72580b6e3d7" class="bulleted-list"><li style="list-style-type:disc">The app includes <strong>CheckBoxes</strong> for food items with prices.</li></ul><ul id="1af67645-92b5-8044-a942-e60ed4e2b7ab" class="bulleted-list"><li style="list-style-type:disc">A <strong>Button</strong> displays the selected items and total price using <strong>Toast</strong>.</li></ul><h3 id="1af67645-92b5-802e-b3f1-c1a01bdc838b" class=""><strong>Main Code Snippet:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-805e-a718-d9ea7f138df3" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">public void onClick(View view) {
+    int totalAmount = 0;
+    StringBuilder orderSummary = new StringBuilder(&quot;Selected Items:\n&quot;);
+
+    if (pizzaCheckBox.isChecked()) {
+        orderSummary.append(&quot;Pizza - ₹100\n&quot;);
+        totalAmount += 100;
+    }
+    if (burgerCheckBox.isChecked()) {
+        orderSummary.append(&quot;Burger - ₹80\n&quot;);
+        totalAmount += 80;
+    }
+    if (coffeeCheckBox.isChecked()) {
+        orderSummary.append(&quot;Coffee - ₹50\n&quot;);
+        totalAmount += 50;
+    }
+
+    orderSummary.append(&quot;Total Amount: ₹&quot;).append(totalAmount);
+    Toast.makeText(getApplicationContext(), orderSummary.toString(), Toast.LENGTH_LONG).show();
+}
+</code></pre><hr id="1af67645-92b5-800f-a869-ff8aafc03112"/><h2 id="1af67645-92b5-802f-90ac-ecb747e32db6" class=""><strong>Q3. Explain the following fragment methods</strong></h2><h3 id="1af67645-92b5-801e-ad24-f6d3b97bcabc" class=""><strong>Fragment Lifecycle Methods</strong></h3><ol type="1" id="1af67645-92b5-8062-bac3-c6931918676d" class="numbered-list" start="1"><li><strong>onAttach()</strong><ul id="1af67645-92b5-8024-bce3-ffa603867baa" class="bulleted-list"><li style="list-style-type:disc">Called when the fragment is attached to the activity.</li></ul><ul id="1af67645-92b5-8050-84bb-f0fef0c5de5f" class="bulleted-list"><li style="list-style-type:disc">Used for initialization that requires the parent activity’s context.</li></ul></li></ol><ol type="1" id="1af67645-92b5-8012-9b9e-f565350edb4f" class="numbered-list" start="2"><li><strong>onActivityCreated()</strong><ul id="1af67645-92b5-803d-bb81-c58418df348b" class="bulleted-list"><li style="list-style-type:disc">Called after <code>onCreateView()</code>, ensuring the activity is fully created.</li></ul><ul id="1af67645-92b5-80c0-a278-c14aceb8abce" class="bulleted-list"><li style="list-style-type:disc">Used for UI initialization and setting up adapters or data sources.</li></ul></li></ol><ol type="1" id="1af67645-92b5-8037-b5f7-ed8848887ea1" class="numbered-list" start="3"><li><strong>onResume()</strong><ul id="1af67645-92b5-80d2-b212-f860e567b74b" class="bulleted-list"><li style="list-style-type:disc">Called when the fragment is visible and interactive.</li></ul><ul id="1af67645-92b5-8045-96c4-e3b55d1f2dd3" class="bulleted-list"><li style="list-style-type:disc">Used for animations, user inputs, and UI updates.</li></ul></li></ol><ol type="1" id="1af67645-92b5-8055-b2d1-ce0e06f9b5d9" class="numbered-list" start="4"><li><strong>onDestroyView()</strong><ul id="1af67645-92b5-8081-a60a-e9f43734aca5" class="bulleted-list"><li style="list-style-type:disc">Called when the fragment’s view is being destroyed.</li></ul><ul id="1af67645-92b5-80a2-820f-ce79ad6f9f00" class="bulleted-list"><li style="list-style-type:disc">Used to clean up UI components to avoid memory leaks.</li></ul></li></ol><ol type="1" id="1af67645-92b5-800b-b021-f7b5a4e89f22" class="numbered-list" start="5"><li><strong>onCreate()</strong><ul id="1af67645-92b5-806e-b2bb-dd337b1c0f19" class="bulleted-list"><li style="list-style-type:disc">Called to initialize essential data before creating the UI.</li></ul><ul id="1af67645-92b5-80ed-9841-c5efeb556675" class="bulleted-list"><li style="list-style-type:disc">Used for setting up variables, database connections, etc.</li></ul></li></ol><ol type="1" id="1af67645-92b5-8075-84f5-fee55aa18f50" class="numbered-list" start="6"><li><strong>onPause()</strong><ul id="1af67645-92b5-8037-910e-d9cfd7eac9e3" class="bulleted-list"><li style="list-style-type:disc">Called when the fragment is no longer in the foreground.</li></ul><ul id="1af67645-92b5-80e7-9ab2-d8076a859d94" class="bulleted-list"><li style="list-style-type:disc">Used to save user progress or stop background tasks.</li></ul></li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1b067645-92b5-80bc-9c9e-e8a731feb013" class="code"><code class="language-Mermaid">graph TD;
+    A[onAttach] --&gt; B[onCreate]
+    B --&gt; C[onCreateView]
+    C --&gt; D[onActivityCreated]
+    D --&gt; E[onStart]
+    E --&gt; F[onResume]
+    F --&gt; G[onPause]
+    G --&gt; H[onStop]
+    H --&gt; I[onDestroyView]
+    I --&gt; J[onDestroy]
+    J --&gt; K[onDetach]
+</code></pre><hr id="1af67645-92b5-8016-856c-e03a4a3f89f5"/><h2 id="1af67645-92b5-803e-aa43-e1ce081a369e" class=""><strong>Q4. What is Explicit Intent? Write a program to create the same.</strong></h2><h3 id="1af67645-92b5-80e0-bdb6-e968409c6d99" class=""><strong>Definition:</strong></h3><p id="1af67645-92b5-80bb-a073-c733b18aa765" class="">Explicit Intent is used when navigating between components <strong>within the same app</strong>.</p><h3 id="1af67645-92b5-8001-96e6-c4976780c5f7" class=""><strong>Main Code Snippet:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8022-9230-f3d22e6771c4" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">public void onClick(View view) {
+    Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+    intent.putExtra(&quot;message&quot;, &quot;Hello from MainActivity!&quot;);
+    startActivity(intent);
+}
+</code></pre><hr id="1af67645-92b5-801b-ad51-eabf40c722c7"/><h2 id="1af67645-92b5-805d-a1cd-e8162282df77" class=""><strong>Q5. How to create a ListView with the help of a program?</strong></h2><h3 id="1af67645-92b5-8061-9f44-f61a99018eaf" class=""><strong>Steps:</strong></h3><ol type="1" id="1af67645-92b5-80f0-8d03-e4ee1ac549df" class="numbered-list" start="1"><li>Define a <code>ListView</code> in XML.</li></ol><ol type="1" id="1af67645-92b5-80bf-9106-d6eca10be046" class="numbered-list" start="2"><li>Use an <code>ArrayAdapter</code> to bind data.</li></ol><ol type="1" id="1af67645-92b5-805e-a3eb-eb0696afb781" class="numbered-list" start="3"><li>Set the adapter to the <code>ListView</code>.</li></ol><h3 id="1af67645-92b5-80a7-826d-d08352338754" class=""><strong>Main Code Snippet:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8080-9cfd-d684a8193b6f" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;&gt;(this, android.R.layout.simple_list_item_1, items);
+listView.setAdapter(adapter);
+</code></pre><hr id="1af67645-92b5-8083-9263-d5ea9cfe6f64"/><h2 id="1af67645-92b5-80e4-9bd7-c8e9b8d0078f" class=""><strong>Q6. What is ProgressBar? Explain with useful methods.</strong></h2><h3 id="1af67645-92b5-807d-a7f1-c7a6affc1095" class=""><strong>Definition:</strong></h3><p id="1af67645-92b5-8014-9459-dce160e26cd8" class="">A <code>ProgressBar</code> is used to show loading progress in an app.</p><h3 id="1af67645-92b5-8049-b054-ea2d29a3a17b" class=""><strong>Useful Methods:</strong></h3><ul id="1af67645-92b5-807a-a4db-dd088c08152a" class="bulleted-list"><li style="list-style-type:disc"><code>setProgress(int value)</code> – Updates progress.</li></ul><ul id="1af67645-92b5-809d-a9d6-c1db23dd42ac" class="bulleted-list"><li style="list-style-type:disc"><code>setMax(int maxValue)</code> – Sets maximum progress.</li></ul><ul id="1af67645-92b5-8078-9cb3-d6dafed29385" class="bulleted-list"><li style="list-style-type:disc"><code>incrementProgressBy(int diff)</code> – Increases progress by a value.</li></ul><h3 id="1af67645-92b5-80f3-910d-dca2aa80114a" class=""><strong>Main Code Snippet:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8033-ad3a-dbe03920cab2" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">progressBar.setProgress(50);
+</code></pre><hr id="1af67645-92b5-80d8-a3a5-e28b46b0d4ae"/><h2 id="1af67645-92b5-8083-8a62-c8599704e1bb" class=""><strong>Q7. Define Views, ViewGroups, and write a program to show the use of any one view.</strong></h2><h3 id="1af67645-92b5-80e5-b5d7-cbc7aa18ae7e" class=""><strong>Definitions:</strong></h3><ul id="1af67645-92b5-8098-9765-ee94fbe9756d" class="bulleted-list"><li style="list-style-type:disc"><strong>View:</strong> Basic UI components like <code>TextView</code>, <code>Button</code>, <code>EditText</code>.</li></ul><ul id="1af67645-92b5-8093-ba7d-ff6b72ac7986" class="bulleted-list"><li style="list-style-type:disc"><strong>ViewGroup:</strong> A layout that holds multiple views (<code>LinearLayout</code>, <code>RelativeLayout</code>).</li></ul><h3 id="1af67645-92b5-808a-a245-e321ba088006" class=""><strong>Example (TextView):</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-800e-bb02-caf7096d8c44" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">TextView textView = new TextView(this);
+textView.setText(&quot;Hello, Android!&quot;);
+layout.addView(textView);
+</code></pre><hr id="1af67645-92b5-8049-9389-eb6274535733"/><h2 id="1af67645-92b5-80c9-9be8-db975e21f609" class=""><strong>Q8. What is Android Activity? Write a program to show Android Activity Lifecycle.</strong></h2><h3 id="1af67645-92b5-8044-b34f-cb4e894531f1" class=""><strong>Definition:</strong></h3><p id="1af67645-92b5-8097-b18c-f62c55a7c3c8" class="">An Activity is a single screen in an Android app. It handles user interactions.</p><h3 id="1af67645-92b5-8058-a4ad-f66b7494c426" class=""><strong>Main Code Snippet (Lifecycle Methods):</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-80d6-8825-cf151d803cd4" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    Log.d(&quot;Lifecycle&quot;, &quot;onCreate called&quot;);
+}
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    Log.d(&quot;Lifecycle&quot;, &quot;onDestroy called&quot;);
+}
+</code></pre><hr id="1af67645-92b5-8001-b706-f6164f6cb1df"/><h2 id="1af67645-92b5-801c-9775-d1ab91a346eb" class=""><strong>Q9. What is Android Intent? Write a program on Implicit Intent.</strong></h2><h3 id="1af67645-92b5-801f-8666-ff9bab7eb5a8" class=""><strong>Definition:</strong></h3><p id="1af67645-92b5-8061-8fc6-fceded5698bb" class="">An <strong>Intent</strong> in Android is a messaging object used to communicate between different app components. It is mainly used for <strong>activity navigation, starting services, sending broadcasts, and interacting with system components</strong>. <strong>Intents</strong> are the backbone of Android app communication.</p><h3 id="1af67645-92b5-80c0-8b5a-dd8b0533245e" class=""><strong>Types of Intents</strong></h3><ol type="1" id="1af67645-92b5-80fd-8242-cf5a84e4aed1" class="numbered-list" start="1"><li><strong>Explicit Intent</strong> – Used when navigating between components within the same app.</li></ol><ol type="1" id="1af67645-92b5-8060-929d-ca3c03ffb015" class="numbered-list" start="2"><li><strong>Implicit Intent</strong> – Used when the system decides which app should handle the request.</li></ol><h3 id="1af67645-92b5-805b-8b7f-fbe877a4389a" class=""><strong>Implicit Intent</strong> <strong>Code Snippet:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-8050-be46-ea4e925005b2" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(&quot;https://www.google.com&quot;));
+startActivity(intent);
+</code></pre><h3 id="1af67645-92b5-80de-bf20-e4c564612d14" class=""><strong>Explicit Intent (Known Destination)</strong></h3><p id="1af67645-92b5-80f2-9333-d14371c768be" class="">Used to navigate within the app (e.g., opening another activity).</p><h3 id="1af67645-92b5-807b-9930-db865b20c583" class=""><strong>Example:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1af67645-92b5-801a-86d3-ccd15b2f4d3d" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+startActivity(intent);</code></pre><hr id="1af67645-92b5-80d2-bcb8-e2d63d09f659"/><h2 id="1af67645-92b5-803e-9d7e-d3e18c1567fa" class=""><strong>Differences Between Explicit and Implicit Intents</strong></h2><table id="1af67645-92b5-807a-af5f-eaf88e04bba7" class="simple-table"><tbody><tr id="1af67645-92b5-80be-8f22-eadcf229fedc"><td id="X^^\" class="">Feature</td><td id="ui`l" class="">Explicit Intent</td><td id="@w]U" class="">Implicit Intent</td></tr><tr id="1af67645-92b5-8097-bd97-f6fefff6fbef"><td id="X^^\" class=""><strong>Usage</strong></td><td id="ui`l" class="">Within the same app</td><td id="@w]U" class="">Across different apps</td></tr><tr id="1af67645-92b5-80ec-a3eb-d9e69bd9bce6"><td id="X^^\" class=""><strong>Target</strong></td><td id="ui`l" class="">Specific activity/service is mentioned</td><td id="@w]U" class="">System decides the app</td></tr><tr id="1af67645-92b5-80cc-85f9-f1b7f46656b5"><td id="X^^\" class=""><strong>Example</strong></td><td id="ui`l" class=""><code>new Intent(this, SecondActivity.class)</code></td><td id="@w]U" class=""><code>new Intent(Intent.ACTION_VIEW, Uri.parse(&quot;https://google.com&quot;))</code></td></tr></tbody></table><hr id="1af67645-92b5-80a5-8170-c4d2d71cf746"/><h2 id="1af67645-92b5-8055-9164-ce51ec1fc25f" class=""><strong>Conclusion</strong></h2><ul id="1af67645-92b5-8093-9dbc-d1121082596e" class="bulleted-list"><li style="list-style-type:disc"><strong>Explicit Intents</strong> navigate within an app.</li></ul><ul id="1af67645-92b5-8072-9976-e349998093bc" class="bulleted-list"><li style="list-style-type:disc"><strong>Implicit Intents</strong> let the system pick the right app for the action.</li></ul><ul id="1af67645-92b5-80dc-b475-c6298ed69e76" class="bulleted-list"><li style="list-style-type:disc"><strong>Intent Filters</strong> enable an app to respond to implicit intents.</li></ul><ul id="1af67645-92b5-80a1-8590-e4588b9a7b6f" class="bulleted-list"><li style="list-style-type:disc"><strong>Broadcast Intents</strong> allow communication across apps.</li></ul><p id="1af67645-92b5-8041-ad28-e77acc581f46" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

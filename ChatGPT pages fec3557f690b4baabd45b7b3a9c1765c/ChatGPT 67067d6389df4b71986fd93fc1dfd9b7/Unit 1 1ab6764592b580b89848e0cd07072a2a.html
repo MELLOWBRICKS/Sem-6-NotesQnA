@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1ab67645-92b5-80b8-9848-e0cd07072a2a" class="page sans"><header><h1 class="page-title">Unit 1</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Software%20Testing%20&amp;%20Quality%20Assurance%208462a7124d6d4b5488adb1acba858011.html"><img class="icon" src="https://www.notion.so/icons/cursor-click_gray.svg"/>Software Testing &amp; Quality Assurance</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td></td></tr></tbody></table></header><div class="page-body"><h3 id="1ab67645-92b5-808e-82ac-d4ce89db9b77" class=""><strong>Q1. Give the concept of Software Review with its steps.</strong></h3><p id="1ab67645-92b5-8076-bb57-c35ce544484e" class=""><strong>Concept of Software Review:</strong></p><ul id="1ab67645-92b5-8063-8ae8-f7d9b1088b0a" class="bulleted-list"><li style="list-style-type:disc">A <strong>Software Review</strong> is a systematic examination of a software product to find and resolve issues early in the development lifecycle.</li></ul><ul id="1ab67645-92b5-8022-9ed1-c115565874d4" class="bulleted-list"><li style="list-style-type:disc">It is conducted to ensure that the software meets the required standards and specifications.</li></ul><ul id="1ab67645-92b5-80f0-8255-f78ecf8697da" class="bulleted-list"><li style="list-style-type:disc">Software reviews help improve software quality by identifying defects and improving development efficiency.</li></ul><ul id="1ab67645-92b5-8068-b8cd-fd6ec8fc55ff" class="bulleted-list"><li style="list-style-type:disc">It can be performed at different stages of development, such as requirements, design, code, and test cases.</li></ul><ul id="1ab67645-92b5-80b3-aff1-e770decb9c49" class="bulleted-list"><li style="list-style-type:disc">The key participants in a software review include developers, testers, and stakeholders.</li></ul><ul id="1ab67645-92b5-8054-8192-d7fd538774bc" class="bulleted-list"><li style="list-style-type:disc">Common types of software reviews include <strong>peer reviews, walkthroughs, and inspections.</strong></li></ul><p id="1ab67645-92b5-803b-854d-c4d244356f38" class=""><strong>Steps of Software Review:</strong></p><ol type="1" id="1ab67645-92b5-8019-8192-ef099d41cb62" class="numbered-list" start="1"><li><strong>Planning:</strong> Define the purpose, scope, and participants of the review.</li></ol><ol type="1" id="1ab67645-92b5-80ea-b946-d664af454cae" class="numbered-list" start="2"><li><strong>Preparation:</strong> Reviewers study the software artifacts (requirements, code, etc.).</li></ol><ol type="1" id="1ab67645-92b5-80b0-9d5f-f069649c2182" class="numbered-list" start="3"><li><strong>Review Meeting:</strong> Reviewers discuss the findings and identify defects.</li></ol><ol type="1" id="1ab67645-92b5-8054-bcf1-ecf86a025db4" class="numbered-list" start="4"><li><strong>Recording Issues:</strong> Document issues found during the review.</li></ol><ol type="1" id="1ab67645-92b5-80dc-ac8e-faff2a4cd252" class="numbered-list" start="5"><li><strong>Rework:</strong> The author makes necessary corrections.</li></ol><ol type="1" id="1ab67645-92b5-80ad-9990-c1e1c19122c4" class="numbered-list" start="6"><li><strong>Follow-up:</strong> Verify that changes were made and assess effectiveness.</li></ol><hr id="1ab67645-92b5-80c3-95fb-c169ba7f2f75"/><h3 id="1ab67645-92b5-8022-8e93-d6d21f7d8674" class=""><strong>Q2. What is Software Quality? Explain Quality Assurance.</strong></h3><p id="1ab67645-92b5-8024-b506-c5a36b42c275" class=""><strong>Software Quality:</strong></p><ul id="1ab67645-92b5-8046-b388-cda100ded404" class="bulleted-list"><li style="list-style-type:disc">Software Quality refers to the degree to which software <strong>meets customer requirements, performs efficiently, and is free of defects.</strong></li></ul><ul id="1ab67645-92b5-80a8-ae7b-d932b7955e80" class="bulleted-list"><li style="list-style-type:disc">It ensures reliability, maintainability, usability, and efficiency.</li></ul><ul id="1ab67645-92b5-8085-8462-d2b51e28423f" class="bulleted-list"><li style="list-style-type:disc"><strong>Two Aspects:</strong><ol type="1" id="1ab67645-92b5-80dc-807b-c630604c1cb1" class="numbered-list" start="1"><li><strong>Quality of Design:</strong> Ensures the software is built according to requirements.</li></ol><ol type="1" id="1ab67645-92b5-803e-be84-c411cd2c4a32" class="numbered-list" start="2"><li><strong>Quality of Conformance:</strong> Ensures the final product meets specifications.</li></ol></li></ul><p id="1ab67645-92b5-8067-a4c9-fbba2e05e22b" class=""><strong>Quality Assurance (QA):</strong></p><ul id="1ab67645-92b5-8065-bd26-c8d53921531d" class="bulleted-list"><li style="list-style-type:disc">QA is a <strong>systematic process</strong> to ensure that software development processes meet predefined quality standards.</li></ul><ul id="1ab67645-92b5-80e9-a903-da6462585a04" class="bulleted-list"><li style="list-style-type:disc">It <strong>prevents</strong> defects rather than detecting them.</li></ul><ul id="1ab67645-92b5-803e-9605-e30b16ca66e0" class="bulleted-list"><li style="list-style-type:disc">It involves <strong>process-oriented activities</strong> such as planning, auditing, and process improvement.</li></ul><ul id="1ab67645-92b5-8097-bb82-dd606d3d6db8" class="bulleted-list"><li style="list-style-type:disc">QA <strong>follows industry standards</strong> like ISO 9001, CMMI, and Six Sigma.</li></ul><ul id="1ab67645-92b5-8052-adb7-f4a6faaf25f1" class="bulleted-list"><li style="list-style-type:disc">Ensures that <strong>best practices and methodologies</strong> are followed.</li></ul><ul id="1ab67645-92b5-8053-a11b-efb639e6a34e" class="bulleted-list"><li style="list-style-type:disc">Helps improve <strong>software reliability, efficiency, and maintainability.</strong></li></ul><hr id="1ab67645-92b5-802a-8eb8-c36822c136eb"/><h3 id="1ab67645-92b5-8011-97f3-ee3d39098dfe" class=""><strong>Q3. Differentiate between Verification and Validation.</strong></h3><table id="1ab67645-92b5-8022-a1fa-e97012cb75e2" class="simple-table"><tbody><tr id="1ab67645-92b5-80c6-978b-f340d84d7987"><td id="yyoj" class=""><strong>Aspect</strong></td><td id="\qQs" class=""><strong>Verification</strong></td><td id="ui^y" class=""><strong>Validation</strong></td></tr><tr id="1ab67645-92b5-80fa-a64b-d9b9545a99fe"><td id="yyoj" class=""><strong>Definition</strong></td><td id="\qQs" class="">Process of checking if the software meets requirements before development is complete.</td><td id="ui^y" class="">Process of checking if the final product meets user needs.</td></tr><tr id="1ab67645-92b5-802b-9e9c-ec3101427dd7"><td id="yyoj" class=""><strong>Focus</strong></td><td id="\qQs" class="">Focuses on <strong>processes</strong> and documentation.</td><td id="ui^y" class="">Focuses on the <strong>actual product</strong>.</td></tr><tr id="1ab67645-92b5-8089-888e-dee0517391d2"><td id="yyoj" class=""><strong>Activities</strong></td><td id="\qQs" class="">Includes reviews, inspections, and walkthroughs.</td><td id="ui^y" class="">Includes testing, such as unit testing, system testing, and user acceptance testing.</td></tr><tr id="1ab67645-92b5-8072-9466-df47f28998e8"><td id="yyoj" class=""><strong>Performed When</strong></td><td id="\qQs" class="">Done <strong>before</strong> coding starts.</td><td id="ui^y" class="">Done <strong>after</strong> software is developed.</td></tr><tr id="1ab67645-92b5-80e2-9072-e66ffa604c86"><td id="yyoj" class=""><strong>Objective</strong></td><td id="\qQs" class="">Ensures software <strong>is built correctly</strong>.</td><td id="ui^y" class="">Ensures the <strong>right software is built</strong>.</td></tr><tr id="1ab67645-92b5-80af-9f43-edd75a0e07c7"><td id="yyoj" class=""><strong>Example</strong></td><td id="\qQs" class="">Checking software design documents for consistency.</td><td id="ui^y" class="">Testing the software on real devices to see if it works as expected.</td></tr></tbody></table><hr id="1ab67645-92b5-802c-adc1-df98d3b383e7"/><h3 id="1ab67645-92b5-8096-ab32-ce81d7257368" class=""><strong>Q4. Give answers for following:</strong></h3><ol type="1" id="1ab67645-92b5-803c-92c4-c59462ca3e76" class="numbered-list" start="1"><li><strong>List the benefits of automation testing.</strong><ul id="1ab67645-92b5-805c-8f46-ecf2c2ff7599" class="bulleted-list"><li style="list-style-type:disc">Faster execution of test cases.</li></ul><ul id="1ab67645-92b5-8063-bfce-ede0e5cc2966" class="bulleted-list"><li style="list-style-type:disc">Increases accuracy by reducing human errors.</li></ul><ul id="1ab67645-92b5-8032-93ce-cc2d71eeed30" class="bulleted-list"><li style="list-style-type:disc">Supports multiple test cases at once (parallel execution).</li></ul><ul id="1ab67645-92b5-80c3-8b18-eb465ae56e2e" class="bulleted-list"><li style="list-style-type:disc">Reduces manual effort and saves costs in the long run.</li></ul><ul id="1ab67645-92b5-80d9-9057-c4f00bf40660" class="bulleted-list"><li style="list-style-type:disc">Enables regression testing with ease.</li></ul><ul id="1ab67645-92b5-80e2-97f3-dd6548fe6552" class="bulleted-list"><li style="list-style-type:disc">Improves test coverage and reliability.</li></ul></li></ol><ol type="1" id="1ab67645-92b5-800f-95f6-fd4e81bb5f94" class="numbered-list" start="2"><li><strong>Differentiate between manual testing &amp; automation testing.</strong></li></ol><table id="1ab67645-92b5-80e9-ad94-f7ab83b9806d" class="simple-table"><tbody><tr id="1ab67645-92b5-80e7-95c4-dba9274bc16b"><td id="sb@n" class=""><strong>Aspect</strong></td><td id="}nlF" class=""><strong>Manual Testing</strong></td><td id="&lt;:;i" class=""><strong>Automation Testing</strong></td></tr><tr id="1ab67645-92b5-8047-a6db-e7f5b0005676"><td id="sb@n" class=""><strong>Execution</strong></td><td id="}nlF" class="">Performed manually by testers.</td><td id="&lt;:;i" class="">Executed using test scripts and tools.</td></tr><tr id="1ab67645-92b5-8099-a87f-e19c2daa1a38"><td id="sb@n" class=""><strong>Speed</strong></td><td id="}nlF" class="">Slower, as human intervention is required.</td><td id="&lt;:;i" class="">Faster, as scripts run automatically.</td></tr><tr id="1ab67645-92b5-8079-8942-e022ac885d34"><td id="sb@n" class=""><strong>Cost</strong></td><td id="}nlF" class="">Initially cheaper but expensive over time.</td><td id="&lt;:;i" class="">High initial cost but cost-effective long-term.</td></tr><tr id="1ab67645-92b5-80d5-b27b-e705fd4f94e5"><td id="sb@n" class=""><strong>Accuracy</strong></td><td id="}nlF" class="">Prone to human errors.</td><td id="&lt;:;i" class="">More accurate and consistent.</td></tr><tr id="1ab67645-92b5-809e-993d-c059aa7b180a"><td id="sb@n" class=""><strong>Best For</strong></td><td id="}nlF" class="">Exploratory, usability, and ad-hoc testing.</td><td id="&lt;:;i" class="">Regression, load, and performance testing.</td></tr><tr id="1ab67645-92b5-8081-a68c-ca8edaecc40d"><td id="sb@n" class=""><strong>Tools Used</strong></td><td id="}nlF" class="">No tools required.</td><td id="&lt;:;i" class="">Uses tools like Selenium, JUnit, and TestNG.</td></tr></tbody></table><ol type="1" id="1ab67645-92b5-8087-8202-fcc57d5c0002" class="numbered-list" start="1"><li><strong>Design any 2 test cases for User Change Password Form.</strong></li></ol><table id="1ab67645-92b5-80e2-b492-edd8da5cdcf2" class="simple-table"><tbody><tr id="1ab67645-92b5-8000-ad10-c8db4bc6ace6"><td id="`ZJs" class=""><strong>Test Case</strong></td><td id="nc:C" class=""><strong>Description</strong></td><td id="N@lB" class=""><strong>Expected Result</strong></td></tr><tr id="1ab67645-92b5-8055-8161-ff20b812336c"><td id="`ZJs" class="">1. Valid Password Change</td><td id="nc:C" class="">Enter correct old password, new password, and confirm new password.</td><td id="N@lB" class="">Password should be updated successfully.</td></tr><tr id="1ab67645-92b5-80b2-97ca-cae9e2e03f34"><td id="`ZJs" class="">2. Mismatched New Passwords</td><td id="nc:C" class="">Enter a new password and a different confirm password.</td><td id="N@lB" class="">System should show an error message.</td></tr></tbody></table><hr id="1ab67645-92b5-8006-a253-d21fb34e1a33"/><h3 id="1ab67645-92b5-80b9-bfe4-cde6e0d51bc6" class=""><strong>Q5. Differentiate between QA and QC.</strong></h3><table id="1ab67645-92b5-801f-97e1-f6f86c4828c2" class="simple-table"><tbody><tr id="1ab67645-92b5-8034-bae7-dd43a6442a2b"><td id=";xo:" class=""><strong>Aspect</strong></td><td id="^]~w" class=""><strong>Quality Assurance (QA)</strong></td><td id="HQ&gt;b" class=""><strong>Quality Control (QC)</strong></td></tr><tr id="1ab67645-92b5-80b1-a484-fe1752a0eb3e"><td id=";xo:" class=""><strong>Definition</strong></td><td id="^]~w" class="">Ensures processes are in place to maintain quality.</td><td id="HQ&gt;b" class="">Ensures the final product meets quality standards.</td></tr><tr id="1ab67645-92b5-80d4-99a8-f4eb729b1cbe"><td id=";xo:" class=""><strong>Focus</strong></td><td id="^]~w" class="">Process-oriented.</td><td id="HQ&gt;b" class="">Product-oriented.</td></tr><tr id="1ab67645-92b5-8055-a3c6-e66d3c6218d3"><td id=";xo:" class=""><strong>Objective</strong></td><td id="^]~w" class="">Prevents defects.</td><td id="HQ&gt;b" class="">Detects defects.</td></tr><tr id="1ab67645-92b5-8051-bd72-f1b82de9fe13"><td id=";xo:" class=""><strong>Performed When</strong></td><td id="^]~w" class="">Throughout the SDLC.</td><td id="HQ&gt;b" class="">After software development.</td></tr><tr id="1ab67645-92b5-80ac-b57a-f320324cba2e"><td id=";xo:" class=""><strong>Examples</strong></td><td id="^]~w" class="">Process improvement, audits.</td><td id="HQ&gt;b" class="">Testing, bug tracking.</td></tr><tr id="1ab67645-92b5-8082-84aa-fec6ce8f1b0e"><td id=";xo:" class=""><strong>Responsibility</strong></td><td id="^]~w" class="">Carried out by project managers, QA teams.</td><td id="HQ&gt;b" class="">Performed by testers.</td></tr></tbody></table><hr id="1ab67645-92b5-8045-9b67-c4b372fd99a0"/><h3 id="1ab67645-92b5-80a3-b7fc-dfcb4785884b" class=""><strong>Q6. Explain Software Formal Review.</strong></h3><ul id="1ab67645-92b5-80e2-a3fc-e4bcedc369e4" class="bulleted-list"><li style="list-style-type:disc">A <strong>Formal Review</strong> is a structured examination of software artifacts.</li></ul><ul id="1ab67645-92b5-8088-b84b-c61f354bfbfb" class="bulleted-list"><li style="list-style-type:disc">Conducted using <strong>defined procedures and checklists</strong> to ensure software quality.</li></ul><ul id="1ab67645-92b5-806a-8cc3-c6670b23d87a" class="bulleted-list"><li style="list-style-type:disc">Involves roles like <strong>moderator, reviewers, and author</strong>.</li></ul><ul id="1ab67645-92b5-8054-9fd5-e9c8916a18b7" class="bulleted-list"><li style="list-style-type:disc"><strong>Types of Formal Reviews:</strong><ol type="1" id="1ab67645-92b5-80f2-b1d4-d90b7e218687" class="numbered-list" start="1"><li><strong>Inspection</strong> – Focuses on defect detection.</li></ol><ol type="1" id="1ab67645-92b5-8044-8abc-ca69f4ad43d8" class="numbered-list" start="2"><li><strong>Walkthrough</strong> – More informal, used for knowledge sharing.</li></ol><ol type="1" id="1ab67645-92b5-8032-9ad7-ce936114d07f" class="numbered-list" start="3"><li><strong>Technical Review</strong> – Conducted by experts to check technical aspects.</li></ol></li></ul><ul id="1ab67645-92b5-80dd-a00a-fbcd2776814e" class="bulleted-list"><li style="list-style-type:disc">Steps: <strong>Planning → Preparation → Review Meeting → Rework → Follow-up</strong>.</li></ul><ul id="1ab67645-92b5-80a6-8cc8-e55948d20054" class="bulleted-list"><li style="list-style-type:disc">Ensures software <strong>meets industry standards</strong> and reduces defects.</li></ul><hr id="1ab67645-92b5-807f-97a6-eb76798651db"/><h3 id="1ab67645-92b5-804a-acd1-d6388bd36daa" class=""><strong>Q7. What is Quality? Explain QA and QC.</strong></h3><p id="1ab67645-92b5-80ac-8bce-eaca291c540d" class=""><strong>Quality:</strong></p><ul id="1ab67645-92b5-8040-b594-e07862cda639" class="bulleted-list"><li style="list-style-type:disc">Quality means <strong>meeting customer expectations and ensuring defect-free software</strong>.</li></ul><ul id="1ab67645-92b5-80a8-ac3c-e750d10f1610" class="bulleted-list"><li style="list-style-type:disc">Involves <strong>maintainability, reliability, usability, efficiency, and performance</strong>.</li></ul><p id="1ab67645-92b5-8043-be60-cbb6134fb2b2" class=""><strong>Quality Assurance (QA):</strong></p><ul id="1ab67645-92b5-80b0-b19b-c047f46c5065" class="bulleted-list"><li style="list-style-type:disc">Ensures <strong>processes and methodologies</strong> maintain software quality.</li></ul><ul id="1ab67645-92b5-80b7-b79e-c060cc4a98e5" class="bulleted-list"><li style="list-style-type:disc">Prevents defects before they occur.</li></ul><ul id="1ab67645-92b5-8004-a4fe-fb6532c983e4" class="bulleted-list"><li style="list-style-type:disc">Involves <strong>planning, documentation, and auditing</strong>.</li></ul><p id="1ab67645-92b5-8091-8446-f7df9d17f83f" class=""><strong>Quality Control (QC):</strong></p><ul id="1ab67645-92b5-80fa-89c2-f21315473488" class="bulleted-list"><li style="list-style-type:disc">Focuses on <strong>detecting and fixing defects</strong> in the final product.</li></ul><ul id="1ab67645-92b5-800b-b900-e0fd46e7073b" class="bulleted-list"><li style="list-style-type:disc">Involves <strong>testing, inspections, and reviews</strong>.</li></ul><ul id="1ab67645-92b5-8070-91d0-fc6402085c2a" class="bulleted-list"><li style="list-style-type:disc">Ensures that the product <strong>meets quality requirements</strong> before delivery.</li></ul><hr id="1ab67645-92b5-80bc-ab49-ede39179460e"/><h3 id="1ab67645-92b5-8019-bcef-d7d081b13784" class=""><strong>Q8. What is the nature of errors? Write any four limitations of Manual Testing.</strong></h3><h3 id="1ab67645-92b5-806f-8997-e81980a122db" class=""><strong>Nature of Errors:</strong></h3><p id="1ab67645-92b5-80d8-9a7e-dc7f9da96deb" class="">Errors in software refer to <strong>flaws, mistakes, or defects</strong> that cause unexpected behavior or incorrect results. These errors can occur due to various reasons, such as misinterpretation of requirements, coding mistakes, or environmental factors.</p><h3 id="1ab67645-92b5-8032-b00e-fa7c700a5f6b" class=""><strong>Types of Errors:</strong></h3><ol type="1" id="1ab67645-92b5-80dd-a742-c2cb45e087f2" class="numbered-list" start="1"><li><strong>Syntax Errors</strong> – Occur when programming language rules are violated, leading to compilation failures.</li></ol><ol type="1" id="1ab67645-92b5-8053-998e-c8bf58ee292a" class="numbered-list" start="2"><li><strong>Logical Errors</strong> – Mistakes in the logic of the program that produce incorrect outputs.</li></ol><ol type="1" id="1ab67645-92b5-809e-b1c4-e052e6c38286" class="numbered-list" start="3"><li><strong>Runtime Errors</strong> – Errors that occur while the program is executing, such as division by zero.</li></ol><ol type="1" id="1ab67645-92b5-8036-8e09-e8b1dedb5941" class="numbered-list" start="4"><li><strong>Interface Errors</strong> – Errors in communication between software components or external systems.</li></ol><ol type="1" id="1ab67645-92b5-80bc-af53-e7dc278feb37" class="numbered-list" start="5"><li><strong>Performance Errors</strong> – Issues related to speed, responsiveness, or excessive resource consumption.</li></ol><ol type="1" id="1ab67645-92b5-80be-be3b-eb8814203631" class="numbered-list" start="6"><li><strong>Configuration Errors</strong> – Errors due to incorrect system settings or incompatible software/hardware configurations.</li></ol><h3 id="1ab67645-92b5-8061-8fe1-c1e8d7487fdf" class=""><strong>Four Limitations of Manual Testing:</strong></h3><ol type="1" id="1ab67645-92b5-80df-81d2-e0c862a72e9d" class="numbered-list" start="1"><li><strong>Time-Consuming</strong> – Since test cases are executed manually, the process is slow compared to automated testing.</li></ol><ol type="1" id="1ab67645-92b5-8010-bed6-cfe2b2375c54" class="numbered-list" start="2"><li><strong>Prone to Human Errors</strong> – Testers may miss certain defects due to oversight, fatigue, or inconsistency.</li></ol><ol type="1" id="1ab67645-92b5-80ff-b389-fc0315381683" class="numbered-list" start="3"><li><strong>Limited Test Coverage</strong> – It is difficult to execute all possible test scenarios manually, especially for large applications.</li></ol><ol type="1" id="1ab67645-92b5-807e-a5d2-c966bf6c5f1e" class="numbered-list" start="4"><li><strong>Not Suitable for Large-Scale Testing</strong> – Regression and performance testing are difficult to handle manually due to repetitive and complex test cases.</li></ol></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

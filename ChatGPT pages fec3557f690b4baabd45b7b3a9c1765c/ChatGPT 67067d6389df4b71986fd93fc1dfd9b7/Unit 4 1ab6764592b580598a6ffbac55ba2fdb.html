@@ -1,0 +1,693 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 4</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1ab67645-92b5-8059-8a6f-fbac55ba2fdb" class="page sans"><header><h1 class="page-title">Unit 4</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Software%20Testing%20&amp;%20Quality%20Assurance%208462a7124d6d4b5488adb1acba858011.html"><img class="icon" src="https://www.notion.so/icons/cursor-click_gray.svg"/>Software Testing &amp; Quality Assurance</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td></td></tr></tbody></table></header><div class="page-body"><h3 id="1ab67645-92b5-808f-a5ee-d29c29d53a42" class=""><strong>Q1. Explain Software Configuration Management (SCM).</strong></h3><h3 id="1ab67645-92b5-8048-acdb-d5ed1f5d9f8a" class=""><strong>Definition:</strong></h3><p id="1ab67645-92b5-80de-aa9c-d11e6c45926a" class=""><strong>Software Configuration Management (SCM)</strong> is the process of tracking and controlling changes in software during development and maintenance. It ensures software consistency, integrity, and traceability.</p><h3 id="1ab67645-92b5-806e-ab16-ea890fc70fd4" class=""><strong>Key Functions of SCM:</strong></h3><ol type="1" id="1ab67645-92b5-8038-a5d7-c59cc7aab69c" class="numbered-list" start="1"><li><strong>Identification:</strong> Recognizing and defining software components (files, documents, code versions).</li></ol><ol type="1" id="1ab67645-92b5-8071-8e5f-f3cc88ee55d9" class="numbered-list" start="2"><li><strong>Version Control:</strong> Managing multiple versions of software to track modifications.</li></ol><ol type="1" id="1ab67645-92b5-80fa-ad39-dfaed58b6647" class="numbered-list" start="3"><li><strong>Change Control:</strong> Monitoring and approving modifications before implementation.</li></ol><ol type="1" id="1ab67645-92b5-80e6-902f-f2998b343650" class="numbered-list" start="4"><li><strong>Configuration Audit:</strong> Ensuring implemented changes meet requirements and standards.</li></ol><ol type="1" id="1ab67645-92b5-805c-97cf-e6fb79a6da11" class="numbered-list" start="5"><li><strong>Status Reporting:</strong> Providing updates on changes through user guides, FAQs, and release notes.</li></ol><h3 id="1ab67645-92b5-80e4-a3d6-c31859eff7ef" class=""><strong>Benefits of SCM:</strong></h3><ul id="1ab67645-92b5-8070-b306-ce2a6ba7eef5" class="bulleted-list"><li style="list-style-type:disc">Prevents <strong>unauthorized changes</strong> to software.</li></ul><ul id="1ab67645-92b5-80e3-bc67-eaaacb174a09" class="bulleted-list"><li style="list-style-type:disc">Ensures <strong>team collaboration</strong> without conflicts.</li></ul><ul id="1ab67645-92b5-8067-8717-daa0de1a9684" class="bulleted-list"><li style="list-style-type:disc">Improves <strong>traceability and rollback capability</strong> in case of errors.</li></ul><hr id="1ab67645-92b5-80e5-8deb-d054c6c115bc"/><h3 id="1ab67645-92b5-80f1-b8a4-dcfc49a82e5d" class=""><strong>Q2. Define Defect Prevention and Explain Peer Reviews in Detail.</strong></h3><h3 id="1ab67645-92b5-80c5-93c6-ee8ef3f05917" class=""><strong>Defect Prevention (DP):</strong></h3><ul id="1ab67645-92b5-8023-90a8-da8c29d221a8" class="bulleted-list"><li style="list-style-type:disc">A proactive approach to prevent previously detected defects from <strong>recurring</strong>.</li></ul><ul id="1ab67645-92b5-801a-b14d-e1e1190e9269" class="bulleted-list"><li style="list-style-type:disc">Involves identifying root causes and <strong>eliminating them at the source</strong>.</li></ul><ul id="1ab67645-92b5-80e1-acb3-e1d213d0b8d6" class="bulleted-list"><li style="list-style-type:disc">Conducted through <strong>reviews, static analysis, and process improvements</strong>.</li></ul><h3 id="1ab67645-92b5-8006-a746-d172c39460d4" class=""><strong>Peer Reviews:</strong></h3><ul id="1ab67645-92b5-803a-a9f3-eb20f8c9bda4" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition:</strong> A systematic examination of software <strong>by team members</strong> to detect defects early.</li></ul><ul id="1ab67645-92b5-80db-821d-f6aa79f0af89" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose:</strong> Improve software quality by reviewing design, code, or test cases.</li></ul><ul id="1ab67645-92b5-80c6-be8d-c14237e8e0f5" class="bulleted-list"><li style="list-style-type:disc"><strong>Types of Peer Reviews:</strong><ol type="1" id="1ab67645-92b5-8036-ac8a-dca7d97aae0b" class="numbered-list" start="1"><li><strong>Formal Review:</strong> Structured, follows a process, involves <strong>inspection and walkthroughs</strong>.</li></ol><ol type="1" id="1ab67645-92b5-80b1-bc80-ef1f7c09133e" class="numbered-list" start="2"><li><strong>Informal Review:</strong> Casual discussions without documentation, helps identify <strong>minor issues early</strong>.</li></ol></li></ul><h3 id="1ab67645-92b5-807a-abb7-c4869948213e" class=""><strong>Steps in Peer Review Process:</strong></h3><ol type="1" id="1ab67645-92b5-80d2-9057-f3677288e22d" class="numbered-list" start="1"><li><strong>Planning:</strong> Identify objectives and assign roles (author, reviewer, moderator).</li></ol><ol type="1" id="1ab67645-92b5-8003-9d81-c6533224e7c4" class="numbered-list" start="2"><li><strong>Preparation:</strong> Reviewers analyze the artifact before the meeting.</li></ol><ol type="1" id="1ab67645-92b5-80a7-bb14-f89cdadf532a" class="numbered-list" start="3"><li><strong>Review Meeting:</strong> Reviewers discuss findings and document defects.</li></ol><ol type="1" id="1ab67645-92b5-80d1-9351-d19f866b3880" class="numbered-list" start="4"><li><strong>Rework:</strong> The author fixes defects.</li></ol><ol type="1" id="1ab67645-92b5-8012-b073-e638a3891afb" class="numbered-list" start="5"><li><strong>Follow-up:</strong> Ensures all defects are resolved before closure.</li></ol><hr id="1ab67645-92b5-8052-9808-cb80376ebb26"/><h3 id="1ab67645-92b5-8074-97f1-d6dc64129feb" class=""><strong>Q3. Explain the following Quality Tools:</strong></h3><h3 id="1ab67645-92b5-80b9-8290-f277212f26ea" class=""><strong>1. Pareto Chart:</strong></h3><ul id="1ab67645-92b5-80ca-8b1d-c066abd4a3cb" class="bulleted-list"><li style="list-style-type:disc">A <strong>bar chart</strong> that represents data in descending order with a <strong>cumulative percentage line</strong>.</li></ul><ul id="1ab67645-92b5-800b-92f1-eba12d4ca15c" class="bulleted-list"><li style="list-style-type:disc">Based on the <strong>Pareto Principle (80/20 rule):</strong> 80% of problems come from 20% of causes.</li></ul><p id="1ab67645-92b5-8069-82f7-ed336c2c3502" class=""><strong>Use Case:</strong> Identifying <strong>major defects</strong> affecting software quality and prioritizing them.</p><h3 id="1ab67645-92b5-807a-99d0-f38166564dec" class=""><strong>2. Scatter Diagram:</strong></h3><ul id="1ab67645-92b5-808e-9b9a-f41698a7335c" class="bulleted-list"><li style="list-style-type:disc">A <strong>graphical representation</strong> of two variables to identify correlations.</li></ul><ul id="1ab67645-92b5-807f-9ee0-ec28ce8b881a" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong> A scatter diagram can show the <strong>relationship between defect count and testing time</strong>.</li></ul><p id="1ab67645-92b5-80c6-b99b-c3a3daea0115" class=""><strong>Use Case:</strong> Helps in <strong>root cause analysis</strong> by finding dependencies between variables. </p><hr id="1ab67645-92b5-8049-9d03-e7d44122ef1d"/><h3 id="1ab67645-92b5-808f-a825-c9d56244f216" class=""><strong>Q4. Explain CMM Levels.</strong></h3><p id="1ab67645-92b5-80c3-bcd8-d8938f22a6e0" class=""><strong>Capability Maturity Model (CMM)</strong> is a framework for assessing and improving software development processes.</p><h3 id="1ab67645-92b5-8091-a853-e1f048ecc079" class=""><strong>Five CMM Levels:</strong></h3><ol type="1" id="1ab67645-92b5-80da-88b1-d446c3065730" class="numbered-list" start="1"><li><strong>Level 1 – Initial:</strong><ul id="1ab67645-92b5-8064-8a2c-df11fa625244" class="bulleted-list"><li style="list-style-type:disc">No defined processes, development is unpredictable.</li></ul><ul id="1ab67645-92b5-8022-8191-d555cf6fb62e" class="bulleted-list"><li style="list-style-type:disc">Example: Startups with <strong>ad-hoc</strong> development.</li></ul></li></ol><ol type="1" id="1ab67645-92b5-80b6-b231-cb1b452c610b" class="numbered-list" start="2"><li><strong>Level 2 – Repeatable:</strong><ul id="1ab67645-92b5-803f-9bc3-cf79c59bc38b" class="bulleted-list"><li style="list-style-type:disc">Basic project management practices in place.</li></ul><ul id="1ab67645-92b5-802f-b9a4-caf1bc173eb4" class="bulleted-list"><li style="list-style-type:disc">Example: <strong>Version control, requirement tracking.</strong></li></ul></li></ol><ol type="1" id="1ab67645-92b5-80cf-a9c7-e44ea5804c4a" class="numbered-list" start="3"><li><strong>Level 3 – Defined:</strong><ul id="1ab67645-92b5-80c3-ba51-eb98b906d93b" class="bulleted-list"><li style="list-style-type:disc">Organization-wide process <strong>standardization</strong>.</li></ul><ul id="1ab67645-92b5-806f-a94b-efbeb326b6c8" class="bulleted-list"><li style="list-style-type:disc">Example: <strong>Formal SQA, process documentation.</strong></li></ul></li></ol><ol type="1" id="1ab67645-92b5-8002-a6c5-e9dfbf7bbb47" class="numbered-list" start="4"><li><strong>Level 4 – Managed:</strong><ul id="1ab67645-92b5-800d-b70b-dacd17202725" class="bulleted-list"><li style="list-style-type:disc"><strong>Quantitative process control</strong> using metrics.</li></ul><ul id="1ab67645-92b5-804c-8ecb-cf3a1add68ee" class="bulleted-list"><li style="list-style-type:disc">Example: <strong>Defect density monitoring, statistical quality control.</strong></li></ul></li></ol><ol type="1" id="1ab67645-92b5-8061-a077-d38265437137" class="numbered-list" start="5"><li><strong>Level 5 – Optimizing:</strong><ul id="1ab67645-92b5-8025-8b77-fc593672689d" class="bulleted-list"><li style="list-style-type:disc">Continuous process <strong>improvement and innovation</strong>.</li></ul><ul id="1ab67645-92b5-80de-b6ed-cdba49181d20" class="bulleted-list"><li style="list-style-type:disc">Example: <strong>Six Sigma, process automation.</strong></li></ul></li></ol><hr id="1ab67645-92b5-8042-a20d-ff6bf1d77687"/><h3 id="1ab67645-92b5-80df-b171-f1462f611f44" class=""><strong>Q5. What is Software Configuration Management?</strong></h3><p id="1ab67645-92b5-80eb-9ff9-f0c1ffc48ea5" class=""><em>(Same answer as </em><em><strong>Q1</strong></em><em>, since it&#x27;s a repeated question.)</em></p><hr id="1ab67645-92b5-802d-a9f0-f4e20701e40d"/><h3 id="1ab67645-92b5-80e6-b0f9-c31779defee2" class=""><strong>Q6. Explain Requirement Management.</strong></h3><h3 id="1ab67645-92b5-8068-8079-f9c1f070f919" class=""><strong>Definition:</strong></h3><p id="1ab67645-92b5-8075-aeea-d89733e4c824" class="">Requirement Management ensures that software <strong>meets business needs</strong> by tracking and managing all requirements throughout the development lifecycle.</p><h3 id="1ab67645-92b5-80a6-af2d-ee6b754be2f5" class=""><strong>Key Steps in Requirement Management:</strong></h3><ol type="1" id="1ab67645-92b5-8046-a8d7-c031e1aa0b5f" class="numbered-list" start="1"><li><strong>Requirement Elicitation:</strong> Gathering requirements from stakeholders.</li></ol><ol type="1" id="1ab67645-92b5-8050-9a24-e77bcf1d52ed" class="numbered-list" start="2"><li><strong>Requirement Analysis:</strong> Identifying conflicts and dependencies.</li></ol><ol type="1" id="1ab67645-92b5-803e-9ffd-ff14cbc35558" class="numbered-list" start="3"><li><strong>Requirement Documentation:</strong> Writing <strong>SRS (Software Requirement Specification)</strong>.</li></ol><ol type="1" id="1ab67645-92b5-808b-968f-eac52386e888" class="numbered-list" start="4"><li><strong>Requirement Validation:</strong> Ensuring completeness and feasibility.</li></ol><ol type="1" id="1ab67645-92b5-80ac-8834-f4d114642088" class="numbered-list" start="5"><li><strong>Requirement Traceability:</strong> Mapping each requirement to design, coding, and testing.</li></ol><h3 id="1ab67645-92b5-805a-b0e9-c98385ceb48e" class=""><strong>Benefits of Requirement Management:</strong></h3><ul id="1ab67645-92b5-8071-b705-d00d82a3a12e" class="bulleted-list"><li style="list-style-type:disc">Prevents <strong>requirement mismatches</strong> and scope creep.</li></ul><ul id="1ab67645-92b5-8023-a2fb-fcaa2b36cb1d" class="bulleted-list"><li style="list-style-type:disc">Enhances <strong>customer satisfaction</strong> by ensuring correct implementation.</li></ul><hr id="1ab67645-92b5-801a-9990-d333f436a363"/><h3 id="1ab67645-92b5-8044-aa60-c4140df9dd0c" class=""><strong>Q7. Explain Software Product Engineering.</strong></h3><p id="1ab67645-92b5-8054-86d7-eb3e7fee6d80" class=""><strong>Software Product Engineering (SPE)</strong> refers to the complete process of <strong>designing, developing, testing, and maintaining software products</strong>.</p><h3 id="1ab67645-92b5-80ef-88a3-d4ad2e20defe" class=""><strong>Key Aspects of SPE:</strong></h3><ol type="1" id="1ab67645-92b5-801a-b22d-eb17ddf78239" class="numbered-list" start="1"><li><strong>Quality:</strong> Ensuring high standards in design and development.</li></ol><ol type="1" id="1ab67645-92b5-805f-9fe5-f132ecd0e0df" class="numbered-list" start="2"><li><strong>Usability:</strong> Making the software easy to use.</li></ol><ol type="1" id="1ab67645-92b5-8034-92f9-cf688a463d75" class="numbered-list" start="3"><li><strong>Functionality:</strong> Ensuring all features work as required.</li></ol><ol type="1" id="1ab67645-92b5-8075-889c-f8a14f720717" class="numbered-list" start="4"><li><strong>Durability:</strong> Building software that can <strong>handle long-term use</strong>.</li></ol><ol type="1" id="1ab67645-92b5-8089-89f5-cbf66c2d6f48" class="numbered-list" start="5"><li><strong>Validation:</strong> Ensuring that the final product <strong>meets user needs</strong>.</li></ol><ol type="1" id="1ab67645-92b5-80d8-829a-ce03295d1ec7" class="numbered-list" start="6"><li><strong>Compliance:</strong> Following industry regulations and standards.</li></ol><ol type="1" id="1ab67645-92b5-803f-9f17-d98ecc71b549" class="numbered-list" start="7"><li><strong>Documentation:</strong> Creating manuals and user guides.</li></ol><hr id="1ab67645-92b5-8037-85be-e6a5acdf2c0b"/><h3 id="1ab67645-92b5-80bd-a4d2-ebe2e46d723b" class=""><strong>Q8. What is a Cause-Effect Diagram? When to use a Cause-Effect Diagram? Give Advantages of It.</strong></h3><h3 id="1ab67645-92b5-8079-93e2-f37076da5f65" class=""><strong>Cause-Effect Diagram (Fishbone or Ishikawa Diagram):</strong></h3><ul id="1ab67645-92b5-8050-b0b5-e5e7c271fe14" class="bulleted-list"><li style="list-style-type:disc">A visual tool used to <strong>identify root causes</strong> of problems.</li></ul><ul id="1ab67645-92b5-8039-a3f2-ee4e90d35077" class="bulleted-list"><li style="list-style-type:disc">Categorizes causes into <strong>Materials, Methods, Equipment, Environment, People</strong>.</li></ul><h3 id="1ab67645-92b5-808f-9811-e7e42f7dfb73" class=""><strong>When to Use a Cause-Effect Diagram?</strong></h3><ul id="1ab67645-92b5-80f9-90dd-f10fdbbd4a3b" class="bulleted-list"><li style="list-style-type:disc">When analyzing <strong>defect causes</strong> in software.</li></ul><ul id="1ab67645-92b5-8065-943a-d752b8e9d795" class="bulleted-list"><li style="list-style-type:disc">When <strong>brainstorming improvements</strong> for a process.</li></ul><h3 id="1ab67645-92b5-80fd-8686-cf776ce8b7cf" class=""><strong>Advantages:</strong></h3><ol type="1" id="1ab67645-92b5-80db-820b-d29263514c24" class="numbered-list" start="1"><li>Identifies <strong>key areas</strong> for further investigation.</li></ol><ol type="1" id="1ab67645-92b5-80d9-928a-e3724266072a" class="numbered-list" start="2"><li><strong>Encourages team participation</strong> in problem-solving.</li></ol><ol type="1" id="1ab67645-92b5-80dc-a920-f2b0602123a8" class="numbered-list" start="3"><li>Provides a <strong>structured format</strong> to analyze defects.</li></ol><ol type="1" id="1ab67645-92b5-8093-966c-c960229c76d1" class="numbered-list" start="4"><li><strong>Visual representation</strong> makes it easy to understand.</li></ol><ol type="1" id="1ab67645-92b5-8052-9f5b-ec9e8426ca6f" class="numbered-list" start="5"><li>Helps in <strong>root cause analysis and corrective actions</strong>.</li></ol><hr id="1ab67645-92b5-800a-929f-f4ef141017ac"/><h3 id="1ab67645-92b5-80d9-a7dc-ef5783e3adf2" class=""><strong>Q9. Explain Defect Life Cycle.</strong></h3><h3 id="1ab67645-92b5-8017-bb88-f07aab65be56" class=""><strong>Definition:</strong></h3><p id="1ab67645-92b5-80e7-84ac-fb260eb05d7b" class="">The <strong>Defect Life Cycle (Bug Life Cycle)</strong> defines the different stages a defect goes through from identification to closure.</p><h3 id="1ab67645-92b5-80dc-b6be-d36c5a1a472a" class=""><strong>Phases of Defect Life Cycle:</strong></h3><ol type="1" id="1ab67645-92b5-8081-802e-c10071fff95f" class="numbered-list" start="1"><li><strong>New:</strong> A defect is identified and logged.</li></ol><ol type="1" id="1ab67645-92b5-806d-871e-c508a365f336" class="numbered-list" start="2"><li><strong>Assigned:</strong> The defect is assigned to a developer.</li></ol><ol type="1" id="1ab67645-92b5-80b4-af13-fa9b1c07334c" class="numbered-list" start="3"><li><strong>Open:</strong> The developer starts analyzing and fixing the defect.</li></ol><ol type="1" id="1ab67645-92b5-8062-a3a7-dc5f3711c63c" class="numbered-list" start="4"><li><strong>Fixed:</strong> The defect is resolved.</li></ol><ol type="1" id="1ab67645-92b5-8058-9b5d-fbbad7bacd22" class="numbered-list" start="5"><li><strong>Retest:</strong> The tester verifies the fix.</li></ol><ol type="1" id="1ab67645-92b5-80c0-8ab2-eb503621cf32" class="numbered-list" start="6"><li><strong>Verified:</strong> If the fix works, the defect is marked as verified.</li></ol><ol type="1" id="1ab67645-92b5-8098-9101-c535c33497b1" class="numbered-list" start="7"><li><strong>Closed:</strong> The defect is considered resolved and closed.</li></ol><ol type="1" id="1ab67645-92b5-801b-b8f5-fd47d9d86170" class="numbered-list" start="8"><li><strong>Reopened (if necessary):</strong> If the issue persists, it is reopened for further fixes.</li></ol><h3 id="1ab67645-92b5-8086-87ce-cdb7ff69ea9e" class=""><strong>Diagram Representation:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ab67645-92b5-80f1-b95d-d4da4744d4ef" class="code"><code class="language-Mermaid" style="white-space:pre-wrap;word-break:break-all">graph TD;
+  A[New] --&gt; B[Assigned]
+  B --&gt; C[Open]
+  C --&gt; D[Fixed]
+  D --&gt; E[Retest]
+  E --&gt; F[Verified]
+  F --&gt; G[Closed]
+  E --&gt;|If defect not fixed| H[Reopened]
+  H --&gt; C
+</code></pre><h3 id="1ab67645-92b5-8078-acb6-c5fc8c368272" class=""><strong>Importance of Defect Life Cycle:</strong></h3><ul id="1ab67645-92b5-801a-b5cd-f1310dbfdeb6" class="bulleted-list"><li style="list-style-type:disc">Helps in <strong>tracking defects efficiently</strong>.</li></ul><ul id="1ab67645-92b5-802f-a4b6-f14bb36b594f" class="bulleted-list"><li style="list-style-type:disc">Ensures <strong>timely resolution of issues</strong>.</li></ul><ul id="1ab67645-92b5-8029-b4ee-f9424765acba" class="bulleted-list"><li style="list-style-type:disc">Improves <strong>software quality by maintaining defect records</strong>.</li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,699 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="17667645-92b5-8038-8612-ff4e910df750" class="page sans"><header><h1 class="page-title">Unit 2</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Machine%20Learning%206629f04159a44bf48e528e1bb173e41c.html"><img class="icon" src="https://www.notion.so/icons/coffee-maker_gray.svg"/>Machine Learning</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td></td></tr></tbody></table></header><div class="page-body"><h3 id="1b367645-92b5-80cd-95bd-d32b525767f9" class=""><strong>Q1. Which Supervised learning algorithm will be suitable to predict the property prices? Explain with types, formulas, and graphs.</strong></h3><h3 id="1b367645-92b5-802c-bfd4-db530b7b5e81" class=""><strong>Suitable Algorithm: Regression Models</strong></h3><p id="1b367645-92b5-80e6-8007-dbac2c01ff23" class="">Predicting property prices is a <strong>regression problem</strong> since the output (price) is continuous. The following <strong>supervised learning algorithms</strong> are suitable:</p><ol type="1" id="1b367645-92b5-8089-a774-e1371cfe369d" class="numbered-list" start="1"><li><strong>Linear Regression</strong><ul id="1b367645-92b5-8004-b685-ca68b46773d2" class="bulleted-list"><li style="list-style-type:disc"><strong>Type</strong>: Simple and Multiple Linear Regression</li></ul><ul id="1b367645-92b5-80cd-9247-d83765627834" class="bulleted-list"><li style="list-style-type:disc"><strong>Formula</strong>:</li></ul><figure id="1b367645-92b5-80b8-8391-c9c4bca22c32" class="image"><a href="Unit%202%201766764592b580388612ff4e910df750/image.png"><img style="width:387px" src="Unit%202%201766764592b580388612ff4e910df750/image.png"/></a></figure></li></ol><ol type="1" id="1b367645-92b5-803b-8567-ef66de1cbffd" class="numbered-list" start="2"><li><strong>Polynomial Regression</strong><ul id="1b367645-92b5-80b1-aa75-f9df6bf2887a" class="bulleted-list"><li style="list-style-type:disc"><strong>Type</strong>: Non-linear regression</li></ul><ul id="1b367645-92b5-8029-8cc9-cc02774dc989" class="bulleted-list"><li style="list-style-type:disc"><strong>Formula</strong>:</li></ul><figure id="1b367645-92b5-80b6-9a2c-fd2b93765c30" class="image"><a href="Unit%202%201766764592b580388612ff4e910df750/image%201.png"><img style="width:387px" src="Unit%202%201766764592b580388612ff4e910df750/image%201.png"/></a></figure><p id="1b367645-92b5-80aa-ae36-c15db723846b" class="">Used when the relationship between features and property price is <strong>non-linear</strong>.</p></li></ol><ol type="1" id="1b367645-92b5-80e3-8ed1-cd137094e53d" class="numbered-list" start="3"><li><strong>Decision Tree Regression</strong><ul id="1b367645-92b5-80f1-b6f7-ffdeda90b2cd" class="bulleted-list"><li style="list-style-type:disc">Uses hierarchical decision-making by splitting data based on feature conditions.</li></ul><ul id="1b367645-92b5-80e1-8cb6-edbeedf484c2" class="bulleted-list"><li style="list-style-type:disc">Handles non-linearity better than linear regression.</li></ul></li></ol><ol type="1" id="1b367645-92b5-803c-bf07-ea3045b87a82" class="numbered-list" start="4"><li><strong>Random Forest Regression</strong><ul id="1b367645-92b5-808b-b28a-eb8be953d067" class="bulleted-list"><li style="list-style-type:disc">Ensemble method that uses multiple decision trees to make more accurate predictions.</li></ul></li></ol><h3 id="1b367645-92b5-8076-93ca-c0ac31c70ebc" class=""><strong>Graphical Representation</strong></h3><ul id="1b367645-92b5-80a7-9ebb-d6515352fa02" class="bulleted-list"><li style="list-style-type:disc"><strong>Linear Regression</strong>: A straight-line fit.</li></ul><ul id="1b367645-92b5-80ca-a0ca-c3866cbc1460" class="bulleted-list"><li style="list-style-type:disc"><strong>Polynomial Regression</strong>: A curved-line fit.</li></ul><ul id="1b367645-92b5-8036-9a43-cc70f2a46506" class="bulleted-list"><li style="list-style-type:disc"><strong>Decision Tree Regression</strong>: Step-wise partitioning.</li></ul><hr id="1b367645-92b5-8087-a739-c5a44d595e3e"/><h3 id="1b367645-92b5-802c-8544-c9e191ef9043" class=""><strong>Q2. Find out the difference between Overfitting and Underfitting with respective examples.</strong></h3><table id="1b367645-92b5-8031-84f6-c5d606b35f03" class="simple-table"><tbody><tr id="1b367645-92b5-8050-b806-c40ddf4bbc74"><td id="f_ny" class="">Feature</td><td id="ezYA" class="">Overfitting</td><td id="k[a@" class="">Underfitting</td></tr><tr id="1b367645-92b5-80c2-a618-c083f761273a"><td id="f_ny" class=""><strong>Definition</strong></td><td id="ezYA" class="">Model learns too much from training data, including noise.</td><td id="k[a@" class="">Model is too simple and fails to capture patterns.</td></tr><tr id="1b367645-92b5-8066-bb01-d947407a6bde"><td id="f_ny" class=""><strong>Bias-Variance</strong></td><td id="ezYA" class="">Low Bias, High Variance</td><td id="k[a@" class="">High Bias, Low Variance</td></tr><tr id="1b367645-92b5-80d7-a11a-caecb102281b"><td id="f_ny" class=""><strong>Performance on Training Data</strong></td><td id="ezYA" class="">Very High Accuracy</td><td id="k[a@" class="">Poor Accuracy</td></tr><tr id="1b367645-92b5-80f0-a5ba-e188075d8af2"><td id="f_ny" class=""><strong>Performance on Test Data</strong></td><td id="ezYA" class="">Poor Generalization</td><td id="k[a@" class="">Poor Accuracy</td></tr><tr id="1b367645-92b5-80c7-8842-ebec33d54c53"><td id="f_ny" class=""><strong>Example</strong></td><td id="ezYA" class="">A decision tree with too many splits.</td><td id="k[a@" class="">A simple linear regression model on non-linear data.</td></tr><tr id="1b367645-92b5-805a-a238-fce1303c2234"><td id="f_ny" class=""><strong>Solution</strong></td><td id="ezYA" class="">Regularization, Pruning, More Data</td><td id="k[a@" class="">More Features, More Complex Model</td></tr></tbody></table><hr id="1b367645-92b5-8014-9c21-ec5ff8c6558d"/><h3 id="1b367645-92b5-80e5-b00d-f3b742451dc7" class=""><strong>Q3. Which Supervised learning algorithm will be suitable to predict the value of upcoming sales? Explain with types, formulas, and graphs.</strong></h3><h3 id="1b367645-92b5-8015-8400-e7a3bbf6c05c" class=""><strong>Suitable Algorithm: Regression Models</strong></h3><p id="1b367645-92b5-80a8-ad68-d3faefaf13ff" class="">Sales prediction involves estimating continuous numerical values, making <strong>regression models</strong> appropriate.</p><ol type="1" id="1b367645-92b5-80f7-b7fe-eafe10918b60" class="numbered-list" start="1"><li><strong>Linear Regression</strong> (if relationship is linear)<ul id="1b367645-92b5-808a-8829-e788005b6636" class="bulleted-list"><li style="list-style-type:disc">Formula:<figure id="1b367645-92b5-80fc-9873-ec6b0ebd48a8" class="image"><a href="Unit%202%201766764592b580388612ff4e910df750/image%202.png"><img style="width:359px" src="Unit%202%201766764592b580388612ff4e910df750/image%202.png"/></a></figure></li></ul><ul id="1b367645-92b5-80eb-9b7c-ccac49bd0d76" class="bulleted-list"><li style="list-style-type:disc">Best for simple relationships.</li></ul></li></ol><ol type="1" id="1b367645-92b5-805e-a5c1-cd0c98c54257" class="numbered-list" start="2"><li><strong>Polynomial Regression</strong> (if non-linear)<ul id="1b367645-92b5-808e-a677-f59de2b1e0ee" class="bulleted-list"><li style="list-style-type:disc">Formula:<figure id="1b367645-92b5-8030-b31d-d71c682d76ee" class="image"><a href="Unit%202%201766764592b580388612ff4e910df750/image%203.png"><img style="width:359px" src="Unit%202%201766764592b580388612ff4e910df750/image%203.png"/></a></figure></li></ul><ul id="1b367645-92b5-80ec-9ca6-d3884b2de1b9" class="bulleted-list"><li style="list-style-type:disc">Useful if sales follow a <strong>seasonal or non-linear pattern</strong>.</li></ul></li></ol><ol type="1" id="1b367645-92b5-802f-9d13-c3ea60c0d45b" class="numbered-list" start="3"><li><strong>Random Forest Regression</strong><ul id="1b367645-92b5-80ca-8c14-f1bd6d8ee537" class="bulleted-list"><li style="list-style-type:disc">Handles <strong>complex interactions</strong> better.</li></ul><ul id="1b367645-92b5-8024-b3c9-f61c1b22a7a3" class="bulleted-list"><li style="list-style-type:disc">Less prone to <strong>overfitting</strong> than decision trees.</li></ul></li></ol><ol type="1" id="1b367645-92b5-802a-b52f-d36cb960263a" class="numbered-list" start="4"><li><strong>Time Series Regression (ARIMA, LSTM)</strong><ul id="1b367645-92b5-80c0-82d1-e04a23247f38" class="bulleted-list"><li style="list-style-type:disc">If past sales data is time-dependent, a <strong>time-series model</strong> like ARIMA or LSTM is suitable.</li></ul></li></ol><h3 id="1b367645-92b5-805a-9605-dc189a83daae" class=""><strong>Graphical Representation</strong></h3><ul id="1b367645-92b5-80af-b048-e00cf9f6d6e9" class="bulleted-list"><li style="list-style-type:disc"><strong>Linear Regression</strong>: Straight line fit.</li></ul><ul id="1b367645-92b5-80bc-a4b7-d54e8d81a0e4" class="bulleted-list"><li style="list-style-type:disc"><strong>Polynomial Regression</strong>: Curved line fit.</li></ul><ul id="1b367645-92b5-80fd-a84c-ce3b4cb578d3" class="bulleted-list"><li style="list-style-type:disc"><strong>Random Forest Regression</strong>: Step-wise prediction.</li></ul><hr id="1b367645-92b5-8076-9793-f7f28b9fc514"/><h3 id="1b367645-92b5-803d-9fc1-ef1b129c7a0c" class=""><strong>Q4. Explain Polynomial Regression with an example.</strong></h3><h3 id="1b367645-92b5-80c0-ac9b-e581ef2e95f2" class=""><strong>Definition</strong></h3><p id="1b367645-92b5-808d-8978-cdccd7e78426" class="">Polynomial Regression is used when the relationship between independent variables (X) and the dependent variable (Y) is <strong>non-linear</strong>.</p><h3 id="1b367645-92b5-80db-a8c0-cbb2e0125357" class=""><strong>Formula</strong></h3><figure id="1b367645-92b5-8041-b6e9-f72d407b2dad" class="image"><a href="Unit%202%201766764592b580388612ff4e910df750/image%204.png"><img style="width:428px" src="Unit%202%201766764592b580388612ff4e910df750/image%204.png"/></a></figure><h3 id="1b367645-92b5-8071-ba8f-f97d89dd5a5e" class=""><strong>Example</strong></h3><p id="1b367645-92b5-8055-8b9e-c532b6e5e196" class="">If we want to <strong>predict house prices</strong> based on square footage, but the relation is <strong>non-linear</strong>, we use polynomial regression.</p><table id="1b367645-92b5-80d7-b2ec-d58b2a7d1bd6" class="simple-table"><tbody><tr id="1b367645-92b5-800f-8e96-fbf4a53d7ed4"><td id="c]xC" class="">Sq Ft</td><td id="wz`{" class="">Price ($)</td></tr><tr id="1b367645-92b5-80ea-872e-d2e60060aa2a"><td id="c]xC" class="">1000</td><td id="wz`{" class="">200,000</td></tr><tr id="1b367645-92b5-80bb-b176-d944bdc9b62f"><td id="c]xC" class="">1200</td><td id="wz`{" class="">220,000</td></tr><tr id="1b367645-92b5-804c-a58c-d6fbf769d4af"><td id="c]xC" class="">1500</td><td id="wz`{" class="">290,000</td></tr><tr id="1b367645-92b5-8070-acc8-c4263ed4ad0a"><td id="c]xC" class="">1800</td><td id="wz`{" class="">380,000</td></tr></tbody></table><p id="1b367645-92b5-806a-a438-c05ff9ef7554" class="">Polynomial regression fits a <strong>curved line</strong> rather than a straight line.</p><hr id="1b367645-92b5-800d-b9cd-fc13bc00fb84"/><h3 id="1b367645-92b5-805e-9a03-c4b64bde7642" class=""><strong>Q5. Define MAE, MSE, RMSE, RMSLE with formula and Python code.</strong></h3><div id="1b367645-92b5-8097-8b75-fc5f0e83e21f" class="column-list"><div id="1b367645-92b5-8096-9b9a-f782ba5ead83" style="width:56.25%" class="column"><table id="1b367645-92b5-80d9-b6fc-cd61e6710c7a" class="simple-table"><tbody><tr id="1b367645-92b5-8091-8e53-d1bcefbd0bcc"><td id="gH:X" class="">Metric</td><td id="C?RC" class="">Interpretation</td></tr><tr id="1b367645-92b5-8007-aa2a-d4faddbd2ca1"><td id="gH:X" class=""><strong>Mean Absolute Error (MAE)</strong></td><td id="C?RC" class="">Y_i - \hat{Y}_i</td></tr><tr id="1b367645-92b5-80ed-8320-e34782e0e195"><td id="gH:X" class=""><strong>Mean Squared Error (MSE)</strong></td><td id="C?RC" class="">Penalizes large errors more than MAE.</td></tr><tr id="1b367645-92b5-8089-ab00-db88d0a14c21"><td id="gH:X" class=""><strong>Root Mean Squared Error (RMSE)</strong></td><td id="C?RC" class="">Same as MSE but in original unit scale.</td></tr><tr id="1b367645-92b5-80b1-bb25-da53647cc017"><td id="gH:X" class=""><strong>Root Mean Squared Logarithmic Error (RMSLE)</strong></td><td id="C?RC" class="">Good for percentage-based error evaluation.</td></tr></tbody></table></div><div id="1b367645-92b5-80d5-a38d-e6de2dde7e6c" style="width:43.75000000000001%" class="column"><figure id="1b367645-92b5-80a5-bdea-fd16c2a9df85" class="image"><a href="Unit%202%201766764592b580388612ff4e910df750/image%205.png"><img style="width:184.5px" src="Unit%202%201766764592b580388612ff4e910df750/image%205.png"/></a></figure><figure id="1b367645-92b5-8031-88f5-db659d699133" class="image"><a href="Unit%202%201766764592b580388612ff4e910df750/image%206.png"><img style="width:184.5px" src="Unit%202%201766764592b580388612ff4e910df750/image%206.png"/></a></figure><figure id="1b367645-92b5-806f-827b-cf938da8e699" class="image"><a href="Unit%202%201766764592b580388612ff4e910df750/image%207.png"><img style="width:184.5px" src="Unit%202%201766764592b580388612ff4e910df750/image%207.png"/></a></figure><figure id="1b367645-92b5-806b-81e7-c36bb63f5e82" class="image"><a href="Unit%202%201766764592b580388612ff4e910df750/image%208.png"><img style="width:236.65625px" src="Unit%202%201766764592b580388612ff4e910df750/image%208.png"/></a></figure></div></div><h3 id="1b367645-92b5-804c-9501-cf6526820a2f" class=""><strong>Python Code</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1b367645-92b5-8004-b513-c52ddec1e451" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import numpy as np
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+
+y_true = np.array([3, -0.5, 2, 7])
+y_pred = np.array([2.5, 0.0, 2, 8])
+
+mae = mean_absolute_error(y_true, y_pred)
+mse = mean_squared_error(y_true, y_pred)
+rmse = np.sqrt(mse)
+rmsle = np.sqrt(mean_squared_log_error(y_actual, y_predicted))
+
+print(&quot;MAE:&quot;, mae)
+print(&quot;MSE:&quot;, mse)
+print(&quot;RMSE:&quot;, rmse)
+print(&quot;RMSLE:&quot;, rmsle)
+</code></pre><hr id="1b367645-92b5-8033-882f-ff6c633f0f0f"/><h3 id="1b367645-92b5-8077-9683-e6114b7838f9" class=""><strong>Q6. What are the various catalysts suitable for Overfitting? Explain.</strong></h3><ol type="1" id="1b367645-92b5-80c6-8cc6-ea2ac95ab8ae" class="numbered-list" start="1"><li><strong>High Model Complexity</strong>:<ul id="1b367645-92b5-8065-b2c5-d7cc85327cb2" class="bulleted-list"><li style="list-style-type:disc">Too many features or deep trees cause overfitting.</li></ul></li></ol><ol type="1" id="1b367645-92b5-807e-8ed8-e0087421ded2" class="numbered-list" start="2"><li><strong>Insufficient Training Data</strong>:<ul id="1b367645-92b5-8047-ba89-c19313ae88fd" class="bulleted-list"><li style="list-style-type:disc">Model memorizes limited data instead of generalizing.</li></ul></li></ol><ol type="1" id="1b367645-92b5-80c5-8093-f8dc891023cd" class="numbered-list" start="3"><li><strong>Too Many Parameters</strong>:<ul id="1b367645-92b5-80dc-aa24-d21d4419a5a7" class="bulleted-list"><li style="list-style-type:disc">Large neural networks overfit small datasets.</li></ul></li></ol><ol type="1" id="1b367645-92b5-8060-8a02-fc970cea1b51" class="numbered-list" start="4"><li><strong>No Regularization</strong>:<ul id="1b367645-92b5-808f-9e28-f0191481f6fb" class="bulleted-list"><li style="list-style-type:disc"><strong>L1/L2 regularization</strong> helps prevent overfitting.</li></ul></li></ol><ol type="1" id="1b367645-92b5-80d2-af5b-ed0967fbeab0" class="numbered-list" start="5"><li><strong>Small Train-Test Split</strong>:<ul id="1b367645-92b5-8069-842a-f9ed1f387ca2" class="bulleted-list"><li style="list-style-type:disc">Using <strong>90% train &amp; 10% test</strong> may cause overfitting.</li></ul></li></ol><hr id="1b367645-92b5-8061-b2b3-eedaf58dd0a9"/><h3 id="1b367645-92b5-8092-ab5a-e96ec3d2b5ad" class=""><strong>Q7. What are the various estimation techniques for multi-class classification algorithms? Explain with an example.</strong></h3><ol type="1" id="1b367645-92b5-80c1-8525-ca9a51e4c7e4" class="numbered-list" start="1"><li><strong>One-vs-All (OvA)</strong><ul id="1b367645-92b5-80c1-a1c1-fe7ef8280bfa" class="bulleted-list"><li style="list-style-type:disc">Each class is treated as a <strong>binary problem</strong>.</li></ul><ul id="1b367645-92b5-8047-80af-dc60c91d0369" class="bulleted-list"><li style="list-style-type:disc">Example: Classifying <strong>digits (0-9)</strong> separately as (0 vs. rest), (1 vs. rest), etc.</li></ul></li></ol><ol type="1" id="1b367645-92b5-8072-8242-ffd63610a915" class="numbered-list" start="2"><li><strong>One-vs-One (OvO)</strong><ul id="1b367645-92b5-8013-b26a-c25e8942abd6" class="bulleted-list"><li style="list-style-type:disc">Each pair of classes is compared separately.</li></ul><ul id="1b367645-92b5-806a-a741-eb90e55482bd" class="bulleted-list"><li style="list-style-type:disc">Example: Comparing <strong>A vs B, A vs C, B vs C</strong>, etc.</li></ul></li></ol><ol type="1" id="1b367645-92b5-8043-b04e-db903d369337" class="numbered-list" start="3"><li><strong>Softmax Regression</strong><ul id="1b367645-92b5-8090-b992-c031a1a66b50" class="bulleted-list"><li style="list-style-type:disc">Assigns <strong>probabilities</strong> to each class.</li></ul><ul id="1b367645-92b5-80d6-9594-ff6b03d00dd9" class="bulleted-list"><li style="list-style-type:disc">Example: Predicting <strong>spam vs. non-spam</strong> emails.</li></ul></li></ol><ol type="1" id="1b367645-92b5-805e-a662-ff034bc2fc4c" class="numbered-list" start="4"><li><strong>Decision Tree / Random Forest</strong><ul id="1b367645-92b5-8021-b7ab-db88ba0753de" class="bulleted-list"><li style="list-style-type:disc">Assigns <strong>class labels</strong> by majority vote.</li></ul></li></ol><p id="1b367645-92b5-80c5-9257-df32ace3da4e" class="">Let me know if you need explanations with code!</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

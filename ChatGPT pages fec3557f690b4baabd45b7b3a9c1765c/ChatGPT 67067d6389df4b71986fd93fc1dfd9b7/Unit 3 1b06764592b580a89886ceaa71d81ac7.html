@@ -1,0 +1,685 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unit 3</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1b067645-92b5-80a8-9886-ceaa71d81ac7" class="page sans"><header><h1 class="page-title">Unit 3</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-relation"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesRelation"><path d="M13.1475 10.5869V3.72363C13.1475 3.25195 12.833 2.93066 12.3477 2.93066H5.48438C5.02637 2.93066 4.70508 3.27246 4.70508 3.67578C4.70508 4.07227 5.05371 4.40039 5.46387 4.40039H7.89746L10.8438 4.30469L9.59961 5.39844L3.08496 11.9199C2.92773 12.0771 2.8457 12.2686 2.8457 12.46C2.8457 12.8564 3.20801 13.2256 3.61816 13.2256C3.80957 13.2256 3.99414 13.1504 4.15137 12.9932L10.6729 6.47168L11.7803 5.22754L11.6641 8.05762V10.6074C11.6641 11.0176 11.9922 11.373 12.4023 11.373C12.8057 11.373 13.1475 11.0312 13.1475 10.5869Z"></path></svg></span>Courses</th><td><a href="../../Databases%20938301ab80894adb89b438b270c6b180/Courses%20e0d6a8f12b2d4818ac8b1af662193ea9/Ethical%20Hacking%20359edc2bebda4eb7bdce213b4e960664.html"><img class="icon" src="https://www.notion.so/icons/laptop_gray.svg"/>Ethical Hacking</a></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Multi-select</th><td></td></tr></tbody></table></header><div class="page-body"><h3 id="1b067645-92b5-80a1-933d-f24c14366db9" class=""><strong>Q1. What are the Phases of Ethical Hacking? Explain in Detail.</strong></h3><p id="1b067645-92b5-8082-8311-c0a23ae183e1" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-80d3-8f9e-ee396e733fe6" class=""><em>&quot;Ethical hacking follows a structured approach to systematically identify vulnerabilities and strengthen security measures. The key phases include reconnaissance, scanning, gaining access, maintaining access, and covering tracks, each of which is crucial in simulating real-world attacks and fortifying defenses.&quot;</em></p><p id="1b067645-92b5-80ad-ab87-f51f471c1512" class=""><strong>Phases of Ethical Hacking:</strong></p><ol type="1" id="1b067645-92b5-805f-85ef-ecb3b4d34942" class="numbered-list" start="1"><li><strong>Reconnaissance (Footprinting &amp; Enumeration)</strong><ul id="1b067645-92b5-80e8-adef-e450a591a006" class="bulleted-list"><li style="list-style-type:disc">Collects preliminary information about the target.</li></ul><ul id="1b067645-92b5-80f1-bd5b-cd9b77d64625" class="bulleted-list"><li style="list-style-type:disc">Involves active (direct interaction) and passive (indirect observation) reconnaissance.</li></ul></li></ol><ol type="1" id="1b067645-92b5-805b-99be-fc18324b5b56" class="numbered-list" start="2"><li><strong>Scanning</strong><ul id="1b067645-92b5-8066-b5fe-fc82642b0476" class="bulleted-list"><li style="list-style-type:disc">Identifies live hosts, open ports, and vulnerabilities.</li></ul><ul id="1b067645-92b5-800c-93af-f2614dc4d78f" class="bulleted-list"><li style="list-style-type:disc">Uses tools like Nmap, Nessus, and Wireshark.</li></ul></li></ol><ol type="1" id="1b067645-92b5-808f-9a2f-e938029d1b56" class="numbered-list" start="3"><li><strong>Gaining Access</strong><ul id="1b067645-92b5-80aa-a34d-e46dec349536" class="bulleted-list"><li style="list-style-type:disc">Exploits vulnerabilities to breach the system.</li></ul><ul id="1b067645-92b5-80f3-b4f1-e2251e78d1a1" class="bulleted-list"><li style="list-style-type:disc">Methods include phishing, password cracking, buffer overflow, and SQL injection.</li></ul></li></ol><ol type="1" id="1b067645-92b5-804d-aa61-e3aea074ad25" class="numbered-list" start="4"><li><strong>Maintaining Access</strong><ul id="1b067645-92b5-8073-b6bf-fe298d94686a" class="bulleted-list"><li style="list-style-type:disc">Ensures persistence inside the compromised system.</li></ul><ul id="1b067645-92b5-80d2-8708-d41a1f6382db" class="bulleted-list"><li style="list-style-type:disc">Uses techniques like backdoors, Trojans, and rootkits.</li></ul></li></ol><ol type="1" id="1b067645-92b5-805e-a068-f6311db0ad3c" class="numbered-list" start="5"><li><strong>Covering Tracks</strong><ul id="1b067645-92b5-8052-826d-cd44cf735c17" class="bulleted-list"><li style="list-style-type:disc">Deletes logs and hides malicious activity.</li></ul><ul id="1b067645-92b5-809b-bff8-dd0633f913f5" class="bulleted-list"><li style="list-style-type:disc">Uses steganography and event log alteration.</li></ul></li></ol><hr id="1b067645-92b5-8027-b5ac-f5918895b70c"/><h3 id="1b067645-92b5-807d-89ea-e05733225901" class=""><strong>Q2. Explain the Steps of Enterprise Strategy.</strong></h3><p id="1b067645-92b5-80bd-839c-eeb483ed365d" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-80e5-b4ec-dcd217afc06e" class=""><em>&quot;Enterprise security strategy involves repeated penetration testing, continuous security monitoring, and systematic approval by security teams to ensure robust application security.&quot;</em></p><p id="1b067645-92b5-8096-921b-c8409afc5c68" class=""><strong>Steps of Enterprise Strategy:</strong></p><ol type="1" id="1b067645-92b5-8091-9fcb-ed41c8a5a244" class="numbered-list" start="1"><li><strong>Repeated Penetration Testing</strong><ul id="1b067645-92b5-80bc-a7ae-f2e584ba24f0" class="bulleted-list"><li style="list-style-type:disc">Conducts periodic security assessments.</li></ul><ul id="1b067645-92b5-80f0-855b-c6307d84a7f0" class="bulleted-list"><li style="list-style-type:disc">Identifies new vulnerabilities in evolving infrastructures.</li></ul></li></ol><ol type="1" id="1b067645-92b5-8092-ae4d-ed1e7d7c30e2" class="numbered-list" start="2"><li><strong>Approval by Security Testing Team</strong><ul id="1b067645-92b5-803c-a258-f566dd7d46c7" class="bulleted-list"><li style="list-style-type:disc">Ensures compliance with security policies.</li></ul><ul id="1b067645-92b5-8088-8ba2-e9c8ab49f55f" class="bulleted-list"><li style="list-style-type:disc">Validates security measures before deployment.</li></ul></li></ol><ol type="1" id="1b067645-92b5-80a0-b71e-fec4c0b14470" class="numbered-list" start="3"><li><strong>Continuous Application Security Testing</strong><ul id="1b067645-92b5-805a-a864-da1c61f98aba" class="bulleted-list"><li style="list-style-type:disc">Implements real-time monitoring and automated security checks.</li></ul><ul id="1b067645-92b5-802d-ba1a-ff26308c9365" class="bulleted-list"><li style="list-style-type:disc">Uses tools like WebInspect, Nessus, and Qualys.</li></ul></li></ol><hr id="1b067645-92b5-80ee-8114-ebe8442be2c6"/><h3 id="1b067645-92b5-80f6-9431-dd8a0d39eb93" class=""><strong>Q3. Explain the Term Security Testing and List Down Any 5 of Them with Its Description.</strong></h3><p id="1b067645-92b5-8026-867e-da8b4463977d" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-80ab-9ab2-caaed90818cf" class=""><em>&quot;Security testing is a process to identify and mitigate security risks in software, ensuring that systems are protected against vulnerabilities, threats, and attacks.&quot;</em></p><p id="1b067645-92b5-803d-998b-ca624cf85710" class=""><strong>Types of Security Testing:</strong></p><ol type="1" id="1b067645-92b5-809b-88f4-dfb2ddc20ad5" class="numbered-list" start="1"><li><strong>Penetration Testing</strong><ul id="1b067645-92b5-80f4-8376-db43e927d8e9" class="bulleted-list"><li style="list-style-type:disc">Simulates real attacks to find exploitable vulnerabilities.</li></ul></li></ol><ol type="1" id="1b067645-92b5-80c7-90e1-fab2a6b5def1" class="numbered-list" start="2"><li><strong>Vulnerability Assessment</strong><ul id="1b067645-92b5-80dc-8cb1-d945cba56867" class="bulleted-list"><li style="list-style-type:disc">Identifies and classifies security weaknesses in a system.</li></ul></li></ol><ol type="1" id="1b067645-92b5-80c9-a106-c3591fb74d41" class="numbered-list" start="3"><li><strong>Ethical Hacking</strong><ul id="1b067645-92b5-802f-b2d8-e562e3210de6" class="bulleted-list"><li style="list-style-type:disc">Simulates attacks in an authorized manner to strengthen security.</li></ul></li></ol><ol type="1" id="1b067645-92b5-80a9-86d1-d22b99f2e3f7" class="numbered-list" start="4"><li><strong>Risk Assessment</strong><ul id="1b067645-92b5-800b-a2a9-f418e1938c7e" class="bulleted-list"><li style="list-style-type:disc">Evaluates potential security risks and their impact.</li></ul></li></ol><ol type="1" id="1b067645-92b5-805d-a4d9-cec0e9fc3660" class="numbered-list" start="5"><li><strong>Security Auditing</strong><ul id="1b067645-92b5-80df-81de-d149e193d32f" class="bulleted-list"><li style="list-style-type:disc">Reviews security policies, controls, and compliance adherence.</li></ul></li></ol><hr id="1b067645-92b5-8005-9aa4-e21c700b1b3f"/><h3 id="1b067645-92b5-803c-b846-dfc1ae45e299" class=""><strong>Q4. Write a Short Note on Spidering with a Suitable Example.</strong></h3><p id="1b067645-92b5-803a-b84d-f4ae41b3a2c0" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-805b-9a2d-e93a8962dbae" class=""><em>&quot;Spidering is an automated process used by ethical hackers and web crawlers to navigate a website, following links to map out its structure and identify vulnerabilities.&quot;</em></p><p id="1b067645-92b5-802a-8dab-f60ecd01bdaa" class=""><strong>Explanation:</strong></p><ul id="1b067645-92b5-8078-a5b5-c0094283e631" class="bulleted-list"><li style="list-style-type:disc">Used in web penetration testing to find hidden directories.</li></ul><ul id="1b067645-92b5-8058-b36f-fede3e8cc4d4" class="bulleted-list"><li style="list-style-type:disc">Helps in discovering input fields vulnerable to injection attacks.</li></ul><ul id="1b067645-92b5-80dc-b6e7-c861cbacab83" class="bulleted-list"><li style="list-style-type:disc">Tools like Burp Suite and OWASP ZAP perform spidering efficiently.</li></ul><p id="1b067645-92b5-8085-b8e6-f0e7760f04e9" class=""><strong>Example:</strong></p><p id="1b067645-92b5-800a-91e6-ff1360751f8b" class="">A hacker uses Burp Suite’s Spidering tool to map an e-commerce website and discovers an unprotected admin login panel.</p><hr id="1b067645-92b5-80d5-8a48-ea2459143bb0"/><h3 id="1b067645-92b5-8048-9da0-c8d3fa6b400d" class=""><strong>Q5. Difference Between Manual Penetration Testing vs. Automated Penetration Testing.</strong></h3><table id="1b067645-92b5-8005-a842-cc7327fbbaa7" class="simple-table"><tbody><tr id="1b067645-92b5-8005-a6d4-efeebb3532e3"><td id="[M&gt;]" class="">Aspect</td><td id="uvtg" class="">Manual Penetration Testing</td><td id="~yey" class="">Automated Penetration Testing</td></tr><tr id="1b067645-92b5-80bb-9be2-e33854c05ee4"><td id="[M&gt;]" class=""><strong>Approach</strong></td><td id="uvtg" class="">Performed by human experts using tools &amp; techniques</td><td id="~yey" class="">Uses automated security tools</td></tr><tr id="1b067645-92b5-80b0-86c7-ee7eeaa27f64"><td id="[M&gt;]" class=""><strong>Accuracy</strong></td><td id="uvtg" class="">More accurate, detects logic-based vulnerabilities</td><td id="~yey" class="">May generate false positives</td></tr><tr id="1b067645-92b5-8045-af12-df41602b74fc"><td id="[M&gt;]" class=""><strong>Time Consumption</strong></td><td id="uvtg" class="">Time-intensive process</td><td id="~yey" class="">Faster, covering a larger scope quickly</td></tr><tr id="1b067645-92b5-8046-9a44-d1d2eeab14ea"><td id="[M&gt;]" class=""><strong>Cost</strong></td><td id="uvtg" class="">Expensive due to skilled professionals</td><td id="~yey" class="">Cost-effective for large systems</td></tr><tr id="1b067645-92b5-8091-90ba-e466d47d0fe4"><td id="[M&gt;]" class=""><strong>Customization</strong></td><td id="uvtg" class="">Highly adaptable to unique security needs</td><td id="~yey" class="">Limited to pre-defined test cases</td></tr></tbody></table><hr id="1b067645-92b5-802e-b1f5-ee594daf3ff3"/><h3 id="1b067645-92b5-80b4-9a6e-cba86c37e8e0" class=""><strong>Q6. Write a Short Note on Crawling with a Suitable Example.</strong></h3><p id="1b067645-92b5-803e-a9a5-fee9155913ce" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-809d-baca-f8b5681db06b" class=""><em>&quot;Crawling is a technique used in web security testing where an automated bot or script systematically browses a website to discover pages, files, and vulnerabilities.&quot;</em></p><p id="1b067645-92b5-808d-a36a-dca570a5865e" class=""><strong>Explanation:</strong></p><ul id="1b067645-92b5-8077-ae5b-e80282da4f4d" class="bulleted-list"><li style="list-style-type:disc">Used to map the entire website structure.</li></ul><ul id="1b067645-92b5-8058-af87-db7b9f496b85" class="bulleted-list"><li style="list-style-type:disc">Helps in finding hidden pages and exposed directories.</li></ul><ul id="1b067645-92b5-80a3-bfac-cd07a6159f8b" class="bulleted-list"><li style="list-style-type:disc">Supports vulnerability detection by identifying attack vectors.</li></ul><p id="1b067645-92b5-807c-8827-ea38c34e2ee0" class=""><strong>Example:</strong></p><p id="1b067645-92b5-80e4-a625-eac2b0306084" class="">A security tester uses Google Dorking and a web crawler to find exposed confidential files on a government website.</p><hr id="1b067645-92b5-80bb-b183-d53fa8a2ea48"/><h3 id="1b067645-92b5-804c-b0b8-ebb26a8ad8dc" class=""><strong>Q7. How Does Hacking Differ from Cracking? How Essential is Password Cracking in Ethical Hacking?</strong></h3><p id="1b067645-92b5-8009-99b5-e10ff5a38894" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-80e4-b319-cfd7463e4b1f" class=""><em>&quot;Hacking refers to the practice of gaining unauthorized access to systems, which can be ethical or malicious, whereas cracking specifically involves breaking into systems or software with malicious intent.&quot;</em></p><p id="1b067645-92b5-80da-aaf4-d6b5d1fcf88f" class=""><strong>Difference Between Hacking and Cracking:</strong></p><table id="1b067645-92b5-8034-bcb0-d0f494d35543" class="simple-table"><tbody><tr id="1b067645-92b5-8011-94f3-cbdf826a089b"><td id="S@{L" class="">Factor</td><td id="vaUG" class="">Hacking</td><td id="xa`T" class="">Cracking</td></tr><tr id="1b067645-92b5-80a5-ac58-c536bc051231"><td id="S@{L" class=""><strong>Intent</strong></td><td id="vaUG" class="">Can be ethical (White Hat) or malicious (Black Hat)</td><td id="xa`T" class="">Always illegal and harmful</td></tr><tr id="1b067645-92b5-80c9-a555-f1e3ce293d35"><td id="S@{L" class=""><strong>Methodology</strong></td><td id="vaUG" class="">Identifies vulnerabilities for security improvement</td><td id="xa`T" class="">Exploits vulnerabilities for personal gain</td></tr><tr id="1b067645-92b5-8017-8f3e-fdb1f6dd465e"><td id="S@{L" class=""><strong>Example</strong></td><td id="vaUG" class="">Penetration testers performing security audits</td><td id="xa`T" class="">Cybercriminals breaching banking systems</td></tr></tbody></table><p id="1b067645-92b5-80d5-82f3-fddf92fe95c6" class=""><strong>Importance of Password Cracking in Ethical Hacking:</strong></p><ul id="1b067645-92b5-800c-8431-dfcc20c78469" class="bulleted-list"><li style="list-style-type:disc">Helps identify weak credentials in systems.</li></ul><ul id="1b067645-92b5-8007-9b5b-cbd129e6d89c" class="bulleted-list"><li style="list-style-type:disc">Strengthens authentication mechanisms.</li></ul><ul id="1b067645-92b5-808d-8bb4-d2ed84c6ad0f" class="bulleted-list"><li style="list-style-type:disc">Tools like John the Ripper and Hashcat aid in testing password robustness.</li></ul><hr id="1b067645-92b5-8078-9c9b-ed9edfb990aa"/><h3 id="1b067645-92b5-801f-abc5-f4be2342e1d7" class=""><strong>Q8. Explain the Importance of Internal vs. External Penetration Testing in Ethical Hacking.</strong></h3><p id="1b067645-92b5-80dd-b921-e70ce5e57330" class=""><strong>Definition:</strong></p><p id="1b067645-92b5-8000-961f-c86420b1622f" class=""><em>&quot;Internal penetration testing assesses security within an organization&#x27;s network, while external penetration testing evaluates security from an outside attacker&#x27;s perspective.&quot;</em></p><p id="1b067645-92b5-806a-9e73-e288999ab1fa" class=""><strong>Importance of Internal Penetration Testing:</strong></p><ol type="1" id="1b067645-92b5-8030-ad23-f13319c80f5f" class="numbered-list" start="1"><li><strong>Identifies Insider Threats</strong> – Detects security loopholes exploitable by employees.</li></ol><ol type="1" id="1b067645-92b5-805f-8fac-faedacc5e58d" class="numbered-list" start="2"><li><strong>Tests Internal Network Security</strong> – Evaluates firewalls and access controls.</li></ol><ol type="1" id="1b067645-92b5-80c1-8932-d7aa51794179" class="numbered-list" start="3"><li><strong>Simulates Malicious Insiders</strong> – Assesses risks from compromised internal accounts.</li></ol><p id="1b067645-92b5-801e-819f-c46f9d4e1450" class=""><strong>Importance of External Penetration Testing:</strong></p><ol type="1" id="1b067645-92b5-800f-b16c-c5734103bffd" class="numbered-list" start="1"><li><strong>Detects External Threats</strong> – Evaluates exposure to internet-based attacks.</li></ol><ol type="1" id="1b067645-92b5-8090-a81f-d099fb8a6d1c" class="numbered-list" start="2"><li><strong>Tests Perimeter Security</strong> – Assesses firewalls, VPNs, and external services.</li></ol><ol type="1" id="1b067645-92b5-8080-872b-dc1f8be0b25c" class="numbered-list" start="3"><li><strong>Simulates Real Cyber Attacks</strong> – Helps organizations strengthen security from an attacker’s perspective.</li></ol><p id="1b167645-92b5-80ac-8d1a-dab6963c2b55" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
